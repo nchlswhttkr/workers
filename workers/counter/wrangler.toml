@@ -1,0 +1,3 @@
+name = "counter"
+type = "javascript"
+workers_dev = true

@@ -1,0 +1,15 @@
+{
+  "name": "@nchlswhttkr/counter-worker",
+  "version": "0.1.0",
+  "description": "Having some fun with isolate persistence in Cloudflare Workers",
+  "scripts": {
+    "build": "prettier \"**/*.js\"",
+    "publish-worker": "wrangler publish"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "~1.19.1"
+  },
+  "main": "index.js"
+}

@@ -11,6 +11,13 @@
    * "rush my-global-command --help".
    */
   "commands": [
+    {
+      "commandKind": "global",
+      "name": "publish-workers",
+      "summary": "Publishes all Cloudflare Workers",
+      "description": "Runs the publish-worker script for all projects in the workers category.",
+      "shellCommand": "bash common/scripts/publish-workers.sh"
+    }
     // {
     //   /**
     //    * (Required) Determines the type of custom command.
