@@ -1,0 +1,5 @@
+name = "blog-logging"
+type = "webpack"
+webpack_config = "webpack.config.js"
+
+route = "https://nchlswhttkr.com/blog/*"

@@ -1,5 +1,6 @@
 dependencies:
   '@babel/core': 7.8.4
+  '@rush-temp/blog-logging': 'file:projects/blog-logging.tgz_webpack@4.41.6'
   '@rush-temp/counter-worker': 'file:projects/counter-worker.tgz'
   '@rush-temp/echo-worker': 'file:projects/echo-worker.tgz_webpack@4.41.6'
   '@rush-temp/inject-env-loader': 'file:projects/inject-env-loader.tgz'
@@ -2912,6 +2913,19 @@ packages:
     dev: false
     resolution:
       integrity: sha512-HG/DWAJa1PAnHT9JAhNa8AbAv3FPaiLzioSjCcmuXXhP8MlpHO5vwls4g4j6n30Z74GVQj8Xa62dWVx1QCGklg==
+  'file:projects/blog-logging.tgz_webpack@4.41.6':
+    dependencies:
+      prettier: 1.19.1
+      webpack-cli: 3.3.11_webpack@4.41.6
+    dev: false
+    id: 'file:projects/blog-logging.tgz'
+    name: '@rush-temp/blog-logging'
+    peerDependencies:
+      webpack: '*'
+    resolution:
+      integrity: sha512-sISMeQh3GAD7Z5az95ISUTrBumCQiJMxSfqpFzxJ3MaCSJSF4kM3XP3nM3aAMUT/s+Eybpfc/pSjxKzXuN6o6g==
+      tarball: 'file:projects/blog-logging.tgz'
+    version: 0.0.0
   'file:projects/counter-worker.tgz':
     dependencies:
       prettier: 1.19.1
@@ -2963,6 +2977,7 @@ packages:
 registry: ''
 specifiers:
   '@babel/core': ~7.8.4
+  '@rush-temp/blog-logging': 'file:./projects/blog-logging.tgz'
   '@rush-temp/counter-worker': 'file:./projects/counter-worker.tgz'
   '@rush-temp/echo-worker': 'file:./projects/echo-worker.tgz'
   '@rush-temp/inject-env-loader': 'file:./projects/inject-env-loader.tgz'

@@ -5,13 +5,14 @@ My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published.
 
 - [@nchlswhttkr/inject-env-loader](#inject-env-loader)
+- [@nchlswhttkr/blog-logging](#blog-logging)
 - [@nchlswhttkr/newsletter-worker](#newsletter)
 - [@nchlswhttkr/echo-worker](#echo)
 - [@nchlswhttkr/counter-worker](#counter)
 
 You can publish all workers with the command `rush publish-workers`, but there are a few checks you should make beforehand.
 
-- Ensure all the necessary environment variables are being set through `set-cloudflare-secrets.sh`.
+- Ensure all the necessary environment variables to authenticate with Cloudflarare being set through `set-cloudflare-secrets.sh`.
   - This should be your `CF_ACCOUNT_ID` and `CF_API_TOKEN`.
 - Make sure the [wrangler](https://github.com/cloudflare/wrangler) is installed (it relies on a global installation).
 
@@ -20,6 +21,8 @@ You can publish all workers with the command `rush publish-workers`, but there a
 ## inject-env-loader
 
 A Webpack loader to inject environment variables as a part of builds.
+
+> :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I might remove it at a later point, but I'm keeping my current setup unchanged for these low-risk projects.
 
 Identifiers prefixed with `ENV_` will be replaced with the environment variable value. Additionally, will attempt to load environment variables from a `.env` file in the working directory.
 
@@ -33,6 +36,14 @@ if (password === "abc123") {
   // do authenticated work
 }
 ```
+
+---
+
+## blog-logging
+
+Logs requests to read pages from my blog.
+
+Requires a `LOGGING_URL` to be set via [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing.
 
 ---
 

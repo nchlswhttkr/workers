@@ -323,6 +323,10 @@
     {
       "packageName": "@nchlswhttkr/counter-worker",
       "projectFolder": "workers/counter"
+    },
+    {
+      "packageName": "@nchlswhttkr/blog-logging",
+      "projectFolder": "workers/blog-logging"
     }
     // {
     //   /**
