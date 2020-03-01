@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "Echoes webhooks requests to one of my Slack channels",
   "scripts": {
-    "build": "prettier \"**/*.js\"",
-    "publish-worker": "wrangler publish"
+    "build": "source build.sh"
   },
   "license": "MIT",
   "private": true,

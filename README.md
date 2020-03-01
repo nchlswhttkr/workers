@@ -2,23 +2,45 @@
 
 My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
-This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published.
+This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published publicly.
 
-- [@nchlswhttkr/inject-env-loader](#inject-env-loader)
-- [@nchlswhttkr/blog-logging](#blog-logging)
-- [@nchlswhttkr/newsletter-worker](#newsletter)
-- [@nchlswhttkr/echo-worker](#echo)
-- [@nchlswhttkr/counter-worker](#counter)
+|                                                      |                                                                        |
+| ---------------------------------------------------- | ---------------------------------------------------------------------- |
+| [@nchlswhttkr/inject-env-loader](#inject-env-loader) | A Webpack loader to inject environment variables as a part of builds   |
+| [@nchlswhttkr/blog-logging](#blog-logging)           | Logs requests to read pages from my blog                               |
+| [@nchlswhttkr/newsletter-worker](#newsletter)        | A Cloudflare worker that posts links to my newsletter channel on Slack |
+| [@nchlswhttkr/echo-worker](#echo)                    | Echoes webhooks requests to one of my Slack channels                   |
+| [@nchlswhttkr/counter-worker](#counter)              | Having some fun with isolate persistence in Cloudflare Workers         |
 
-You can publish all workers with the command `rush publish-workers`, but there are a few checks you should make beforehand.
+## Usage
 
-- Ensure all the necessary environment variables to authenticate with Cloudflarare being set through `set-cloudflare-secrets.sh`.
-  - This should be your `CF_ACCOUNT_ID` and `CF_API_TOKEN`.
-- Make sure the [wrangler](https://github.com/cloudflare/wrangler) is installed (it relies on a global installation).
+You should make sure you can publish your workers.
 
----
+1. Create `set-cloudflare-secrets.sh` by copying the template, and replace it with your Cloudflare secrets/identifiers.
 
-## inject-env-loader
+   - This should be `CF_ACCOUNT_ID`, `CF_API_TOKEN` and a `CF_ZONE_ID` for your default zone.
+
+1. Make sure you have [wrangler](https://github.com/cloudflare/wrangler) installed.
+
+After this, you can publish all your workers, or just a single chosen worker.
+
+```sh
+rush build
+rush build --to @nchlswhttkr/blog-logging-worker
+```
+
+Rush will not rebuild a package unless it changes, or one of its dependencies changes. Changes to `.gitignore`'d files (for example, files with secrets) **will be ignored**.
+
+You can always force a rebuild of a particular package or all packages.
+
+```sh
+rush rebuild
+rush rebuild --to @nchlswhttkr/blog-logging-worker
+```
+
+## Packages
+
+### inject-env-loader
 
 A Webpack loader to inject environment variables as a part of builds.
 
@@ -37,17 +59,13 @@ if (password === "abc123") {
 }
 ```
 
----
-
-## blog-logging
+### blog-logging
 
 Logs requests to read pages from my blog.
 
 Requires a `LOGGING_URL` to be set via [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing.
 
----
-
-## newsletter
+### newsletter
 
 A Cloudflare worker that posts links to my newsletter channel on Slack.
 
@@ -60,11 +78,9 @@ curl -X POST "https://newsletter.nchlswhttkr.workers.dev"
     -d 'url={{ link-to-post-url-encoded }}'
 ```
 
----
+### echo
 
-## echo
-
-Echoes webhooks requests to one of my Slack channels
+Echoes webhooks requests to one of my Slack channels.
 
 The necessary secets, `SLACK_INCOMING_MESSAGE_URL` and `SECRET_TOKEN`, are added by [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing to Cloudflare.
 
@@ -78,9 +94,7 @@ curl -X POST "https://echo.nchlswhttkr.workers.dev/{{ your-secret-access-token }
 
 ![An example screenshot showing data from the above request](./workers/echo/screenshot.png)
 
----
-
-## counter
+### counter
 
 Having some fun with isolate persistence in Cloudflare Workers.
 

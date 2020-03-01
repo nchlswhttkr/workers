@@ -1,10 +1,9 @@
 {
-  "name": "@nchlswhttkr/blog-logging",
+  "name": "@nchlswhttkr/blog-logging-worker",
   "version": "0.1.0",
   "description": "Logs requests to read pages from my blog",
   "scripts": {
-    "build": "prettier \"**/*.js\"",
-    "publish-worker": "wrangler publish"
+    "build": "source build.sh"
   },
   "license": "MIT",
   "private": true,

@@ -325,7 +325,7 @@
       "projectFolder": "workers/counter"
     },
     {
-      "packageName": "@nchlswhttkr/blog-logging",
+      "packageName": "@nchlswhttkr/blog-logging-worker",
       "projectFolder": "workers/blog-logging"
     }
     // {
