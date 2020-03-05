@@ -3,6 +3,7 @@ dependencies:
   '@rush-temp/blog-logging-worker': 'file:projects/blog-logging-worker.tgz_webpack@4.41.6'
   '@rush-temp/counter-worker': 'file:projects/counter-worker.tgz'
   '@rush-temp/echo-worker': 'file:projects/echo-worker.tgz_webpack@4.41.6'
+  '@rush-temp/experimental-golang-worker': 'file:projects/experimental-golang-worker.tgz_webpack@4.41.6'
   '@rush-temp/inject-env-loader': 'file:projects/inject-env-loader.tgz'
   '@rush-temp/newsletter-worker': 'file:projects/newsletter-worker.tgz_webpack@4.41.6'
   babel-loader: 8.0.6_@babel+core@7.8.4+webpack@4.41.6
@@ -2948,6 +2949,18 @@ packages:
       integrity: sha512-9AXpQAxO2LW9FHbZGTJyE/kOJDmVZ/LvghPQqU0/AHLI9M6DwnLu/p7RCxjbeQ68Xd3VtMQHzgz5+qDgqnaBYA==
       tarball: 'file:projects/echo-worker.tgz'
     version: 0.0.0
+  'file:projects/experimental-golang-worker.tgz_webpack@4.41.6':
+    dependencies:
+      webpack-cli: 3.3.11_webpack@4.41.6
+    dev: false
+    id: 'file:projects/experimental-golang-worker.tgz'
+    name: '@rush-temp/experimental-golang-worker'
+    peerDependencies:
+      webpack: '*'
+    resolution:
+      integrity: sha512-j6Wdvx8S8pCcOaSDgkR8fmYN7oxllmj+XWFqJpOgCISPUI+SAbsJW3d57DhAR+JEBdr573VDu8qKn1tcniKBbA==
+      tarball: 'file:projects/experimental-golang-worker.tgz'
+    version: 0.0.0
   'file:projects/inject-env-loader.tgz':
     dependencies:
       '@babel/core': 7.8.4
@@ -2980,6 +2993,7 @@ specifiers:
   '@rush-temp/blog-logging-worker': 'file:./projects/blog-logging-worker.tgz'
   '@rush-temp/counter-worker': 'file:./projects/counter-worker.tgz'
   '@rush-temp/echo-worker': 'file:./projects/echo-worker.tgz'
+  '@rush-temp/experimental-golang-worker': 'file:./projects/experimental-golang-worker.tgz'
   '@rush-temp/inject-env-loader': 'file:./projects/inject-env-loader.tgz'
   '@rush-temp/newsletter-worker': 'file:./projects/newsletter-worker.tgz'
   babel-loader: ~8.0.6

@@ -4,13 +4,14 @@ My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
 This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published publicly.
 
-|                                                      |                                                                        |
-| ---------------------------------------------------- | ---------------------------------------------------------------------- |
-| [@nchlswhttkr/inject-env-loader](#inject-env-loader) | A Webpack loader to inject environment variables as a part of builds   |
-| [@nchlswhttkr/blog-logging](#blog-logging)           | Logs requests to read pages from my blog                               |
-| [@nchlswhttkr/newsletter-worker](#newsletter)        | A Cloudflare worker that posts links to my newsletter channel on Slack |
-| [@nchlswhttkr/echo-worker](#echo)                    | Echoes webhooks requests to one of my Slack channels                   |
-| [@nchlswhttkr/counter-worker](#counter)              | Having some fun with isolate persistence in Cloudflare Workers         |
+|                                                                        |                                                                        |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                   | A Webpack loader to inject environment variables as a part of builds   |
+| [@nchlswhttkr/blog-logging](#blog-logging)                             | Logs requests to read pages from my blog                               |
+| [@nchlswhttkr/newsletter-worker](#newsletter)                          | A Cloudflare worker that posts links to my newsletter channel on Slack |
+| [@nchlswhttkr/echo-worker](#echo)                                      | Echoes webhooks requests to one of my Slack channels                   |
+| [@nchlswhttkr/counter-worker](#counter)                                | Having some fun with isolate persistence in Cloudflare Workers         |
+| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker) | Running Golang as WASM inside Cloudflare Workers                       |
 
 ## Usage
 
@@ -99,3 +100,11 @@ curl -X POST "https://echo.nchlswhttkr.workers.dev/{{ your-secret-access-token }
 Having some fun with isolate persistence in Cloudflare Workers.
 
 Repeated requests to https://counter.nchlswhttkr.workers.dev will increment the counter, so long as you continue to hit the same node and the isolate is not discarded.
+
+### experimental-golang-worker
+
+Running Golang as WASM inside Cloudflare Workers.
+
+You will need to have [TinyGo](https://tinygo.org/) installed. You can use the Go compiler, but the output it produces is much larger.
+
+Take a look at [main.go](./workers/golang-wasm-experiment/main.go) and [index.js](./workers/golang-wasm-experiment/index.js) if you would like to see the Golang in action.

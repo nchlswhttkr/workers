@@ -3,7 +3,7 @@ addEventListener("fetch", event => {
   event.respondWith(handleRequest(event));
 });
 
-const blogPostPath = /^\/blog\/([a-z0-9-]+)\/(index.html)?$/;
+const blogPostPath = /^\/blog\/([a-z0-9-]+)\/(index.html)?/;
 
 async function handleRequest(event) {
   const matched = new URL(event.request.url).pathname.match(blogPostPath);

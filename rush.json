@@ -327,6 +327,10 @@
     {
       "packageName": "@nchlswhttkr/blog-logging-worker",
       "projectFolder": "workers/blog-logging"
+    },
+    {
+      "packageName": "@nchlswhttkr/experimental-golang-worker",
+      "projectFolder": "workers/golang-wasm-experiment"
     }
     // {
     //   /**

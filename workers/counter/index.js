@@ -9,6 +9,10 @@ let counter = 0;
  * @param {Request} request
  */
 async function handleRequest(request) {
-  counter++;
-  return new Response(counter.toString(), { status: 200 });
+  return new Response(`<h1>${++counter} request/s made!</h1>`, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/html"
+    }
+  });
 }

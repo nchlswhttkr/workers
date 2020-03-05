@@ -24,14 +24,17 @@ async function handleRequest(request) {
       return new Response("Must provide a valid SECRET", { status: 400 });
     }
 
+    // Grab content from the request
     const DATE = new Date().toISOString();
     const PATH = "/" + request.url.split("/")[4];
     const HEADERS = Array.from(request.headers.entries())
       .map(([key, value]) => `${key.padEnd(24, " ")}\t${value}`)
       .join("\n");
+    const BODY = await request.text();
 
+    // Format into a nice message for Slack
     const text = `
-New request to \`${request.method} ${PATH}\` at \`${DATE}\`
+New request to \`${PATH}\` at \`${DATE}\`
 
 Headers
 \`\`\`
@@ -40,10 +43,11 @@ ${HEADERS}
 
 Body
 \`\`\`
-${await request.text()}
+${BODY}
 \`\`\`
-    `;
+`;
 
+    // Post to our #echo Slack channel
     const r = await fetch(ENV_SLACK_INCOMING_MESSAGE_URL, {
       method: "POST",
       headers: {
