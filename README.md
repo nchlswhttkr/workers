@@ -6,6 +6,7 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 
 |                                                                        |                                                                        |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                   | Redirects requests based off a dynamic file                            |
 | [@nchlswhttkr/inject-env-loader](#inject-env-loader)                   | A Webpack loader to inject environment variables as a part of builds   |
 | [@nchlswhttkr/blog-logging](#blog-logging)                             | Logs requests to read pages from my blog                               |
 | [@nchlswhttkr/newsletter-worker](#newsletter)                          | A Cloudflare worker that posts links to my newsletter channel on Slack |
@@ -40,6 +41,16 @@ rush rebuild --to @nchlswhttkr/blog-logging-worker
 ```
 
 ## Packages
+
+### hero-of-time-link
+
+![Link and Ezlo from The Legend of Zelda: The Minish Cap dashing forward](https://gamepedia.cursecdn.com/zelda_gamepedia_en/a/af/PegasusBootsTMC.png)
+
+My personal shortcut service. For example, https://nchlswhttkr.com/goto/link-worker redirects back here.
+
+The links in https://nchlswhttkr.keybase.pub/links.json are used to redirect requests. The key for each links must be **alphanumeric**.
+
+This isn't the most resilient code, but it makes it easy for me to add new links by editing a file locally. Keybase automatically syncs this file as I make changes.
 
 ### inject-env-loader
 

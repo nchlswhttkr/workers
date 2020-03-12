@@ -1,0 +1,14 @@
+{
+  "name": "@nchlswhttkr/hero-of-time-link-worker",
+  "version": "0.1.0",
+  "description": "My personal shortcut service",
+  "scripts": {
+    "build": "source build.sh"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "~1.19.1"
+  },
+  "main": "index.js"
+}

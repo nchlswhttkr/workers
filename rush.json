@@ -331,6 +331,10 @@
     {
       "packageName": "@nchlswhttkr/experimental-golang-worker",
       "projectFolder": "workers/golang-wasm-experiment"
+    },
+    {
+      "packageName": "@nchlswhttkr/hero-of-time-link-worker",
+      "projectFolder": "workers/hero-of-time-link"
     }
     // {
     //   /**
