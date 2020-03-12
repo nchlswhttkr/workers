@@ -46,7 +46,7 @@ rush rebuild --to @nchlswhttkr/blog-logging-worker
 
 ![Link and Ezlo from The Legend of Zelda: The Minish Cap dashing forward](https://gamepedia.cursecdn.com/zelda_gamepedia_en/a/af/PegasusBootsTMC.png)
 
-My personal shortcut service. For example, https://nchlswhttkr.com/goto/link-worker redirects back here.
+My personal shortcut service. For example, https://nicholas.cloud/goto/link-worker redirects back here.
 
 The links in https://nchlswhttkr.keybase.pub/links.json are used to redirect requests. The key for each links must be **alphanumeric**.
 
