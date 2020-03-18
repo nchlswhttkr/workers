@@ -34,7 +34,7 @@ class MailgunClient {
   }
 
   // Add a member to a mailing list
-  async addMemberToMailingList() {
+  async addMemberToMailingList(email) {
     const member = new FormData();
     member.set("address", email);
     member.set("subscribed", "no"); // do not subscribe yet
@@ -58,7 +58,7 @@ class MailgunClient {
   }
 
   // Sets the 'subscribed' status of an existing mailing list member to 'yes'.
-  async setMailingListMemberAsSubscribed() {
+  async setMailingListMemberAsSubscribed(email) {
     const subscription = new FormData();
     subscription.set("subscribed", "yes");
     const confirmSubscriptionRequest = await fetch(
@@ -72,7 +72,7 @@ class MailgunClient {
       }
     );
 
-    if (confirmSubscriptionRequest !== 200) {
+    if (confirmSubscriptionRequest.status !== 200) {
       throw new Error(
         `Could not subscribe ${email} to list ${this.mailingList} (${confirmSubscriptionRequest.status})`
       );
@@ -284,14 +284,17 @@ async function acceptRegistration(event) {
 async function confirmRegistration(event) {
   const sig = new URL(event.request.url).searchParams.get("sig");
   const email = new URL(event.request.url).searchParams.get("email");
+  if (!sig || !email) {
+    return new Response("Invalid confirmation link", { status: 400 });
+  }
 
   const signed = await signatures.checkEmailMatchesSignature(email, sig);
 
   if (!signed) {
-    return new Response(`Invalid confirmation link`, { status: 400 });
+    return new Response("Invalid confirmation link", { status: 400 });
   }
 
-  await mailgun.setMailingListMemberAsSubscribed();
+  await mailgun.setMailingListMemberAsSubscribed(email);
 
   return new Response("You will now receive newsletters!", { status: 200 });
 }
