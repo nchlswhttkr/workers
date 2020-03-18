@@ -1,0 +1,4 @@
+name = "newsletter-subscription"
+type = "webpack"
+webpack_config = "webpack.config.js"
+route = "https://nicholas.cloud/newsletter/subscribe/*"

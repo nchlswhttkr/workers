@@ -22,10 +22,7 @@ module.exports = require("babel-loader").custom(babel => {
             if (process.env[suffix] !== undefined) {
               path.replaceWith(types.stringLiteral(process.env[suffix]));
             } else {
-              // TODO Maybe throw an error instead so variables aren't forgotten
-              console.warn(
-                `The ${suffix} environment variable isn't set, skipppping...`
-              );
+              throw new Error(`The environment variable ${suffix} must be set`);
             }
           }
         }

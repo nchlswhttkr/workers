@@ -19,7 +19,7 @@ async function handleRequest(event) {
   const redirect = shortcuts[key];
   if (redirect) {
     return new Response("", {
-      status: 301,
+      status: 302,
       headers: { Location: redirect }
     });
   }

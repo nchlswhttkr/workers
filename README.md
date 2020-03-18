@@ -4,15 +4,16 @@ My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
 This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published publicly.
 
-|                                                                        |                                                                        |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                   | Redirects requests based off a dynamic file                            |
-| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                   | A Webpack loader to inject environment variables as a part of builds   |
-| [@nchlswhttkr/blog-logging](#blog-logging)                             | Logs requests to read pages from my blog                               |
-| [@nchlswhttkr/newsletter-worker](#newsletter)                          | A Cloudflare worker that posts links to my newsletter channel on Slack |
-| [@nchlswhttkr/echo-worker](#echo)                                      | Echoes webhooks requests to one of my Slack channels                   |
-| [@nchlswhttkr/counter-worker](#counter)                                | Having some fun with isolate persistence in Cloudflare Workers         |
-| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker) | Running Golang as WASM inside Cloudflare Workers                       |
+|                                                                                |                                                                        |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                           | Redirects requests based off a dynamic file                            |
+| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                           | A Webpack loader to inject environment variables as a part of builds   |
+| [@nchlswhttkr/blog-logging](#blog-logging)                                     | Logs requests to read pages from my blog                               |
+| [@nchlswhttkr/newsletter-worker](#newsletter)                                  | A Cloudflare worker that posts links to my newsletter channel on Slack |
+| [@nchlswhttkr/echo-worker](#echo)                                              | Echoes webhooks requests to one of my Slack channels                   |
+| [@nchlswhttkr/counter-worker](#counter)                                        | Having some fun with isolate persistence in Cloudflare Workers         |
+| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)         | Running Golang as WASM inside Cloudflare Workers                       |
+| [@nchlswhttkr/newsletter-subscription-worker](#newsletter-subscription-worker) | Manages requests to subscribe/unsubscribe from my newsletter           |
 
 ## Usage
 
@@ -51,6 +52,35 @@ My personal shortcut service. For example, https://nicholas.cloud/goto/link-work
 The links in https://nchlswhttkr.keybase.pub/links.json are used to redirect requests. The key for each links must be **alphanumeric**.
 
 This isn't the most resilient code, but it makes it easy for me to add new links by editing a file locally. Keybase automatically syncs this file as I make changes.
+
+### newsletter-subscription-worker
+
+![A menu screen from Pokémon Mystery Dungeon featuring Chikorita, Totodile, and Pelipper](https://pbs.twimg.com/media/ETYATeyUUAApTGA?format=jpg&name=large)
+
+> :exclamation: This is still a **WIP**!
+
+Manages requests to subscribe to [my newsletter](https://nicholas.cloud/newsletter/).
+
+| Method | Path       | Description                                                          |
+| ------ | ---------- | -------------------------------------------------------------------- |
+| `GET`  | `/`        | The form to subscribe to the mailing list.                           |
+| `POST` | `/`        | Subscribes a user to the mailing list, expects completed form data.  |
+| `*`    | `/confirm` | Confirms a mailing list subscription, expects email and a signature. |
+
+It needs a few secrets to be provided with [@nchlswhttkr/inject-env-loader](#inject-env-loader).
+
+- `EMAIL_SIGNING_SECRET` - The sequence of bytes used to sign emails in confirmation links
+- `MAILGUN_API_KEY` - An API key to make calls to the Mailgun API
+
+Additional configuration is needed (email sending domain, mailing list name), but I've haven't added the option to configure those yet.
+
+To generate a new signing secret, you can use this snippet. Changing this secret will invalidate all existing confirmation links.
+
+```js
+Array.from(crypto.getRandomValues(new Uint8Array(16)))
+  .map(n => n.toString(16).padStart(2, "0"))
+  .join();
+```
 
 ### inject-env-loader
 
