@@ -1,5 +1,5 @@
 {
-  "name": "@nchlswhttkr/newsletter-subscription-worker",
+  "name": "@nchlswhttkr/newsletter-subscription-form-worker",
   "version": "0.1.0",
   "description": "Manages requests to subscribe/unsubscribe from my newsletter",
   "scripts": {

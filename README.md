@@ -4,16 +4,16 @@ My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
 This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published publicly.
 
-|                                                                                |                                                                        |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
-| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                           | Redirects requests based off a dynamic file                            |
-| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                           | A Webpack loader to inject environment variables as a part of builds   |
-| [@nchlswhttkr/blog-logging](#blog-logging)                                     | Logs requests to read pages from my blog                               |
-| [@nchlswhttkr/newsletter-worker](#newsletter)                                  | A Cloudflare worker that posts links to my newsletter channel on Slack |
-| [@nchlswhttkr/echo-worker](#echo)                                              | Echoes webhooks requests to one of my Slack channels                   |
-| [@nchlswhttkr/counter-worker](#counter)                                        | Having some fun with isolate persistence in Cloudflare Workers         |
-| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)         | Running Golang as WASM inside Cloudflare Workers                       |
-| [@nchlswhttkr/newsletter-subscription-worker](#newsletter-subscription-worker) | Manages requests to subscribe/unsubscribe from my newsletter           |
+|                                                                                   |                                                                        |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                              | Redirects requests based off a dynamic file                            |
+| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                              | A Webpack loader to inject environment variables as a part of builds   |
+| [@nchlswhttkr/blog-logging](#blog-logging)                                        | Logs requests to read pages from my blog                               |
+| [@nchlswhttkr/newsletter-worker](#newsletter)                                     | A Cloudflare worker that posts links to my newsletter channel on Slack |
+| [@nchlswhttkr/echo-worker](#echo)                                                 | Echoes webhooks requests to one of my Slack channels                   |
+| [@nchlswhttkr/counter-worker](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers         |
+| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)            | Running Golang as WASM inside Cloudflare Workers                       |
+| [@nchlswhttkr/newsletter-subscription-form-worker](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter           |
 
 ## Usage
 
@@ -53,7 +53,7 @@ The links in https://nchlswhttkr.keybase.pub/links.json are used to redirect req
 
 This isn't the most resilient code, but it makes it easy for me to add new links by editing a file locally. Keybase automatically syncs this file as I make changes.
 
-### newsletter-subscription-worker
+### newsletter-subscription-form
 
 ![A menu screen from Pokémon Mystery Dungeon featuring Chikorita, Totodile, and Pelipper](https://pbs.twimg.com/media/ETYATeyUUAApTGA?format=jpg&name=large)
 

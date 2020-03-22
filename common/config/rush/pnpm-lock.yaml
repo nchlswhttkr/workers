@@ -6,7 +6,7 @@ dependencies:
   '@rush-temp/experimental-golang-worker': 'file:projects/experimental-golang-worker.tgz_webpack@4.41.6'
   '@rush-temp/hero-of-time-link-worker': 'file:projects/hero-of-time-link-worker.tgz'
   '@rush-temp/inject-env-loader': 'file:projects/inject-env-loader.tgz'
-  '@rush-temp/newsletter-subscription-worker': 'file:projects/newsletter-subscription-worker.tgz_webpack@4.41.6'
+  '@rush-temp/newsletter-subscription-form-worker': 'file:projects/newsletter-subscription-form-worker.tgz_webpack@4.41.6'
   '@rush-temp/newsletter-worker': 'file:projects/newsletter-worker.tgz_webpack@4.41.6'
   babel-loader: 8.0.6_@babel+core@7.8.4+webpack@4.41.6
   dotenv: 8.2.0
@@ -2985,18 +2985,18 @@ packages:
       integrity: sha512-qdbVLKWFcnxEtnfjlaQ0U2xQ5+AmvRruE//WxhVbcXTclPuzR+jwamF1C0xD2aJQWHNvdokStJpgWbgL6/vfbA==
       tarball: 'file:projects/inject-env-loader.tgz'
     version: 0.0.0
-  'file:projects/newsletter-subscription-worker.tgz_webpack@4.41.6':
+  'file:projects/newsletter-subscription-form-worker.tgz_webpack@4.41.6':
     dependencies:
       prettier: 1.19.1
       webpack-cli: 3.3.11_webpack@4.41.6
     dev: false
-    id: 'file:projects/newsletter-subscription-worker.tgz'
-    name: '@rush-temp/newsletter-subscription-worker'
+    id: 'file:projects/newsletter-subscription-form-worker.tgz'
+    name: '@rush-temp/newsletter-subscription-form-worker'
     peerDependencies:
       webpack: '*'
     resolution:
-      integrity: sha512-7Rcieu/c58bTWLsEm0KbPJ5enV/vOndvpNdOR9eOrOfNr1NWk3AErdI029AUix+cjoP7E1DV1rm5ZHMVKqJVVA==
-      tarball: 'file:projects/newsletter-subscription-worker.tgz'
+      integrity: sha512-GbOoIZCf3dp0VgL2bMlkARADhcRLM7QHGSqTYSTWsIZ+Ne6P70ovdX/4IOPBPfaqpPoT0f/PxktDvROxyIQTvw==
+      tarball: 'file:projects/newsletter-subscription-form-worker.tgz'
     version: 0.0.0
   'file:projects/newsletter-worker.tgz_webpack@4.41.6':
     dependencies:
@@ -3020,7 +3020,7 @@ specifiers:
   '@rush-temp/experimental-golang-worker': 'file:./projects/experimental-golang-worker.tgz'
   '@rush-temp/hero-of-time-link-worker': 'file:./projects/hero-of-time-link-worker.tgz'
   '@rush-temp/inject-env-loader': 'file:./projects/inject-env-loader.tgz'
-  '@rush-temp/newsletter-subscription-worker': 'file:./projects/newsletter-subscription-worker.tgz'
+  '@rush-temp/newsletter-subscription-form-worker': 'file:./projects/newsletter-subscription-form-worker.tgz'
   '@rush-temp/newsletter-worker': 'file:./projects/newsletter-worker.tgz'
   babel-loader: ~8.0.6
   dotenv: ~8.2.0

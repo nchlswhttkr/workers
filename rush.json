@@ -337,7 +337,7 @@
       "projectFolder": "workers/hero-of-time-link"
     },
     {
-      "packageName": "@nchlswhttkr/newsletter-subscription-worker",
+      "packageName": "@nchlswhttkr/newsletter-subscription-form-worker",
       "projectFolder": "workers/newsletter-subscription"
     }
     // {
