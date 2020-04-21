@@ -214,6 +214,11 @@ async function handleRequest(event) {
       return await acceptRegistration(event);
     } else if (path === "/newsletter/subscribe/confirm") {
       return await confirmRegistration(event);
+    } else if (path === "/newsletter/subscribe") {
+      return new Response("", {
+        status: 302,
+        headers: { Location: "https://nicholas.cloud/newsletter/subscribe/" }
+      });
     }
     return new Response("Not found", { status: 404 });
   } catch (error) {
