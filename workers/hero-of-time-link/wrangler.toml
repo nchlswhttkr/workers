@@ -1,3 +1,4 @@
 name = "hero-of-time-link"
-type = "javascript"
-route = "https://nicholas.cloud/goto/*"
+type = "webpack"
+webpack_config = "webpack.config.js"
+route = "nicholas.cloud/goto/*"

@@ -49,9 +49,9 @@ rush rebuild --to @nchlswhttkr/blog-logging-worker
 
 My personal shortcut service. For example, https://nicholas.cloud/goto/link-worker redirects back here.
 
-The links in https://nchlswhttkr.keybase.pub/links.json are used to redirect requests. The key for each links must be **alphanumeric**.
+Requests are redirected based on the links in https://nchlswhttkr.keybase.pub/shortcuts.json. The key for each shortcut must be **alphanumeric**.
 
-This isn't the most resilient code, but it makes it easy for me to add new links by editing a file locally. Keybase automatically syncs this file as I make changes.
+Links will only be updated if **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link-worker`).
 
 ### newsletter-subscription-form
 
@@ -78,7 +78,7 @@ To generate a new signing secret, you can use this snippet. Changing this secret
 
 ```js
 Array.from(crypto.getRandomValues(new Uint8Array(16)))
-  .map(n => n.toString(16).padStart(2, "0"))
+  .map((n) => n.toString(16).padStart(2, "0"))
   .join();
 ```
 
