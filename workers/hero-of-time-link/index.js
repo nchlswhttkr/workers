@@ -6,7 +6,7 @@ addEventListener("fetch", event => {
 });
 
 async function handleRequest(event) {
-  // Grab the contents after https://nicholas.cloud/goto/... and ensure it is
+  // Grab the contents after https://nicholas.cloud/goto... and ensure it is
   // alphanumeric, removing any garbage if necessary
   const path = new URL(event.request.url).pathname.slice(6);
   const key = decodeURIComponent(path).replace(/[^A-Za-z0-9]/, "");

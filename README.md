@@ -8,7 +8,6 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                              | Redirects requests based off a dynamic file                            |
 | [@nchlswhttkr/inject-env-loader](#inject-env-loader)                              | A Webpack loader to inject environment variables as a part of builds   |
-| [@nchlswhttkr/blog-logging](#blog-logging)                                        | Logs requests to read pages from my blog                               |
 | [@nchlswhttkr/newsletter-worker](#newsletter)                                     | A Cloudflare worker that posts links to my newsletter channel on Slack |
 | [@nchlswhttkr/echo-worker](#echo)                                                 | Echoes webhooks requests to one of my Slack channels                   |
 | [@nchlswhttkr/counter-worker](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers         |
@@ -51,7 +50,7 @@ My personal shortcut service. For example, https://nicholas.cloud/goto/link-work
 
 Requests are redirected based on the links in https://nchlswhttkr.keybase.pub/shortcuts.json. The key for each shortcut must be **alphanumeric**.
 
-Links will only be updated if **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link-worker`).
+Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link-worker`).
 
 ### newsletter-subscription-form
 
@@ -100,12 +99,6 @@ if (password === "abc123") {
   // do authenticated work
 }
 ```
-
-### blog-logging
-
-Logs requests to read pages from my blog.
-
-Requires a `LOGGING_URL` to be set via [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing.
 
 ### newsletter
 
