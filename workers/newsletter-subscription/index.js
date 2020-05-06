@@ -92,7 +92,7 @@ class MailgunClient {
 Your email has been added to my newsletter mailing list.
 To start receiving emails, you'll need to confirm your subscription.
 Subscribe to my newsletter. (${confirmationUrl}) 
-Cheers, Nicholas
+Cheers, Nicholas (https://nicholas.cloud/)
     `
     );
     message.set(
@@ -102,7 +102,7 @@ Cheers, Nicholas
 Your email has been added to my newsletter mailing list.<br>
 To start receiving emails, you'll need to confirm your subscription.<br>
 <a href="${confirmationUrl}">Subscribe to my newsletter.</a><br>
-Cheers, Nicholas
+Cheers, <a href="https://nicholas.cloud/">Nicholas</a>
 </p>
     `
     );
@@ -220,23 +220,85 @@ async function handleRequest(event) {
         headers: { Location: "https://nicholas.cloud/newsletter/subscribe/" }
       });
     }
-    return new Response("Not found", { status: 404 });
+    return new Response("Not found\n", { status: 404 });
   } catch (error) {
     console.error(error); // TODO Do some proper logging/alerting with Sentry
-    return new Response(`Error`, { status: 500 }); // Ironic, given serverless
+    return new Response("Error\n", { status: 500 }); // Ironic, given serverless
   }
 }
 
 async function showRegistrationForm(event) {
+  const baseCommand =
+    "curl https://nicholas.cloud/newsletter/subscribe/ --data-urlencode email=";
   return new Response(
     `
-<form method="post">
-<label>
-  Email
-  <input name="email" type="email"></input>
-</label>
-<input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Subscribe to my newsletter!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+main {
+    color: #333;
+    margin: 0 auto;
+    max-width: 600px;
+    font-family: monospace;
+    text-align: center;
+}
+
+code {
+    display: block;
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+}
+
+.clickable, input {
+    margin: 8px;
+    background-color: #fff;
+    font-size: 1rem;
+    font-family: monospace;
+    padding: 8px;
+    border: 2px solid #333;
+}
+</style>
+</head>
+<body>
+<main>
+    <h1>Subscribe to my newsletter!</h1>
+    <p>I use my newsletter to share interesting pieces and content I love.</p>
+    <p>If you subscribe, I'll email you new issues as I publish them.</p>
+    <br/>
+    <p>I'll only use your email address to deliver this newsletter, and you can unsubscribe at any time.</p>
+    <br/>
+    <form method="post">
+    <label>
+        Email
+        <input id="email-input" name="email" type="email"></input>
+    </label>
+    <input class="clickable" type="submit" value="Submit">
+    </form>
+    <br/>
+    <p>Alternatively, you can subscribe from the comfort of your terminal!</p>
+    <p><code id="command">${baseCommand}</code></p>
+    <button class="clickable" onclick="copyCommandToClipboard()">Click to copy</button>
+</main>
+<script>
+    let command = document.getElementById("command");
+
+    document.getElementById("email-input").oninput = updateCommandWithEmail;
+
+    function copyCommandToClipboard() {
+        navigator.clipboard.writeText(command.innerText);
+    }
+
+    function updateCommandWithEmail(event) {
+        command.innerText = "${baseCommand}" + event.target.value;
+    }
+</script>
+</body>
+</html>
 `,
     {
       headers: {
@@ -254,7 +316,7 @@ async function showRegistrationForm(event) {
 async function acceptRegistration(event) {
   const email = (await event.request.formData()).get("email");
   if (!email) {
-    return new Response("Invalid email", { status: 400 });
+    return new Response("Invalid email\n", { status: 400 });
   }
 
   await mailgun.addMemberToMailingList(email);
@@ -275,7 +337,7 @@ async function acceptRegistration(event) {
   }
 
   return new Response(
-    "Please check your email inbox to confirm your subscription",
+    "Please check your inbox, a confirmation email is on its way!\n",
     {
       status: 200
     }
@@ -290,16 +352,19 @@ async function confirmRegistration(event) {
   const sig = new URL(event.request.url).searchParams.get("sig");
   const email = new URL(event.request.url).searchParams.get("email");
   if (!sig || !email) {
-    return new Response("Invalid confirmation link", { status: 400 });
+    return new Response("Invalid confirmation link\n", { status: 400 });
   }
 
   const signed = await signatures.checkEmailMatchesSignature(email, sig);
 
   if (!signed) {
-    return new Response("Invalid confirmation link", { status: 400 });
+    return new Response("Invalid confirmation link\n", { status: 400 });
   }
 
   await mailgun.setMailingListMemberAsSubscribed(email);
 
-  return new Response("You will now receive newsletters!", { status: 200 });
+  return new Response(
+    "Subscription confirmed, you will now receive newsletters!\n",
+    { status: 200 }
+  );
 }

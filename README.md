@@ -28,7 +28,7 @@ After this, you can publish all your workers, or just a single chosen worker.
 
 ```sh
 rush build
-rush build --to @nchlswhttkr/blog-logging-worker
+rush build --to @nchlswhttkr/newsletter-subscription-form-worker
 ```
 
 Rush will not rebuild a package unless it changes, or one of its dependencies changes. Changes to `.gitignore`'d files (for example, files with secrets) **will be ignored**.
@@ -37,7 +37,7 @@ You can always force a rebuild of a particular package or all packages.
 
 ```sh
 rush rebuild
-rush rebuild --to @nchlswhttkr/blog-logging-worker
+rush rebuild --to @nchlswhttkr/newsletter-subscription-form-worker
 ```
 
 ## Packages
@@ -56,15 +56,13 @@ Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchls
 
 ![A menu screen from Pokémon Mystery Dungeon featuring Chikorita, Totodile, and Pelipper](https://pbs.twimg.com/media/ETYATeyUUAApTGA?format=jpg&name=large)
 
-> :exclamation: This is still a **WIP**!
-
 Manages requests to subscribe to [my newsletter](https://nicholas.cloud/newsletter/).
 
-| Method | Path       | Description                                                          |
-| ------ | ---------- | -------------------------------------------------------------------- |
-| `GET`  | `/`        | The form to subscribe to the mailing list.                           |
-| `POST` | `/`        | Subscribes a user to the mailing list, expects completed form data.  |
-| `*`    | `/confirm` | Confirms a mailing list subscription, expects email and a signature. |
+| Method | Path                            | Description                                                          |
+| ------ | ------------------------------- | -------------------------------------------------------------------- |
+| `GET`  | `/newsletter/subscribe/`        | The form to subscribe to the mailing list.                           |
+| `POST` | `/newsletter/subscribe/`        | Subscribes a user to the mailing list, expects completed form data.  |
+| `*`    | `/newsletter/subscribe/confirm` | Confirms a mailing list subscription, expects email and a signature. |
 
 It needs a few secrets to be provided with [@nchlswhttkr/inject-env-loader](#inject-env-loader).
 
