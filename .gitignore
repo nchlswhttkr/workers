@@ -62,5 +62,9 @@ jspm_packages/
 common/temp/
 **/.rush/temp/
 
+# Wrangler/Webpack output
+worker/
+dist/
+
 
 set-cloudflare-secrets.sh

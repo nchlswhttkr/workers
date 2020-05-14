@@ -48,7 +48,7 @@ rush rebuild --to @nchlswhttkr/newsletter-subscription-form-worker
 
 My personal shortcut service. For example, https://nicholas.cloud/goto/link-worker redirects back here.
 
-Requests are redirected based on the links in https://nchlswhttkr.keybase.pub/shortcuts.json. The key for each shortcut must be **alphanumeric**.
+Requests are redirected based on the links in https://nicholas.cloud/files/shortcuts.json. The key for each shortcut must be **alphanumeric**.
 
 Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link-worker`).
 
