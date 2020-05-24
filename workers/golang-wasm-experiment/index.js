@@ -1,7 +1,7 @@
 require("./polyfill_performance.js");
 require("./wasm_exec.js");
 
-addEventListener("fetch", event => {
+addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event.request));
 });
 
@@ -16,8 +16,8 @@ async function handleRequest(request) {
   const result = await WebAssembly.instantiate(WASM, go.importObject);
 
   // We can run this instance multiple times
-  go.run(result); // Hello from TinyGo!
-  go.run(result); // Hello from TinyGo!
+  go.run(result);
+  go.run(result);
 
   // We can use its exported functions
   console.log(result.exports.multiply(1, 1)); // 1
@@ -26,6 +26,13 @@ async function handleRequest(request) {
 
   // Our Golang has access to the imported function
   result.exports.runSayHello(); // Hello from the imported function!
+
+  // Take query params to the worker and show a result
+  let a = Number(new URL(request.url).searchParams.get("a"));
+  let b = Number(new URL(request.url).searchParams.get("b"));
+  if (!Number.isNaN(a) && !Number.isNaN(b)) {
+    return new Response(result.exports.multiply(a, b), { status: 200 });
+  }
 
   return new Response("", { status: 200 });
 }

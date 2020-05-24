@@ -1,7 +1,10 @@
 package main
 
+var called = 0
+
 func main() {
-	println("Hello from TinyGo!")
+	called++
+	println("Hello from TinyGo! Called ", called, "times so far")
 }
 
 //go:export multiply
