@@ -1,7 +1,7 @@
 {
-  "name": "@nchlswhttkr/newsletter-worker",
+  "name": "@nchlswhttkr/newsletter-subscription-form",
   "version": "0.1.0",
-  "description": "Posts links to my newsletter channel on Slack",
+  "description": "Manages requests to subscribe/unsubscribe from my newsletter",
   "scripts": {
     "build": "source build.sh"
   },

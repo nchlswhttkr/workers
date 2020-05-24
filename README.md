@@ -4,16 +4,15 @@ My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
 This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published publicly.
 
-|                                                                                   |                                                                        |
-| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                              | Redirects requests based off a dynamic file                            |
-| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                              | A Webpack loader to inject environment variables as a part of builds   |
-| [@nchlswhttkr/newsletter-worker](#newsletter)                                     | A Cloudflare worker that posts links to my newsletter channel on Slack |
-| [@nchlswhttkr/echo-worker](#echo)                                                 | Echoes webhooks requests to one of my Slack channels                   |
-| [@nchlswhttkr/counter-worker](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers         |
-| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)            | Running Golang as WASM inside Cloudflare Workers                       |
-| [@nchlswhttkr/newsletter-subscription-form-worker](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter           |
-| [@nchlswhttkr/markdown-reader-worker](#markdown-reader)                           | A reader for web-hosted markdown files                                 |
+|                                                                            |                                                                      |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                       | Redirects requests based off a dynamic file                          |
+| [@nchlswhttkr/newsletter-subscription-form](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter         |
+| [@nchlswhttkr/markdown-reader](#markdown-reader)                           | A reader for web-hosted markdown files                               |
+| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Running Golang as WASM inside Cloudflare Workers                     |
+| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds |
+| [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers       |
+| [@nchlswhttkr/echo-to-slack](#echo-to-slack)                               | Echoes webhooks requests to one of my Slack channels                 |
 
 ## Usage
 
@@ -29,7 +28,7 @@ After this, you can publish all your workers, or just a single chosen worker.
 
 ```sh
 rush build
-rush build --to @nchlswhttkr/newsletter-subscription-form-worker
+rush build --to @nchlswhttkr/newsletter-subscription-form
 ```
 
 Rush will not rebuild a package unless it changes, or one of its dependencies changes. Changes to `.gitignore`'d files (for example, files with secrets) **will be ignored**.
@@ -38,7 +37,7 @@ You can always force a rebuild of a particular package or all packages.
 
 ```sh
 rush rebuild
-rush rebuild --to @nchlswhttkr/newsletter-subscription-form-worker
+rush rebuild --to @nchlswhttkr/newsletter-subscription-form
 ```
 
 ## Packages
@@ -47,11 +46,11 @@ rush rebuild --to @nchlswhttkr/newsletter-subscription-form-worker
 
 ![Link and Ezlo from The Legend of Zelda: The Minish Cap dashing forward](https://gamepedia.cursecdn.com/zelda_gamepedia_en/a/af/PegasusBootsTMC.png)
 
-My personal shortcut service. For example, https://nicholas.cloud/goto/link-worker redirects back here.
+My personal shortcut service. For example, https://nicholas.cloud/goto/recursion redirects back here.
 
 Requests are redirected based on the links in https://nicholas.cloud/files/shortcuts.json. The key for each shortcut must be **alphanumeric**.
 
-Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link-worker`).
+Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link`).
 
 ### newsletter-subscription-form
 
@@ -70,7 +69,7 @@ It needs a few secrets to be provided with [@nchlswhttkr/inject-env-loader](#inj
 - `EMAIL_SIGNING_SECRET` - The sequence of bytes used to sign emails in confirmation links
 - `MAILGUN_API_KEY` - An API key to make calls to the Mailgun API
 
-Additional configuration is needed (email sending domain, mailing list name), but I've haven't added the option to configure those yet.
+Some values are hardcoded into this script (email sending domain, mailing list name), you'll need to change those before deploying this.
 
 To generate a new signing secret, you can use this snippet. Changing this secret will invalidate all existing confirmation links.
 
@@ -80,59 +79,44 @@ Array.from(crypto.getRandomValues(new Uint8Array(16)))
   .join();
 ```
 
+---
+
 ### markdown-reader
 
 A reader for web-hosted markdown files. It parses markdown files from the web server-side and returns the response.
 
 Takes advantage of HTTP/2 server push and preloading to get a faster paint for newer clients.
 
+To look at a particular file, pass it in via the `url` parameter.
+
+---
+
+### experimental-golang-worker
+
+Running Golang as WASM inside Cloudflare Workers.
+
+You will need to have [TinyGo](https://tinygo.org/) installed.
+
+---
+
 ### inject-env-loader
 
 A Webpack loader to inject environment variables as a part of builds.
 
-> :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I might remove it at a later point, but I'm keeping my current setup unchanged for these low-risk projects.
+> :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I might remove it at a later point.
 
-Identifiers prefixed with `ENV_` will be replaced with the environment variable value. Additionally, will attempt to load environment variables from a `.env` file in the working directory.
+Additionally, will attempt to load environment variables from a `.env` file in the working directory.
 
-```js
-if (password === ENV_PASSWORD) {
-  // do authenticated work
-}
+For example, with the line `PASSWORD=abc123` in your `.env` file, your build output would resemble this.
 
-// becomes
-if (password === "abc123") {
-  // do authenticated work
-}
+```diff
+- if (password === ENV_PASSWORD) {
++ if (password === "abc123") {
+    // do authenticated work
+  }
 ```
 
-### newsletter
-
-A Cloudflare worker that posts links to my newsletter channel on Slack.
-
-The necessary secets, `SLACK_INCOMING_MESSAGE_URL` and `SECRET_TOKEN`, are added by [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing to Cloudflare.
-
-```sh
-curl -X POST "https://newsletter.nchlswhttkr.workers.dev"
-    -H "Secret={{ your-secret-access-token }}"
-    -H "Content-Type=application/x-www-form-urlencoded"
-    -d 'url={{ link-to-post-url-encoded }}'
-```
-
-### echo
-
-Echoes webhooks requests to one of my Slack channels.
-
-The necessary secets, `SLACK_INCOMING_MESSAGE_URL` and `SECRET_TOKEN`, are added by [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing to Cloudflare.
-
-Prepend the secret to the URL path, since we cannot rely on headers/cookies.
-
-```sh
-curl -X POST "https://echo.nchlswhttkr.workers.dev/{{ your-secret-access-token }}/github"
-    -H "SOME-HEADER=SOME-VALUE"
-    -d 'Hello world!'
-```
-
-![An example screenshot showing data from the above request](./workers/echo/screenshot.png)
+---
 
 ### counter
 
@@ -140,10 +124,22 @@ Having some fun with isolate persistence in Cloudflare Workers.
 
 Repeated requests to https://counter.nchlswhttkr.workers.dev will increment the counter, so long as you continue to hit the same node and the isolate is not discarded.
 
-### experimental-golang-worker
+---
 
-Running Golang as WASM inside Cloudflare Workers.
+### echo-to-slack
 
-You will need to have [TinyGo](https://tinygo.org/) installed. You can use the Go compiler, but the output it produces is much larger.
+> :exclamation: Not in use anymore!
 
-Take a look at [main.go](./workers/golang-wasm-experiment/main.go) and [index.js](./workers/golang-wasm-experiment/index.js) if you would like to see the Golang in action.
+Echoes webhooks requests to one of my Slack channels.
+
+The necessary secets, `SLACK_INCOMING_MESSAGE_URL` and `SECRET_TOKEN`, are added by [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing to Cloudflare.
+
+The secret token needs to be included in the URL path, since we can't rely on headers.
+
+```sh
+curl -X POST "https://echo.nchlswhttkr.workers.dev/{{ your-secret-access-token }}/github"
+    -H "SOME-HEADER=SOME-VALUE"
+    -d 'Hello world!'
+```
+
+![An example screenshot showing data from the above request](./old-workers/echo-to-slack/screenshot.png)

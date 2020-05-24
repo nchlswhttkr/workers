@@ -1,5 +1,5 @@
 {
-  "name": "@nchlswhttkr/counter-worker",
+  "name": "@nchlswhttkr/counter",
   "version": "0.1.0",
   "description": "Having some fun with isolate persistence in Cloudflare Workers",
   "scripts": {

@@ -1,13 +1,11 @@
 dependencies:
   '@babel/core': 7.8.4
-  '@rush-temp/counter-worker': 'file:projects/counter-worker.tgz'
-  '@rush-temp/echo-worker': 'file:projects/echo-worker.tgz_webpack@4.41.6'
+  '@rush-temp/counter': 'file:projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:projects/experimental-golang-worker.tgz_webpack@4.41.6'
-  '@rush-temp/hero-of-time-link-worker': 'file:projects/hero-of-time-link-worker.tgz'
+  '@rush-temp/hero-of-time-link': 'file:projects/hero-of-time-link.tgz'
   '@rush-temp/inject-env-loader': 'file:projects/inject-env-loader.tgz'
-  '@rush-temp/markdown-reader-worker': 'file:projects/markdown-reader-worker.tgz_webpack@4.41.6'
-  '@rush-temp/newsletter-subscription-form-worker': 'file:projects/newsletter-subscription-form-worker.tgz_webpack@4.41.6'
-  '@rush-temp/newsletter-worker': 'file:projects/newsletter-worker.tgz_webpack@4.41.6'
+  '@rush-temp/markdown-reader': 'file:projects/markdown-reader.tgz_webpack@4.41.6'
+  '@rush-temp/newsletter-subscription-form': 'file:projects/newsletter-subscription-form.tgz_webpack@4.41.6'
   babel-loader: 8.0.6_@babel+core@7.8.4+webpack@4.41.6
   dotenv: 8.2.0
   marked: 1.1.0
@@ -2924,27 +2922,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-HG/DWAJa1PAnHT9JAhNa8AbAv3FPaiLzioSjCcmuXXhP8MlpHO5vwls4g4j6n30Z74GVQj8Xa62dWVx1QCGklg==
-  'file:projects/counter-worker.tgz':
+  'file:projects/counter.tgz':
     dependencies:
       prettier: 1.19.1
     dev: false
-    name: '@rush-temp/counter-worker'
+    name: '@rush-temp/counter'
     resolution:
-      integrity: sha512-muBaOVNV9gQVjRKcqwVYJmlHFtc9JzJtraRphcQYv+/P4NJ9qn3yW4wzhgkiidU3TiRIZ6/DMZ6W8nJIssE+Xw==
-      tarball: 'file:projects/counter-worker.tgz'
-    version: 0.0.0
-  'file:projects/echo-worker.tgz_webpack@4.41.6':
-    dependencies:
-      prettier: 1.19.1
-      webpack-cli: 3.3.11_webpack@4.41.6
-    dev: false
-    id: 'file:projects/echo-worker.tgz'
-    name: '@rush-temp/echo-worker'
-    peerDependencies:
-      webpack: '*'
-    resolution:
-      integrity: sha512-9AXpQAxO2LW9FHbZGTJyE/kOJDmVZ/LvghPQqU0/AHLI9M6DwnLu/p7RCxjbeQ68Xd3VtMQHzgz5+qDgqnaBYA==
-      tarball: 'file:projects/echo-worker.tgz'
+      integrity: sha512-2vA/r0rA1WfyDIr48vOyKr/ruNFR9c9flt+CbWW5H2uGLkBRAb3x+dAyJ7J7cjDxCrH4eK2hznsyrqCXSK5zTQ==
+      tarball: 'file:projects/counter.tgz'
     version: 0.0.0
   'file:projects/experimental-golang-worker.tgz_webpack@4.41.6':
     dependencies:
@@ -2958,14 +2943,14 @@ packages:
       integrity: sha512-j6Wdvx8S8pCcOaSDgkR8fmYN7oxllmj+XWFqJpOgCISPUI+SAbsJW3d57DhAR+JEBdr573VDu8qKn1tcniKBbA==
       tarball: 'file:projects/experimental-golang-worker.tgz'
     version: 0.0.0
-  'file:projects/hero-of-time-link-worker.tgz':
+  'file:projects/hero-of-time-link.tgz':
     dependencies:
       prettier: 1.19.1
     dev: false
-    name: '@rush-temp/hero-of-time-link-worker'
+    name: '@rush-temp/hero-of-time-link'
     resolution:
-      integrity: sha512-aItPi8/APhvVDBZFcd1AKPBdiHPK2AD7M7f44yPkc4W6rKOnEEDiORIztxgfveW/14kK8XcSeNCYy7vBVAAuwQ==
-      tarball: 'file:projects/hero-of-time-link-worker.tgz'
+      integrity: sha512-G0MM6XS9NzTLU8UvawJDEsPekyre68vSz+oAjwxnheCBO3kMrWzoV2iXs82KhvLU/E5ON4aRlxaWR1aYgbQEGQ==
+      tarball: 'file:projects/hero-of-time-link.tgz'
     version: 0.0.0
   'file:projects/inject-env-loader.tgz':
     dependencies:
@@ -2980,57 +2965,42 @@ packages:
       integrity: sha512-qdbVLKWFcnxEtnfjlaQ0U2xQ5+AmvRruE//WxhVbcXTclPuzR+jwamF1C0xD2aJQWHNvdokStJpgWbgL6/vfbA==
       tarball: 'file:projects/inject-env-loader.tgz'
     version: 0.0.0
-  'file:projects/markdown-reader-worker.tgz_webpack@4.41.6':
+  'file:projects/markdown-reader.tgz_webpack@4.41.6':
     dependencies:
       marked: 1.1.0
       prettier: 1.19.1
       webpack-cli: 3.3.11_webpack@4.41.6
     dev: false
-    id: 'file:projects/markdown-reader-worker.tgz'
-    name: '@rush-temp/markdown-reader-worker'
+    id: 'file:projects/markdown-reader.tgz'
+    name: '@rush-temp/markdown-reader'
     peerDependencies:
       webpack: '*'
     resolution:
-      integrity: sha512-6HCh/l8kbVnSWcEKI0/nHRMwJXFsB0BUGlTx2H/LpePMQU8XBOXwZcv+LdMfr99RalDT6dhrDaILDYvmqz0Qkw==
-      tarball: 'file:projects/markdown-reader-worker.tgz'
+      integrity: sha512-dRQ6wN3lRhuttM90RuolRKOEvA9G2JE9KoHbqAYiTLN8LgIQimFYHprxlb468f27mc6x2MQOvEqKLB6yBcnggA==
+      tarball: 'file:projects/markdown-reader.tgz'
     version: 0.0.0
-  'file:projects/newsletter-subscription-form-worker.tgz_webpack@4.41.6':
+  'file:projects/newsletter-subscription-form.tgz_webpack@4.41.6':
     dependencies:
       prettier: 1.19.1
       webpack-cli: 3.3.11_webpack@4.41.6
     dev: false
-    id: 'file:projects/newsletter-subscription-form-worker.tgz'
-    name: '@rush-temp/newsletter-subscription-form-worker'
+    id: 'file:projects/newsletter-subscription-form.tgz'
+    name: '@rush-temp/newsletter-subscription-form'
     peerDependencies:
       webpack: '*'
     resolution:
-      integrity: sha512-GbOoIZCf3dp0VgL2bMlkARADhcRLM7QHGSqTYSTWsIZ+Ne6P70ovdX/4IOPBPfaqpPoT0f/PxktDvROxyIQTvw==
-      tarball: 'file:projects/newsletter-subscription-form-worker.tgz'
-    version: 0.0.0
-  'file:projects/newsletter-worker.tgz_webpack@4.41.6':
-    dependencies:
-      prettier: 1.19.1
-      webpack-cli: 3.3.11_webpack@4.41.6
-    dev: false
-    id: 'file:projects/newsletter-worker.tgz'
-    name: '@rush-temp/newsletter-worker'
-    peerDependencies:
-      webpack: '*'
-    resolution:
-      integrity: sha512-svBJAzWCUiLM0CD8AeA4mGlWHWoFEi7e3OnA8vBO40GT8SKXlgyfeRK/1Z4kjh2ZbMhIUIwzDmJN15gcCXgPiw==
-      tarball: 'file:projects/newsletter-worker.tgz'
+      integrity: sha512-Mqb96AdRq58klrV5+NeIN64dVi8M7a00pzpNaIT3bH/MN5iECm5c1HEfZg30424D4D55OYBhPGzwFiZfy41XqA==
+      tarball: 'file:projects/newsletter-subscription-form.tgz'
     version: 0.0.0
 registry: ''
 specifiers:
   '@babel/core': ~7.8.4
-  '@rush-temp/counter-worker': 'file:./projects/counter-worker.tgz'
-  '@rush-temp/echo-worker': 'file:./projects/echo-worker.tgz'
+  '@rush-temp/counter': 'file:./projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:./projects/experimental-golang-worker.tgz'
-  '@rush-temp/hero-of-time-link-worker': 'file:./projects/hero-of-time-link-worker.tgz'
+  '@rush-temp/hero-of-time-link': 'file:./projects/hero-of-time-link.tgz'
   '@rush-temp/inject-env-loader': 'file:./projects/inject-env-loader.tgz'
-  '@rush-temp/markdown-reader-worker': 'file:./projects/markdown-reader-worker.tgz'
-  '@rush-temp/newsletter-subscription-form-worker': 'file:./projects/newsletter-subscription-form-worker.tgz'
-  '@rush-temp/newsletter-worker': 'file:./projects/newsletter-worker.tgz'
+  '@rush-temp/markdown-reader': 'file:./projects/markdown-reader.tgz'
+  '@rush-temp/newsletter-subscription-form': 'file:./projects/newsletter-subscription-form.tgz'
   babel-loader: ~8.0.6
   dotenv: ~8.2.0
   marked: ~1.1.0

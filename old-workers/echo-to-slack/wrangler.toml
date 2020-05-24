@@ -1,4 +1,4 @@
-name = "newsletter"
+name = "echo-to-slack"
 type = "webpack"
 workers_dev = true
 webpack_config = "webpack.config.js"

@@ -313,31 +313,23 @@
       "projectFolder": "webpack/inject-env-loader"
     },
     {
-      "packageName": "@nchlswhttkr/newsletter-worker",
-      "projectFolder": "workers/newsletter"
-    },
-    {
-      "packageName": "@nchlswhttkr/echo-worker",
-      "projectFolder": "workers/echo"
-    },
-    {
-      "packageName": "@nchlswhttkr/counter-worker",
+      "packageName": "@nchlswhttkr/counter",
       "projectFolder": "workers/counter"
     },
     {
       "packageName": "@nchlswhttkr/experimental-golang-worker",
-      "projectFolder": "workers/golang-wasm-experiment"
+      "projectFolder": "workers/experimental-golang-worker"
     },
     {
-      "packageName": "@nchlswhttkr/hero-of-time-link-worker",
+      "packageName": "@nchlswhttkr/hero-of-time-link",
       "projectFolder": "workers/hero-of-time-link"
     },
     {
-      "packageName": "@nchlswhttkr/newsletter-subscription-form-worker",
-      "projectFolder": "workers/newsletter-subscription"
+      "packageName": "@nchlswhttkr/newsletter-subscription-form",
+      "projectFolder": "workers/newsletter-subscription-form"
     },
     {
-      "packageName": "@nchlswhttkr/markdown-reader-worker",
+      "packageName": "@nchlswhttkr/markdown-reader",
       "projectFolder": "workers/markdown-reader"
     }
     // {

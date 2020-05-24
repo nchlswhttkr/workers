@@ -1,5 +1,5 @@
 {
-  "name": "@nchlswhttkr/markdown-reader-worker",
+  "name": "@nchlswhttkr/markdown-reader",
   "version": "0.1.0",
   "description": "A reader for web-hosted markdown files",
   "scripts": {

@@ -13,7 +13,7 @@ fi
 webpack-cli --output worker/script.js
 
 source ../../set-cloudflare-secrets.sh
-export WORKER_NAME=golang-wasm-experiment
+export WORKER_NAME=experimental-golang-worker
 curl --silent --fail -X PUT "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/workers/scripts/$WORKER_NAME" \
     -H "Authorization: Bearer $CF_API_TOKEN" \
     -F "metadata=@metadata.json;type=application/json" \

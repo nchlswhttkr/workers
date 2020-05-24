@@ -1,5 +1,5 @@
 {
-  "name": "@nchlswhttkr/echo-worker",
+  "name": "@nchlswhttkr/echo-to-slack",
   "version": "0.1.0",
   "description": "Echoes webhooks requests to one of my Slack channels",
   "scripts": {
