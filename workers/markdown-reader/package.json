@@ -1,0 +1,17 @@
+{
+  "name": "@nchlswhttkr/markdown-reader-worker",
+  "version": "0.1.0",
+  "description": "A reader for web-hosted markdown files",
+  "scripts": {
+    "build": "source build.sh"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "webpack-cli": "~3.3.11",
+    "marked": "~1.1.0"
+  },
+  "devDependencies": {
+    "prettier": "~1.19.1"
+  }
+}

@@ -335,6 +335,10 @@
     {
       "packageName": "@nchlswhttkr/newsletter-subscription-form-worker",
       "projectFolder": "workers/newsletter-subscription"
+    },
+    {
+      "packageName": "@nchlswhttkr/markdown-reader-worker",
+      "projectFolder": "workers/markdown-reader"
     }
     // {
     //   /**

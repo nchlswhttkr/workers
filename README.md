@@ -13,6 +13,7 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 | [@nchlswhttkr/counter-worker](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers         |
 | [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)            | Running Golang as WASM inside Cloudflare Workers                       |
 | [@nchlswhttkr/newsletter-subscription-form-worker](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter           |
+| [@nchlswhttkr/markdown-reader-worker](#markdown-reader)                           | A reader for web-hosted markdown files                                 |
 
 ## Usage
 
@@ -78,6 +79,12 @@ Array.from(crypto.getRandomValues(new Uint8Array(16)))
   .map((n) => n.toString(16).padStart(2, "0"))
   .join();
 ```
+
+### markdown-reader
+
+A reader for web-hosted markdown files. It parses markdown files from the web server-side and returns the response.
+
+Takes advantage of HTTP/2 server push and preloading to get a faster paint for newer clients.
 
 ### inject-env-loader
 
