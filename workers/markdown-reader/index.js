@@ -37,13 +37,26 @@ async function streamMarkdownFromUrl(writable, url) {
   // Gives clients a chance to preload assets (CSS) before the <body> arrives
   await writer.write(encoder.encode(HTML_HEAD));
 
-  let body = bodies.get(url);
-  if (!body) {
-    const markdown = await fetch(url).then(r => r.text());
-    body = marked(markdown);
-    bodies.set(url, body);
+  try {
+    let body = bodies.get(url);
+    if (!body) {
+      const markdown = await fetch(url).then(r => r.text());
+      body = marked(markdown);
+      bodies.set(url, body);
+    }
+    await writer.write(
+      encoder.encode(HTML_BODY_BEFORE + body + HTML_BODY_AFTER)
+    );
+  } catch (error) {
+    await writer.write(
+      encoder.encode(
+        HTML_BODY_BEFORE +
+          `<h1>Could not load markdown</h1>
+          <p>${error.message}</p>` +
+          HTML_BODY_AFTER
+      )
+    );
   }
-  await writer.write(encoder.encode(HTML_BODY_BEFORE + body + HTML_BODY_AFTER));
   await writer.close();
 }
 
