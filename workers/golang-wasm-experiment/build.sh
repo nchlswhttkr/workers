@@ -19,3 +19,7 @@ curl --silent --fail -X PUT "https://api.cloudflare.com/client/v4/accounts/$CF_A
     -F "metadata=@metadata.json;type=application/json" \
     -F "script=@worker/script.js;type=application/javascript" \
     -F "wasm=@worker/main.wasm;type=application/wasm"
+curl --silent --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/workers/scripts/$WORKER_NAME/subdomain" \
+    -H "Authorization: Bearer $CF_API_TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{"enabled":true}'
