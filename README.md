@@ -52,6 +52,8 @@ Requests are redirected based on the links in https://nicholas.cloud/files/short
 
 Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link`).
 
+---
+
 ### newsletter-subscription-form
 
 ![A menu screen from Pokémon Mystery Dungeon featuring Chikorita, Totodile, and Pelipper](https://pbs.twimg.com/media/ETYATeyUUAApTGA?format=jpg&name=large)

@@ -7,7 +7,12 @@ addEventListener("fetch", event => {
 async function handleRequest(event) {
   // Immediately respond with CSS
   if (/reader.css$/.test(event.request.url)) {
-    return new Response(CSS, { headers: { "Content-Type": "text/css" } });
+    return new Response(CSS, {
+      headers: {
+        "Content-Type": "text/css",
+        "Cache-Control": `max-age=${3600}`
+      }
+    });
   }
 
   // Otherwise, start streaming back a response of the parsed markdown
@@ -40,7 +45,14 @@ async function streamMarkdownFromUrl(writable, url) {
   try {
     let body = bodies.get(url);
     if (!body) {
-      const markdown = await fetch(url).then(r => r.text());
+      const markdown = await fetch(url)
+        .then(r => {
+          if (!r.ok) {
+            throw new Error(`${r.status} status from ${url}`);
+          }
+          return r;
+        })
+        .then(r => r.text());
       body = marked(markdown);
       bodies.set(url, body);
     }
@@ -85,7 +97,6 @@ const HTML_HEAD = `
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" as="style" href="/reader.css">
     <link rel="stylesheet" type="text/css" href="/reader.css">
 </head>
 `;
