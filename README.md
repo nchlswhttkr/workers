@@ -12,7 +12,6 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 | [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Running Golang as WASM inside Cloudflare Workers                     |
 | [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds |
 | [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers       |
-| [@nchlswhttkr/echo-to-slack](#echo-to-slack)                               | Echoes webhooks requests to one of my Slack channels                 |
 
 ## Usage
 
@@ -48,7 +47,7 @@ rush rebuild --to @nchlswhttkr/newsletter-subscription-form
 
 My personal shortcut service. For example, https://nicholas.cloud/goto/recursion redirects back here.
 
-Requests are redirected based on the links in https://nicholas.cloud/files/shortcuts.json. The key for each shortcut must be **alphanumeric**.
+Requests are redirected based on the links in a `shortcuts.json` file. The key for each shortcut must be **alphanumeric**.
 
 Links will only be updated if you **force a rebuild** (`rush rebuild --to @nchlswhttkr/hero-of-time-link`).
 
@@ -125,23 +124,3 @@ For example, with the line `PASSWORD=abc123` in your `.env` file, your build out
 Having some fun with isolate persistence in Cloudflare Workers.
 
 Repeated requests to https://counter.nchlswhttkr.workers.dev will increment the counter, so long as you continue to hit the same node and the isolate is not discarded.
-
----
-
-### echo-to-slack
-
-> :exclamation: Not in use anymore!
-
-Echoes webhooks requests to one of my Slack channels.
-
-The necessary secets, `SLACK_INCOMING_MESSAGE_URL` and `SECRET_TOKEN`, are added by [@nchlswhttkr/inject-env-loader](#inject-env-loader) when publishing to Cloudflare.
-
-The secret token needs to be included in the URL path, since we can't rely on headers.
-
-```sh
-curl -X POST "https://echo.nchlswhttkr.workers.dev/{{ your-secret-access-token }}/github"
-    -H "SOME-HEADER=SOME-VALUE"
-    -d 'Hello world!'
-```
-
-![An example screenshot showing data from the above request](./old-workers/echo-to-slack/screenshot.png)
