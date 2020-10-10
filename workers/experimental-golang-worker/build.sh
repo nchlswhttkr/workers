@@ -1,15 +1,13 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eu
 
 mkdir -p worker
 
 tinygo version
 tinygo build -o worker/main.wasm -target wasm main.go
 
-if [ ! -f "wasm_exec.js" ]; then
-    curl --silent --fail --output wasm_exec.js https://raw.githubusercontent.com/tinygo-org/tinygo/master/targets/wasm_exec.js
-fi
+curl --silent --fail --output wasm_exec.js https://raw.githubusercontent.com/tinygo-org/tinygo/HEAD/targets/wasm_exec.js
 webpack-cli --output worker/script.js
 
 source ../../set-cloudflare-secrets.sh

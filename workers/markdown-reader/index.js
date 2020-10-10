@@ -19,7 +19,7 @@ async function handleRequest(event) {
   let { readable, writable } = new TransformStream();
   let url =
     new URL(event.request.url).searchParams.get("url") ||
-    "https://raw.githubusercontent.com/nchlswhttkr/workers/master/README.md";
+    "https://raw.githubusercontent.com/nchlswhttkr/workers/HEAD/README.md";
 
   // Don't need to await, the requests persists while the stream is open
   streamMarkdownFromUrl(writable, url);
