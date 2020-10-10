@@ -4,6 +4,6 @@ module.exports = {
   module: {
     // The imports Go requires as WASM are designed for cross-platform use,
     // so parsing the file will throw errors when bundling for web use.
-    noParse: /(wasm_exec|polyfill_performance)\.js/
-  }
+    noParse: /(wasm_exec|polyfill_performance)\.js/,
+  },
 };

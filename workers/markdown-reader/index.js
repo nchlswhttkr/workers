@@ -1,6 +1,6 @@
 const marked = require("marked");
 
-addEventListener("fetch", event => {
+addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));
 });
 
@@ -10,8 +10,8 @@ async function handleRequest(event) {
     return new Response(CSS, {
       headers: {
         "Content-Type": "text/css",
-        "Cache-Control": `max-age=${3600}`
-      }
+        "Cache-Control": `max-age=${3600}`,
+      },
     });
   }
 
@@ -28,8 +28,8 @@ async function handleRequest(event) {
     status: 200,
     headers: {
       "Content-Type": "text/html",
-      Link: "</reader.css>; rel=preload; as=style"
-    }
+      Link: "</reader.css>; rel=preload; as=style",
+    },
   });
 }
 
@@ -46,13 +46,13 @@ async function streamMarkdownFromUrl(writable, url) {
     let body = bodies.get(url);
     if (!body) {
       const markdown = await fetch(url)
-        .then(r => {
+        .then((r) => {
           if (!r.ok) {
             throw new Error(`${r.status} status from ${url}`);
           }
           return r;
         })
-        .then(r => r.text());
+        .then((r) => r.text());
       body = marked(markdown);
       bodies.set(url, body);
     }

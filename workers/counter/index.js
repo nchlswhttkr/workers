@@ -1,4 +1,4 @@
-addEventListener("fetch", event => {
+addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event.request));
 });
 
@@ -12,7 +12,7 @@ async function handleRequest(request) {
   return new Response(`<h1>${++counter} request/s made!</h1>`, {
     status: 200,
     headers: {
-      "Content-Type": "text/html"
-    }
+      "Content-Type": "text/html",
+    },
   });
 }

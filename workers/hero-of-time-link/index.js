@@ -1,6 +1,6 @@
 import shortcuts from "./shortcuts.json";
 
-addEventListener("fetch", event => {
+addEventListener("fetch", (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event));
 });

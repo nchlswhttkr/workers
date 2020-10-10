@@ -10,5 +10,5 @@
  */
 
 performance = {
-  now: Date.now
+  now: Date.now,
 };

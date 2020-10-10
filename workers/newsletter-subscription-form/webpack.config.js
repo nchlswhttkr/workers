@@ -7,9 +7,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "@nchlswhttkr/inject-env-loader"
-        }
-      }
-    ]
-  }
+          loader: "@nchlswhttkr/inject-env-loader",
+        },
+      },
+    ],
+  },
 };

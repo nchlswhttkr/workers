@@ -17,8 +17,8 @@ class MailgunClient {
       `https://api.eu.mailgun.net/v3/lists/${this.mailingList}/members/${email}`,
       {
         headers: {
-          Authorization: "Basic " + btoa("api:" + this.apiKey)
-        }
+          Authorization: "Basic " + btoa("api:" + this.apiKey),
+        },
       }
     );
 
@@ -44,9 +44,9 @@ class MailgunClient {
       {
         method: "POST",
         headers: {
-          Authorization: "Basic " + btoa("api:" + this.apiKey)
+          Authorization: "Basic " + btoa("api:" + this.apiKey),
         },
-        body: member
+        body: member,
       }
     );
 
@@ -66,9 +66,9 @@ class MailgunClient {
       {
         method: "PUT",
         headers: {
-          Authorization: "Basic " + btoa("api:" + this.apiKey)
+          Authorization: "Basic " + btoa("api:" + this.apiKey),
         },
-        body: subscription
+        body: subscription,
       }
     );
 
@@ -111,9 +111,9 @@ Cheers, <a href="https://nicholas.cloud/">Nicholas</a>
       {
         method: "POST",
         headers: {
-          Authorization: "Basic " + btoa("api:" + this.apiKey)
+          Authorization: "Basic " + btoa("api:" + this.apiKey),
         },
-        body: message
+        body: message,
       }
     );
 
@@ -131,8 +131,8 @@ Cheers, <a href="https://nicholas.cloud/">Nicholas</a>
       {
         method: "DELETE",
         headers: {
-          Authorization: "Basic " + btoa("api:" + MAILGUN_API_KEY)
-        }
+          Authorization: "Basic " + btoa("api:" + MAILGUN_API_KEY),
+        },
       }
     );
 
@@ -156,7 +156,7 @@ class EmailSignatures {
   async getSigningKey() {
     return await crypto.subtle.importKey(
       "raw",
-      new Uint8Array(this.signingSecret.split(",").map(n => parseInt(n, 16))),
+      new Uint8Array(this.signingSecret.split(",").map((n) => parseInt(n, 16))),
       { name: "HMAC", hash: "SHA-256" },
       true,
       ["sign", "verify"]
@@ -172,7 +172,7 @@ class EmailSignatures {
     );
 
     return Array.from(new Uint8Array(sigBuffer))
-      .map(n => n.toString(16).padStart(2, "0"))
+      .map((n) => n.toString(16).padStart(2, "0"))
       .join("");
   }
 
@@ -200,7 +200,7 @@ const mailgun = new MailgunClient(
 );
 const signatures = new EmailSignatures(ENV_EMAIL_SIGNING_SECRET);
 
-addEventListener("fetch", event => {
+addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));
 });
 
@@ -217,7 +217,7 @@ async function handleRequest(event) {
     } else if (path === "/newsletter/subscribe") {
       return new Response("", {
         status: 302,
-        headers: { Location: "https://nicholas.cloud/newsletter/subscribe/" }
+        headers: { Location: "https://nicholas.cloud/newsletter/subscribe/" },
       });
     }
     return new Response("Not found\n", { status: 404 });
@@ -302,9 +302,9 @@ code {
 `,
     {
       headers: {
-        "Content-Type": "text/html"
+        "Content-Type": "text/html",
       },
-      status: 200
+      status: 200,
     }
   );
 }
@@ -339,7 +339,7 @@ async function acceptRegistration(event) {
   return new Response(
     "Please check your inbox, a confirmation email is on its way!\n",
     {
-      status: 200
+      status: 200,
     }
   );
 }
