@@ -9,6 +9,9 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "webpack-cli": "~3.3.11"
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2"
   }
 }
