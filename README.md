@@ -39,6 +39,12 @@ rush rebuild
 rush rebuild --to @nchlswhttkr/newsletter-subscription-form
 ```
 
+New workers can be created from the template worker. Make sure to add them the `rush.json` config so they will be published!
+
+```
+./new-worker.sh "new-worker-name"
+```
+
 ## Packages
 
 ### hero-of-time-link

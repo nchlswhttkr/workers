@@ -2,7 +2,7 @@
 
 set -eu
 
-prettier --check "**/*.js"
+prettier --ignore-path "../../.prettierignore" --check "**/*.js"
 
 source ../../set-cloudflare-secrets.sh
 wrangler publish
