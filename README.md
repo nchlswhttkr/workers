@@ -10,6 +10,7 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 | [@nchlswhttkr/newsletter-subscription-form](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter         |
 | [@nchlswhttkr/markdown-reader](#markdown-reader)                           | A reader for web-hosted markdown files                               |
 | [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Running Golang as WASM inside Cloudflare Workers                     |
+| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Handles redirects from my old domain to various destinations         |
 | [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds |
 | [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers       |
 
@@ -103,6 +104,14 @@ To look at a particular file, pass it in via the `url` parameter.
 Running Golang as WASM inside Cloudflare Workers.
 
 You will need to have [TinyGo](https://tinygo.org/) installed.
+
+---
+
+### nchlswhttkr-dot-com
+
+Handles redirects from my old domain to various destinations.
+
+For reference, you can see [the old Nginx config](https://gist.github.com/nchlswhttkr/77239b402f2481c01c6e3ffa1a59127a) this worker replaces.
 
 ---
 

@@ -5,6 +5,7 @@ dependencies:
   '@rush-temp/hero-of-time-link': 'file:projects/hero-of-time-link.tgz'
   '@rush-temp/inject-env-loader': 'file:projects/inject-env-loader.tgz_webpack-cli@3.3.12'
   '@rush-temp/markdown-reader': 'file:projects/markdown-reader.tgz_webpack@4.44.2'
+  '@rush-temp/nchlswhttkr-dot-com': 'file:projects/nchlswhttkr-dot-com.tgz'
   '@rush-temp/newsletter-subscription-form': 'file:projects/newsletter-subscription-form.tgz_webpack@4.44.2'
   babel-loader: 8.1.0_d2a654c8b7ff226093b38eb7b56a78a8
   dotenv: 8.2.0
@@ -3066,6 +3067,15 @@ packages:
       integrity: sha512-Gf6NYw/pF9VG7prbtX49qK7d6NTVABAdDsNtEqiD86TApC0Dy31Yo6DbAVbm/gZVuf5jPB/4b7YIZK79h3No9w==
       tarball: 'file:projects/markdown-reader.tgz'
     version: 0.0.0
+  'file:projects/nchlswhttkr-dot-com.tgz':
+    dependencies:
+      prettier: 2.1.2
+    dev: false
+    name: '@rush-temp/nchlswhttkr-dot-com'
+    resolution:
+      integrity: sha512-xBxuaABnMq2ZzgJQ1TELNAbV7mmUywKHZzWcC0iUhjnUQambXroxJeqDqqvwImHoE7ozCgIFOjcPmOKcXUFapw==
+      tarball: 'file:projects/nchlswhttkr-dot-com.tgz'
+    version: 0.0.0
   'file:projects/newsletter-subscription-form.tgz_webpack@4.44.2':
     dependencies:
       prettier: 2.1.2
@@ -3087,6 +3097,7 @@ specifiers:
   '@rush-temp/hero-of-time-link': 'file:./projects/hero-of-time-link.tgz'
   '@rush-temp/inject-env-loader': 'file:./projects/inject-env-loader.tgz'
   '@rush-temp/markdown-reader': 'file:./projects/markdown-reader.tgz'
+  '@rush-temp/nchlswhttkr-dot-com': 'file:./projects/nchlswhttkr-dot-com.tgz'
   '@rush-temp/newsletter-subscription-form': 'file:./projects/newsletter-subscription-form.tgz'
   babel-loader: ^8.1.0
   dotenv: ^8.2.0
