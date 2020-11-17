@@ -10,7 +10,7 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 | [@nchlswhttkr/newsletter-subscription-form](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter         |
 | [@nchlswhttkr/markdown-reader](#markdown-reader)                           | A reader for web-hosted markdown files                               |
 | [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Running Golang as WASM inside Cloudflare Workers                     |
-| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Handles redirects from my old domain to various destinations         |
+| [@nchlswhttkr/nchlswhttkr-dot-com](#nchlswhttkr-dot-com)                   | Handles redirects from my old domain to various destinations         |
 | [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds |
 | [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers       |
 
@@ -52,7 +52,7 @@ New workers can be created from the template worker. Make sure to add them the `
 
 ![Link and Ezlo from The Legend of Zelda: The Minish Cap dashing forward](https://gamepedia.cursecdn.com/zelda_gamepedia_en/a/af/PegasusBootsTMC.png)
 
-My personal shortcut service. For example, https://nicholas.cloud/goto/recursion redirects back here.
+My personal shortcut service off Workers KV. For example, https://nicholas.cloud/goto/recursion redirects back here.
 
 Requests are redirected based on the links in a `shortcuts.json` file. The key for each shortcut must be **alphanumeric**.
 
