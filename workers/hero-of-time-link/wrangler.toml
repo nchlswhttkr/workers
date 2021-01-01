@@ -1,5 +1,4 @@
 name = "hero-of-time-link"
-type = "webpack"
-webpack_config = "webpack.config.js"
+type = "javascript"
 route = "nicholas.cloud/goto*"
 kv_namespaces = [{ binding="SHORTCUTS", id="5504ea7cb33b4d2c908da38ebbb6ac29" }]
