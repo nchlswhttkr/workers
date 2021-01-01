@@ -8,7 +8,7 @@ require("dotenv").config();
  *
  * https://github.com/babel/babel-loader#customized-loader
  */
-module.exports = require("babel-loader").custom(babel => {
+module.exports = require("babel-loader").custom((babel) => {
   function injectEnvionrmentVariablesPlugin({ types }) {
     return {
       visitor: {
@@ -25,12 +25,12 @@ module.exports = require("babel-loader").custom(babel => {
               throw new Error(`The environment variable ${suffix} must be set`);
             }
           }
-        }
-      }
+        },
+      },
     };
   }
 
   return {
-    config: () => ({ plugins: [injectEnvionrmentVariablesPlugin] })
+    config: () => ({ plugins: [injectEnvionrmentVariablesPlugin] }),
   };
 });

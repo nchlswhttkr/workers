@@ -11,7 +11,7 @@
     "webpack": "^4.44.2"
   },
   "scripts": {
-    "build": "prettier \"**/*.js\""
+    "build": "source build.sh"
   },
   "devDependencies": {
     "prettier": "^2.1.2"
