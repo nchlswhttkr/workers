@@ -4,15 +4,16 @@ My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
 This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org/), none of these packages are published publicly.
 
-|                                                                            |                                                                      |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                       | Redirects requests based off a dynamic file                          |
-| [@nchlswhttkr/newsletter-subscription-form](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter         |
-| [@nchlswhttkr/markdown-reader](#markdown-reader)                           | A reader for web-hosted markdown files                               |
-| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Running Golang as WASM inside Cloudflare Workers                     |
-| [@nchlswhttkr/nchlswhttkr-dot-com](#nchlswhttkr-dot-com)                   | Handles redirects from my old domain to various destinations         |
-| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds |
-| [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers       |
+|                                                                            |                                                                                                                            |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [@nchlswhttkr/hero-of-time-link](#hero-of-time-link)                       | Redirects requests based off a dynamic file                                                                                |
+| [@nchlswhttkr/newsletter-subscription-form](#newsletter-subscription-form) | Manages requests to subscribe/unsubscribe from my newsletter                                                               |
+| [@nchlswhttkr/markdown-reader](#markdown-reader)                           | A reader for web-hosted markdown files                                                                                     |
+| [@nchlswhttkr/experimental-golang-worker](#experimental-golang-worker)     | Running Golang as WASM inside Cloudflare Workers                                                                           |
+| [@nchlswhttkr/nchlswhttkr-dot-com](#nchlswhttkr-dot-com)                   | Handles redirects from my old domain to various destinations                                                               |
+| [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds                                                       |
+| [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers                                                             |
+| [@nchlswhttkr/hugo-proxy]                                                  | Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website |
 
 ## Usage
 
@@ -139,3 +140,11 @@ For example, with the line `PASSWORD=abc123` in your `.env` file, your build out
 Having some fun with isolate persistence in Cloudflare Workers.
 
 Repeated requests to https://counter.nchlswhttkr.workers.dev will increment the counter, so long as you continue to hit the same node and the isolate is not discarded.
+
+---
+
+### hugo-proxy
+
+Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
+
+<!-- TODO explain -->

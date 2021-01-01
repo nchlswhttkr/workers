@@ -316,6 +316,10 @@
     {
       "packageName": "@nchlswhttkr/nchlswhttkr-dot-com",
       "projectFolder": "workers/nchlswhttkr-dot-com"
+    },
+    {
+      "packageName": "@nchlswhttkr/hugo-proxy",
+      "projectFolder": "workers/hugo-proxy"
     }
     // {
     //   /**
