@@ -1,5 +1,6 @@
 dependencies:
   '@babel/core': 7.11.6
+  '@rush-temp/bandcamp-embed-cors-proxy': 'file:projects/bandcamp-embed-cors-proxy.tgz'
   '@rush-temp/counter': 'file:projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:projects/experimental-golang-worker.tgz_webpack@4.44.2'
   '@rush-temp/hero-of-time-link': 'file:projects/hero-of-time-link.tgz'
@@ -3007,6 +3008,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
+  'file:projects/bandcamp-embed-cors-proxy.tgz':
+    dependencies:
+      prettier: 2.1.2
+    dev: false
+    name: '@rush-temp/bandcamp-embed-cors-proxy'
+    resolution:
+      integrity: sha512-dAtIKeL8tKl7QUcMoTHfUP6oZuwkL1eEsvJVVukpB/0/L3QKWNds1L4J8M0GKGxjlqOBESa1qgFqhO7ZUf2s1g==
+      tarball: 'file:projects/bandcamp-embed-cors-proxy.tgz'
+    version: 0.0.0
   'file:projects/counter.tgz':
     dependencies:
       prettier: 2.1.2
@@ -3044,7 +3054,7 @@ packages:
     dev: false
     name: '@rush-temp/hugo-proxy'
     resolution:
-      integrity: sha512-K6zkuZGkf2OeYlHE0CGXJ/UZaXKsz9YaqgiLYonvqxd2gB43b+bZVICINkXZTbfhUBxevLuBZXW7ivvUs0tjPQ==
+      integrity: sha512-PEw7OSv4Wkx/jv4kiGEIttAI/QKjP15gmDv2AiEHp+kBnc6oTDLjzn1404ImqaR4qZK6pYD0wWdXG1VQmaJ5eg==
       tarball: 'file:projects/hugo-proxy.tgz'
     version: 0.0.0
   'file:projects/inject-env-loader.tgz_webpack-cli@3.3.12':
@@ -3102,6 +3112,7 @@ packages:
 registry: ''
 specifiers:
   '@babel/core': ^7.11.6
+  '@rush-temp/bandcamp-embed-cors-proxy': 'file:./projects/bandcamp-embed-cors-proxy.tgz'
   '@rush-temp/counter': 'file:./projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:./projects/experimental-golang-worker.tgz'
   '@rush-temp/hero-of-time-link': 'file:./projects/hero-of-time-link.tgz'

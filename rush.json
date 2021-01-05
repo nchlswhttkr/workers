@@ -320,6 +320,10 @@
     {
       "packageName": "@nchlswhttkr/hugo-proxy",
       "projectFolder": "workers/hugo-proxy"
+    },
+    {
+      "packageName": "@nchlswhttkr/bandcamp-embed-cors-proxy",
+      "projectFolder": "workers/bandcamp-embed-cors-proxy"
     }
     // {
     //   /**

@@ -1,0 +1,14 @@
+{
+    "name": "@nchlswhttkr/bandcamp-embed-cors-proxy",
+    "version": "0.1.0",
+    "description": "Proxies requests for my custom Bandcamp embed, adding CORS headers",
+    "scripts": {
+        "build": "source build.sh"
+    },
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "prettier": "^2.1.2"
+    },
+    "main": "index.js"
+}

@@ -92,18 +92,12 @@ async function loadBandcampAlbum(artist, album) {
     throw new Error(`Received ${r.status} from Bandcamp`);
   });
 
-  const title = bandcamp.match(/<meta property="og:title" content="(.*)">/);
-  const albumId = bandcamp.match(/\/album=([0-9]*)\//);
-  if (title === null) {
-    throw new Error("Could not find title");
-  }
+  const albumId = bandcamp.match(/<!-- album id ([0-9]*) -->\n$/);
   if (albumId === null) {
     throw new Error("Could not find album ID");
   }
 
   return JSON.stringify({
-    title: title[1],
     albumId: albumId[1],
-    url,
   });
 }

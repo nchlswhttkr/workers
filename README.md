@@ -13,7 +13,8 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 | [@nchlswhttkr/nchlswhttkr-dot-com](#nchlswhttkr-dot-com)                   | Handles redirects from my old domain to various destinations                                                               |
 | [@nchlswhttkr/inject-env-loader](#inject-env-loader)                       | A Webpack loader to inject environment variables as a part of builds                                                       |
 | [@nchlswhttkr/counter](#counter)                                           | Having some fun with isolate persistence in Cloudflare Workers                                                             |
-| [@nchlswhttkr/hugo-proxy]                                                  | Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website |
+| [@nchlswhttkr/hugo-proxy](#hugo-proxy)                                     | Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website |
+| [@nchlswhttkr/bandcamp-embed-cors-proxy](#bandcamp-embed-cors-proxy)       | Proxies requests for my custom Bandcamp embed, adding CORS headers                                                         |
 
 ## Usage
 
@@ -148,3 +149,9 @@ Repeated requests to https://counter.nchlswhttkr.workers.dev will increment the 
 Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
 
 <!-- TODO explain -->
+
+---
+
+### bandcamp-embed-cors-proxy
+
+Proxies requests for [my custom Bandcamp embed](https://github.com/nchlswhttkr/bandcamp-mini-embed), adding CORS headers.
