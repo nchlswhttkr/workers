@@ -15,11 +15,7 @@ async function handleRequest(event) {
     if (clientIP === null) {
       throw new Error("No client IP");
     }
-    if (origin === null) {
-      throw new Error("No origin");
-    } else if (
-      ![url.hostname, "localhost"].includes(new URL(origin).hostname)
-    ) {
+    if (origin !== null && origin !== "localhost") {
       throw new Error("Bad origin");
     }
     if (referer === null) {
