@@ -8,7 +8,7 @@ addEventListener("fetch", (event) => {
 async function handleRequest(request) {
   // Create our instance, with an imported function
   const go = new Go();
-  go.importObject.env["main.go.sayHello"] = () => {
+  go.importObject.env["command-line-arguments.sayHello"] = () => {
     console.log("Hello from the imported function!");
   };
   const instance = await WebAssembly.instantiate(WASM, go.importObject);
