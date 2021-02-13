@@ -324,6 +324,10 @@
     {
       "packageName": "@nchlswhttkr/bandcamp-embed-cors-proxy",
       "projectFolder": "workers/bandcamp-embed-cors-proxy"
+    },
+    {
+      "packageName": "@nchlswhttkr/buildkite-log-viewer",
+      "projectFolder": "workers/buildkite-log-viewer"
     }
     // {
     //   /**

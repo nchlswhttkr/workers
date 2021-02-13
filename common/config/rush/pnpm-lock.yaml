@@ -1,6 +1,7 @@
 dependencies:
   '@babel/core': 7.11.6
   '@rush-temp/bandcamp-embed-cors-proxy': 'file:projects/bandcamp-embed-cors-proxy.tgz'
+  '@rush-temp/buildkite-log-viewer': 'file:projects/buildkite-log-viewer.tgz'
   '@rush-temp/counter': 'file:projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:projects/experimental-golang-worker.tgz_webpack@4.44.2'
   '@rush-temp/hero-of-time-link': 'file:projects/hero-of-time-link.tgz'
@@ -3017,6 +3018,15 @@ packages:
       integrity: sha512-dAtIKeL8tKl7QUcMoTHfUP6oZuwkL1eEsvJVVukpB/0/L3QKWNds1L4J8M0GKGxjlqOBESa1qgFqhO7ZUf2s1g==
       tarball: 'file:projects/bandcamp-embed-cors-proxy.tgz'
     version: 0.0.0
+  'file:projects/buildkite-log-viewer.tgz':
+    dependencies:
+      prettier: 2.1.2
+    dev: false
+    name: '@rush-temp/buildkite-log-viewer'
+    resolution:
+      integrity: sha512-sFWw1g47Z4LPXxQtoBLYQEVGIbi0rH0pBmG5x895Oc2US+YsunAYKL6CU/uZvSZbusPHZDZCa5n38cU/8/bIIg==
+      tarball: 'file:projects/buildkite-log-viewer.tgz'
+    version: 0.0.0
   'file:projects/counter.tgz':
     dependencies:
       prettier: 2.1.2
@@ -3113,6 +3123,7 @@ registry: ''
 specifiers:
   '@babel/core': ^7.11.6
   '@rush-temp/bandcamp-embed-cors-proxy': 'file:./projects/bandcamp-embed-cors-proxy.tgz'
+  '@rush-temp/buildkite-log-viewer': 'file:./projects/buildkite-log-viewer.tgz'
   '@rush-temp/counter': 'file:./projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:./projects/experimental-golang-worker.tgz'
   '@rush-temp/hero-of-time-link': 'file:./projects/hero-of-time-link.tgz'
