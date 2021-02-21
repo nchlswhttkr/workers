@@ -57,6 +57,29 @@ async function handleRequest(event) {
       });
     }
 
+    // VIMEO VIDEOS
+    if (url.pathname === "/vimeo") {
+      const id = url.searchParams.get("id");
+      if (!id) {
+        throw new Error("Expected ID for Vimeo video");
+      }
+
+      let responseKey = `vimeo_${id}`;
+      let response = await CACHED_RESPONSES.get(responseKey);
+      if (!response) {
+        if (!WRITE_ALLOWED) {
+          throw new Error("Cached response not found, write permission needed");
+        }
+        response = await loadVimeoVideo(id);
+        await CACHED_RESPONSES.put(responseKey, response);
+      }
+
+      return new Response(response, {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     // 404
     return new Response("404 Not Found", { status: 404 });
   } catch (error) {
@@ -77,9 +100,36 @@ async function loadYoutubeVideo(id) {
   return JSON.stringify({
     channel_url: `https://youtube.com/channel/${video.items[0].snippet.channelId}`,
     channel_title: video.items[0].snippet.channelTitle,
-    thumbnail_url: video.items[0].snippet.thumbnails.standard.url,
+    thumbnail_url: video.items[0].snippet.thumbnails.high.url,
     video_title: video.items[0].snippet.title,
     video_url: `https://youtube.com/watch?v=${video.items[0].id}`,
+  });
+}
+
+async function loadVimeoVideo(id) {
+  const video = await fetch(`https://api.vimeo.com/videos/${id}`, {
+    headers: { Authorization: `Bearer ${ENV_VIMEO_SECRET_KEY}` },
+  }).then((r) => {
+    if (r.status !== 200) {
+      throw new Error(`Request to Vimeo failed, received ${r.status}`);
+    }
+    return r.json();
+  });
+
+  const width = 480;
+  const height = Math.floor(
+    (width * video.pictures.sizes[0].height) / video.pictures.sizes[0].width
+  );
+
+  // prettier-ignore
+  return JSON.stringify({
+    channel_url: video.user.link,
+    channel_title: video.user.name,
+    thumbnail_url: `https://i.vimeocdn.com/video/${video.pictures.uri.split('/')[4]}_${width}x${height}.jpg`, // "?r=pad"
+    thumbnail_height: height,
+    thumbnail_width: width,
+    video_title: video.name,
+    video_url: video.link,
   });
 }
 
