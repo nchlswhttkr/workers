@@ -131,7 +131,7 @@ async function loadYoutubeVideo(id) {
 
 async function loadVimeoVideo(id) {
   const video = await fetch(`https://api.vimeo.com/videos/${id}`, {
-    headers: { Authorization: `Bearer ${ENV_VIMEO_SECRET_KEY}` },
+    headers: { Authorization: "Bearer " + ENV_VIMEO_SECRET_KEY },
   }).then((r) => {
     if (r.status !== 200) {
       throw new Error(`Request to Vimeo failed, received ${r.status}`);
@@ -140,9 +140,7 @@ async function loadVimeoVideo(id) {
   });
 
   const width = 480;
-  const height = Math.floor(
-    (width * video.pictures.sizes[0].height) / video.pictures.sizes[0].width
-  );
+  const height = Math.floor((width * video.height) / video.width);
 
   // prettier-ignore
   return JSON.stringify({
