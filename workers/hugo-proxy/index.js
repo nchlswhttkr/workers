@@ -140,7 +140,7 @@ async function loadVimeoVideo(id) {
   });
 
   const width = 480;
-  const height = Math.floor((width * video.height) / video.width);
+  const height = Math.ceil((width * video.height) / video.width);
 
   // prettier-ignore
   return JSON.stringify({
