@@ -80,6 +80,29 @@ async function handleRequest(event) {
       });
     }
 
+    // TWITTER TWEETS
+    if (url.pathname === "/twitter") {
+      const id = url.searchParams.get("id");
+      if (!id) {
+        throw new Error("Expected ID for Twitter tweet");
+      }
+
+      let responseKey = `twitter_${id}`;
+      let response = await CACHED_RESPONSES.get(responseKey);
+      if (!response) {
+        if (!WRITE_ALLOWED) {
+          throw new Error("Cached response not found, write permission needed");
+        }
+        response = await loadTwitterTweet(id);
+        await CACHED_RESPONSES.put(responseKey, response);
+      }
+
+      return new Response(response, {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     // 404
     return new Response("404 Not Found", { status: 404 });
   } catch (error) {
@@ -149,5 +172,87 @@ async function loadBandcampAlbum(artist, album) {
 
   return JSON.stringify({
     albumId: albumId[1],
+  });
+}
+
+async function loadTwitterTweet(id) {
+  let tweet = await fetch(
+    `https://cdn.syndication.twimg.com/tweet?id=${id}`
+  ).then((r) => {
+    if (r.status === 200) {
+      return r.json();
+    }
+    throw new Error(`Received ${r.status} from Twitter`);
+  });
+
+  let text = tweet.text;
+  // TODO should use text substitution
+  for (let media of tweet.entities.media || []) {
+    text = text.replace(media.url, "");
+  }
+  for (let url of tweet.entities.urls) {
+    text = text.replace(
+      url.url,
+      `<a href="${url.expanded_url}">${url.display_url}</a>`
+    );
+  }
+  for (let hashtag of tweet.entities.hashtags) {
+    text = text.replace(
+      `#${hashtag.text}`,
+      `<a href="https://twitter.com/hashtag/${hashtag.text}?src=hashtag_click">#${hashtag.text}</a>`
+    );
+  }
+  for (let mention of tweet.entities.user_mentions) {
+    text = text.replace(
+      `@${mention.screen_name}`,
+      `<a href="https://twitter.com/${mention.screen_name}">@${mention.screen_name}</a>`
+    );
+  }
+  text = text.replace(/\n/g, "<br>");
+  // TODO Some injection protection check would be nice, but not essential
+
+  let video =
+    tweet.video &&
+    tweet.video.variants
+      .filter((v) => v.type === "video/mp4")
+      .map((video) => {
+        const dimensions = video.src.match(/\/vid\/([0-9]+)x([0-9]+)\//);
+        if (dimensions === null) {
+          throw new Error("Could not determine video dimensions");
+        }
+        return {
+          src: video.src,
+          type: video.type,
+          width: dimensions[1],
+          height: dimensions[2],
+        };
+      })
+      // TECH DEBT IN ACTION to find the right size video
+      .sort((v1, v2) =>
+        Number.parseInt(v1.width) > Number.parseInt(v2.width) ? 1 : -1
+      )
+      .find((v) => Number.parseInt(v.width) >= 400);
+
+  return JSON.stringify({
+    author_name: tweet.user.name,
+    author_username: tweet.user.screen_name,
+    author_url: "https://twitter.com/" + tweet.user.screen_name,
+    author_avatar_url: tweet.user.profile_image_url_https,
+    created_at: new Date(tweet.created_at).toUTCString().substring(5),
+    text,
+    raw_text: tweet.text,
+    like_tweet_url: "https://twitter.com/intent/like?tweet_id=" + tweet.id_str,
+    reply_tweet_url:
+      "https://twitter.com/intent/tweet?in_reply_to=" + tweet.id_str,
+    retweet_tweet_url:
+      "https://twitter.com/intent/retweet?tweet_id=" + tweet.id_str,
+    tweet_url: `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`,
+    photos: (tweet.photos || []).map((p) => ({
+      alt: p.accessibilityLabel,
+      url: p.url,
+      width: p.width,
+      height: p.height,
+    })),
+    video: video || null,
   });
 }
