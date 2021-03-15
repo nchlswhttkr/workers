@@ -167,9 +167,16 @@ async function loadBandcampAlbum(artist, album) {
   if (albumId === null) {
     throw new Error("Could not find album ID");
   }
+  let title = bandcamp.match(/<meta name="title" content="(.*)">/);
+  if (title === null) {
+    throw new Error("Could not find title");
+  } else {
+    title = title[1].replace(/&amp;/g, "&").replace(/&#39;/g, "'");
+  }
 
   return JSON.stringify({
     albumId: albumId[1],
+    title,
   });
 }
 
