@@ -3,5 +3,9 @@ addEventListener("fetch", (event) => {
 });
 
 async function handleRequest(event) {
-  return new Response("Hello world", { status: 200 });
+  try {
+    return new Response("Hello world", { status: 200 });
+  } catch (error) {
+    return new Response(error, { status: 500 })
+  }
 }

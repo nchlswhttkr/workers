@@ -2,4 +2,7 @@ name = "hugo-proxy"
 type = "webpack"
 webpack_config = "webpack.config.js"
 workers_dev = true
-kv_namespaces = [{ binding="CACHED_RESPONSES", id="145ec58b13f846faa2a105356c1b30ec" }]
+kv_namespaces = [
+    { binding="CACHED_RESPONSES", id="145ec58b13f846faa2a105356c1b30ec" },
+    { binding="CACHED_MEDIA", id="c976e3cbe4e24b8a8387e43ec4bf1236" },
+]

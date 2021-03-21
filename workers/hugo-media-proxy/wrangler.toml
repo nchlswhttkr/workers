@@ -1,0 +1,6 @@
+name = "hugo-media-proxy"
+type = "javascript"
+workers_dev = true
+kv_namespaces = [
+    { binding="CACHED_MEDIA", id="c976e3cbe4e24b8a8387e43ec4bf1236" },
+]

@@ -4,6 +4,7 @@ dependencies:
   '@rush-temp/counter': 'file:projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:projects/experimental-golang-worker.tgz_webpack@4.44.2'
   '@rush-temp/hero-of-time-link': 'file:projects/hero-of-time-link.tgz'
+  '@rush-temp/hugo-media-proxy': 'file:projects/hugo-media-proxy.tgz'
   '@rush-temp/hugo-proxy': 'file:projects/hugo-proxy.tgz'
   '@rush-temp/inject-env-loader': 'file:projects/inject-env-loader.tgz_webpack-cli@3.3.12'
   '@rush-temp/markdown-reader': 'file:projects/markdown-reader.tgz_webpack@4.44.2'
@@ -3048,6 +3049,15 @@ packages:
       integrity: sha512-KS2F4XS0mZXzWc80Q9FKETlNZxdH/r53Bcl8d1yQXZzJCcbSncOZgdejtRz3r25jxGqKbtmMhGextgNj+25VyQ==
       tarball: 'file:projects/hero-of-time-link.tgz'
     version: 0.0.0
+  'file:projects/hugo-media-proxy.tgz':
+    dependencies:
+      prettier: 2.1.2
+    dev: false
+    name: '@rush-temp/hugo-media-proxy'
+    resolution:
+      integrity: sha512-Bco3BG4vLvLVQ+By/onxRkod62JQrvbqi+Bvfjoka3fDoODNhJS1moxNfNbT7eR5IIQFCRtUMNp/C2uwqewwUw==
+      tarball: 'file:projects/hugo-media-proxy.tgz'
+    version: 0.0.0
   'file:projects/hugo-proxy.tgz':
     dependencies:
       prettier: 2.1.2
@@ -3116,6 +3126,7 @@ specifiers:
   '@rush-temp/counter': 'file:./projects/counter.tgz'
   '@rush-temp/experimental-golang-worker': 'file:./projects/experimental-golang-worker.tgz'
   '@rush-temp/hero-of-time-link': 'file:./projects/hero-of-time-link.tgz'
+  '@rush-temp/hugo-media-proxy': 'file:./projects/hugo-media-proxy.tgz'
   '@rush-temp/hugo-proxy': 'file:./projects/hugo-proxy.tgz'
   '@rush-temp/inject-env-loader': 'file:./projects/inject-env-loader.tgz'
   '@rush-temp/markdown-reader': 'file:./projects/markdown-reader.tgz'

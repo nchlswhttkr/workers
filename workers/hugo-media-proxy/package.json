@@ -1,0 +1,14 @@
+{
+    "name": "@nchlswhttkr/hugo-media-proxy",
+    "version": "0.1.0",
+    "description": "",
+    "scripts": {
+        "build": "source build.sh"
+    },
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "prettier": "^2.1.2"
+    },
+    "main": "index.js"
+}

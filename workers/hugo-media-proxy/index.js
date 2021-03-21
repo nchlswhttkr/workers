@@ -1,0 +1,67 @@
+// TODO: Make use of cache https://github.com/cloudflare/kv-asset-handler/blob/master/src/index.ts
+
+addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event));
+});
+
+async function handleRequest(event) {
+  try {
+    const url = new URL(event.request.url);
+    const key = url.searchParams.get("url");
+    if (key === null) throw new Error("Expected key");
+    let media = await CACHED_MEDIA.get(
+      url.searchParams.get("url"),
+      "arrayBuffer"
+    );
+
+    if (!media) {
+      return new Response("", { status: 404 });
+    }
+
+    if (url.pathname === "/base64") {
+      return new Response(
+        JSON.stringify({
+          media: btoa(
+            Array.from(new Uint8Array(media), (byte) =>
+              String.fromCharCode(byte)
+            ).join("")
+          ),
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    } else {
+      return new Response(media, {
+        status: 200,
+        headers: {
+          "Accept-Ranges": "bytes",
+          "Content-Length": media.length,
+          "Content-Type": getMime(key),
+        },
+      });
+    }
+  } catch (error) {
+    return new Response(error, { status: 500 });
+  }
+}
+
+function getMime(key) {
+  const extension = key
+    .split("?")[0]
+    .split(".")
+    .reduce((_, value) => value);
+  console.log(extension);
+  switch (extension) {
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "png":
+      return "image/png";
+    case "mp4":
+      return "video/mp4";
+    default:
+      throw new Error("Could not determine MIME type");
+  }
+}
