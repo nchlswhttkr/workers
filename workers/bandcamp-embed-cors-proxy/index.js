@@ -30,9 +30,23 @@ async function handleRequest(event) {
     );
     request.headers.set("X-Forwarded-For", clientIP);
     request.headers.set("Forwarded", `for=${clientIP}`);
-    let response = await fetch(request);
-    response = new Response(response.body, response);
-    response.headers.append("Access-Control-Allow-Origin", origin);
+    let body = await fetch(request)
+      .then((r) => {
+        if (r.status !== 200) {
+          throw new Error(`Received status ${r.status} from Bandcamp`);
+        }
+        return r.text();
+      })
+      .then((text) => {
+        return JSON.parse(
+          text.match(/data-player-data="([^"]*)"/)[1].replace(/&quot;/g, '"')
+        );
+      });
+
+    const response = new Response(JSON.stringify(body), {
+      status: 200,
+      headers: { "Access-Control-Allow-Origin": origin },
+    });
     return response;
   } catch (error) {
     return new Response(error, {
