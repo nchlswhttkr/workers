@@ -6,6 +6,13 @@ addEventListener("fetch", (event) => {
 
 async function handleRequest(event) {
   try {
+    // First try to get from cache
+    let response = await caches.default.match(event.request);
+    if (response) {
+      return response;
+    }
+
+    // Otherwise read
     const url = new URL(event.request.url);
     const key = url.searchParams.get("url");
     if (key === null) throw new Error("Expected key");
@@ -19,7 +26,7 @@ async function handleRequest(event) {
     }
 
     if (url.pathname === "/base64") {
-      return new Response(
+      response = new Response(
         JSON.stringify({
           media: btoa(
             Array.from(new Uint8Array(media), (byte) =>
@@ -33,7 +40,7 @@ async function handleRequest(event) {
         }
       );
     } else {
-      return new Response(media, {
+      response = new Response(media, {
         status: 200,
         headers: {
           "Accept-Ranges": "bytes",
@@ -42,6 +49,8 @@ async function handleRequest(event) {
         },
       });
     }
+    event.waitUntil(caches.default.put(event.request, response.clone()));
+    return response;
   } catch (error) {
     return new Response(error, { status: 500 });
   }
