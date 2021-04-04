@@ -106,6 +106,13 @@ async function loadTwitterTweet(id) {
   text = text.replace(/\n/g, "<br>");
   // TODO Some injection protection check would be nice, but not essential
 
+  let photos = (tweet.photos || []).map((p) => ({
+    alt: p.accessibilityLabel,
+    url: p.url + "?name=medium",
+    high_res_url: p.url + "?name=orig",
+    width: p.width,
+    height: p.height,
+  }));
   let video =
     tweet.video &&
     tweet.video.variants
@@ -128,11 +135,20 @@ async function loadTwitterTweet(id) {
       )
       .find((v) => Number.parseInt(v.width) >= 400);
 
+  // Cache media
+  for (let p of photos) {
+    await storedMediaAt(p.url);
+    await storedMediaAt(p.high_res_url);
+  }
+  if (!!video) {
+    await storedMediaAt(video.src);
+  }
+
   return {
     author_name: tweet.user.name,
     author_username: tweet.user.screen_name,
     author_url: "https://twitter.com/" + tweet.user.screen_name,
-    author_avatar_url: tweet.user.profile_image_url_https,
+    author_avatar_url: await storedMediaAt(tweet.user.profile_image_url_https),
     created_at: new Date(tweet.created_at).toUTCString().substring(5),
     text,
     raw_text: tweet.text,
@@ -142,12 +158,7 @@ async function loadTwitterTweet(id) {
     retweet_tweet_url:
       "https://twitter.com/intent/retweet?tweet_id=" + tweet.id_str,
     tweet_url: `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`,
-    photos: (tweet.photos || []).map((p) => ({
-      alt: p.accessibilityLabel,
-      url: p.url + "?name=medium",
-      width: p.width,
-      height: p.height,
-    })),
+    photos,
     video: video || null,
   };
 }
