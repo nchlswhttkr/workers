@@ -131,9 +131,16 @@ async function loadTwitterTweet(id) {
       })
       // TECH DEBT IN ACTION to find the right size video
       .sort((v1, v2) =>
-        Number.parseInt(v1.width) > Number.parseInt(v2.width) ? 1 : -1
+        Number.parseInt(v1.width) > Number.parseInt(v2.width) ? -1 : 1
       )
-      .find((v) => Number.parseInt(v.width) >= 400);
+      .reduce((previous, current) => {
+        if (previous === undefined) {
+          return current;
+        } else if (Number.parseInt(current.width) >= 400) {
+          return current;
+        }
+        return previous;
+      }, undefined);
 
   // Cache media
   for (let p of photos) {

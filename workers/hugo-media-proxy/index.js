@@ -25,7 +25,7 @@ async function handleRequest(event) {
       return new Response("", { status: 404 });
     }
 
-    if (url.pathname === "/base64") {
+    if (url.searchParams.get("base64") === "true") {
       response = new Response(
         JSON.stringify({
           media: btoa(
