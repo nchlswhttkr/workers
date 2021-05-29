@@ -21,6 +21,8 @@ async function handleRequest(event) {
     return redirect("https://github.com/nchlswhttkr/barhack/");
   } else if (url.hostname.startsWith("www")) {
     return redirect(`https://nicholas.cloud${url.pathname}`);
+  } else if (url.hostname.startsWith("dalordish")) {
+    return redirect("https://www.youtube.com/watch?v=ktxtvMqmqu8");
   }
   return redirect(`https://nicholas.cloud${url.pathname}`);
 }
