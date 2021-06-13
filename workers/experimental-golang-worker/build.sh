@@ -8,7 +8,7 @@ tinygo version
 tinygo build -o worker/main.wasm -target wasm main.go
 
 curl --silent --fail --output wasm_exec.js https://raw.githubusercontent.com/tinygo-org/tinygo/HEAD/targets/wasm_exec.js
-webpack-cli --output worker/script.js
+webpack-cli build
 
 source ../../set-cloudflare-secrets.sh
 export WORKER_NAME=experimental-golang-worker

@@ -8,8 +8,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@nchlswhttkr/inject-env-loader": "~0.1.0",
-    "webpack-cli": "^3.3.12"
+    "@nchlswhttkr/inject-env-loader": "~0.1.0"
   },
   "devDependencies": {
     "prettier": "^2.1.2"
