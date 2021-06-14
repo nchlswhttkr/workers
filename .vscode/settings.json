@@ -15,5 +15,6 @@
         "titleBar.inactiveBackground": "#f6821f99",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#f6821f"
+    "peacock.color": "#f6821f",
+    "files.associations": { "*.json": "jsonc" }
 }
