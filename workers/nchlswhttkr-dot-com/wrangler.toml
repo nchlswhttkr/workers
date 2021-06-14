@@ -1,3 +1,4 @@
 name = "nchlswhttkr-dot-com"
 type = "javascript"
 workers_dev = true
+route = "*nchlswhttkr.com/*"

@@ -10,7 +10,9 @@ tinygo build -o worker/main.wasm -target wasm main.go
 curl --silent --fail --output wasm_exec.js https://raw.githubusercontent.com/tinygo-org/tinygo/HEAD/targets/wasm_exec.js
 webpack-cli build
 
-source ../../set-cloudflare-secrets.sh
+export CF_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
+export CF_API_TOKEN=$(pass show workers/cloudflare-api-token)
+
 export WORKER_NAME=experimental-golang-worker
 curl --silent --fail -X PUT "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/workers/scripts/$WORKER_NAME" \
     -H "Authorization: Bearer $CF_API_TOKEN" \

@@ -65,6 +65,3 @@ common/temp/
 # Wrangler/Webpack output
 worker/
 dist/
-
-
-set-cloudflare-secrets.sh
