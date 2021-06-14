@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 /**
  * A custom loader that replaces certain identifiers with runtime environment
  * variables. To be replaced, identifiers should be prefixed with "ENV_".

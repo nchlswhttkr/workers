@@ -123,9 +123,7 @@ A Webpack loader to inject environment variables as a part of builds.
 
 > :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I might remove it at a later point.
 
-Additionally, will attempt to load environment variables from a `.env` file in the working directory.
-
-For example, with the line `PASSWORD=abc123` in your `.env` file, your build output would resemble this.
+For example, if the environment variable `PASSWORD` is set to `abc123`, your build output would resemble this.
 
 ```diff
 - if (password === ENV_PASSWORD) {
