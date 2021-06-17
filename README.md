@@ -20,9 +20,7 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 
 You should make sure you can publish your workers.
 
-1. Create `set-cloudflare-secrets.sh` by copying the template, and replace it with your Cloudflare secrets/identifiers.
-
-   - This should be `CF_ACCOUNT_ID`, `CF_API_TOKEN` and a `CF_ZONE_ID` for your default zone.
+1. Have credentials ready in [`pass`](https://passwordstore.org/).
 
 1. Make sure you have [wrangler](https://github.com/cloudflare/wrangler) installed.
 
