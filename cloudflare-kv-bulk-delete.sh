@@ -43,6 +43,13 @@ if [[ "$KEY_COUNT" != "$DELETE_COUNT" ]]; then
     exit 1
 fi
 
+BACKUP_KV_PAIRS_DIR=$(mktemp -d)
+jq --raw-output ".[]" "$KEYS_FILE" \
+    | xargs -P 8 -I "{}" \
+        curl --silent --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/values/{}" -H "Authorization: Bearer $CF_API_TOKEN" --output "$BACKUP_KV_PAIRS_DIR/{}.txt"
+if [[ "$(uname -s)" == "Darwin" ]]; then echo -n "$BACKUP_KV_PAIRS_DIR" | pbcopy; fi
+echo "Saved a backup of $KEY_COUNT KV pairs to $BACKUP_KV_PAIRS_DIR"
+
 curl --fail -X DELETE "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/bulk" \
     -H "Authorization: Bearer $CF_API_TOKEN" \
     -H "Content-Type: application/json" \
