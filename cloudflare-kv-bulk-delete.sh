@@ -40,18 +40,22 @@ fi
 # Require manual confirmation before proceeding with delete operation
 echo -e "This will delete \033[33m$KEY_COUNT\033[0m KV pairs"
 read -rp "Enter this number to confirm > " DELETE_COUNT
-if [[ "$KEY_COUNT" != "$DELETE_COUNT" ]]; then
+if [[ $KEY_COUNT != $DELETE_COUNT ]]; then
     echo -e "\033[31mDifferent number of keys specified, skipping delete\033[0m"
     exit 1
 fi
 
 # Take a backup beforehand of all matching keys
 BACKUP_KV_PAIRS_DIR=$(mktemp -d)
+echo "Saving a backup of $KEY_COUNT KV pairs to $BACKUP_KV_PAIRS_DIR"
 jq --raw-output ".[]" "$KEYS_FILE" \
     | xargs -P 8 -I "{}" \
         curl --silent --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/values/{}" -H "Authorization: Bearer $CF_API_TOKEN" --output "$BACKUP_KV_PAIRS_DIR/{}.txt"
-if [[ "$(uname -s)" == "Darwin" ]]; then echo -n "$BACKUP_KV_PAIRS_DIR" | pbcopy; fi
-echo "Saved a backup of $KEY_COUNT KV pairs to $BACKUP_KV_PAIRS_DIR"
+if [[ $(uname -s) == "Darwin" ]]; then echo -n "$BACKUP_KV_PAIRS_DIR" | pbcopy; fi
+if [[ $(find "$BACKUP_KV_PAIRS_DIR" -mindepth 1 | wc -l | tr -d ' ') != "$KEY_COUNT" ]]; then
+    echo -e "\033[31mBackup failed (some KV pairs are missing), deletion will be skipped\033[0m"
+    exit 1
+fi
 
 # Bulk delete keys
 curl --fail -X DELETE "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/bulk" \
