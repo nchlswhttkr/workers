@@ -52,7 +52,7 @@ async function handleRequest(event) {
     let response = await CACHED_RESPONSES.get(key);
 
     if (!response) {
-      if (url.searchParams.get("secret") === ENV_WRITER_SECRET) {
+      if (url.searchParams.get("secret") === WRITER_SECRET) {
         response = JSON.stringify(await loader(...args));
         await CACHED_RESPONSES.put(key, response);
       } else {

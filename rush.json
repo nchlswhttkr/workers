@@ -290,10 +290,6 @@
    */
   "projects": [
     {
-      "packageName": "@nchlswhttkr/inject-env-loader",
-      "projectFolder": "webpack/inject-env-loader"
-    },
-    {
       "packageName": "@nchlswhttkr/counter",
       "projectFolder": "workers/counter"
     },

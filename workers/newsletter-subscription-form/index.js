@@ -194,11 +194,11 @@ class EmailSignatures {
 }
 
 const mailgun = new MailgunClient(
-  ENV_MAILGUN_API_KEY,
+  MAILGUN_API_KEY,
   "mailgun.nicholas.cloud",
   "newsletter@mailgun.nicholas.cloud"
 );
-const signatures = new EmailSignatures(ENV_EMAIL_SIGNING_SECRET);
+const signatures = new EmailSignatures(EMAIL_SIGNING_SECRET);
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));

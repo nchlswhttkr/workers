@@ -1,6 +1,6 @@
 async function loadYoutubeVideo(id) {
   const video = await fetch(
-    `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${ENV_YOUTUBE_SECRET_KEY}&part=snippet`
+    `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${YOUTUBE_SECRET_KEY}&part=snippet`
   ).then((r) => {
     if (r.status !== 200) {
       throw new Error(`Request to YouTube failed, received ${r.status}`);
@@ -21,7 +21,7 @@ async function loadYoutubeVideo(id) {
 
 async function loadVimeoVideo(id) {
   const video = await fetch(`https://api.vimeo.com/videos/${id}`, {
-    headers: { Authorization: "Bearer " + ENV_VIMEO_SECRET_KEY },
+    headers: { Authorization: "Bearer " + VIMEO_SECRET_KEY },
   }).then((r) => {
     if (r.status !== 200) {
       throw new Error(`Request to Vimeo failed, received ${r.status}`);
