@@ -1,4 +1,4 @@
-// TODO: Make use of cache https://github.com/cloudflare/kv-asset-handler/blob/master/src/index.ts
+// TODO: Might be good to do some origin checking?
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));
@@ -12,15 +12,35 @@ async function handleRequest(event) {
       return response;
     }
 
-    // Otherwise read
+    // Otherwise fetch the media in question
     const url = new URL(event.request.url);
     const key = url.searchParams.get("url");
-    if (key === null) throw new Error("Expected key");
-    let media = await CACHED_MEDIA.get(
-      url.searchParams.get("url"),
-      "arrayBuffer"
-    );
+    if (key === null) {
+      throw new Error("Expected key");
+    }
 
+    let media;
+    try {
+      // Try to serve it by hotlinking
+      media = await fetch(url)
+        .then((response) => {
+          if (response.status !== 200) {
+            throw new Error(`Received ${respnose.status} from ${key}`);
+          }
+          return response;
+        })
+        .then((response) => response.arrayBuffer());
+    } catch (error) {
+      console.error(error);
+
+      // Failing that, serve from KV
+      media = await CACHED_MEDIA.get(
+        url.searchParams.get("url"),
+        "arrayBuffer"
+      );
+    }
+
+    // It's always possible the media in question might not be available
     if (!media) {
       return new Response("", { status: 404 });
     }
@@ -61,7 +81,6 @@ function getMime(key) {
     .split("?")[0]
     .split(".")
     .reduce((_, value) => value);
-  console.log(extension);
   switch (extension) {
     case "jpg":
     case "jpeg":
