@@ -15,4 +15,4 @@ Since some APIs (YouTube/Vimeo) enforce authentication and rate limits, the work
 
 Existing content can be served from KV to the public though. This allows CI builds (or someone trying to build locally!) to fetch and render content for shortcodes in use on the current site.
 
-Additionally, some media associated with request content is downloaded and stored in KV. It is then served by [the `hugo-media-proxy` worker](../hugo-media-proxy/) This helps avoid link rot. If the remote source is unavailable, serve the response from KV.
+Additionally, some media associated with request content is downloaded and stored in KV. It is then served by [the hugo-media-proxy worker](../hugo-media-proxy/) This helps avoid link rot. If the remote source is unavailable, serve the response from KV.
