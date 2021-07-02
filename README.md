@@ -9,7 +9,6 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 You should make sure you can publish your workers.
 
 1. Have credentials ready in [`pass`](https://passwordstore.org/).
-
 1. Make sure you have [wrangler](https://github.com/cloudflare/wrangler) installed.
 
 After this, you can publish all your workers, or just a single chosen worker.
@@ -36,29 +35,17 @@ New workers can be created from the template worker. Make sure to add them the `
 
 ## Packages
 
-### [hero-of-time-link](./workers/hero-of-time-link)
+### [counter](./workers/counter)
 
-A shortcut service using Workers KV.
-
-### [newsletter-subscription-form](./workers/newsletter-subscription-form)
-
-Manages requests to subscribe/unsubscribe from my newsletter.
-
-### [markdown-reader](./workers/markdown-reader)
-
-A reader for web-hosted markdown files.
+Having some fun with isolate persistence in Cloudflare Workers.
 
 ### [experimental-golang-worker](./workers/experimental-golang-worker)
 
 Running Golang as WASM inside Cloudflare Workers.
 
-### [nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com)
+### [hero-of-time-link](./workers/hero-of-time-link)
 
-Handles redirects from my old domain to various destinations.
-
-### [counter](./workers/counter)
-
-Having some fun with isolate persistence in Cloudflare Workers.
+A shortcut service using Workers KV.
 
 ### [hugo-proxy](./workers/hugo-proxy)
 
@@ -67,6 +54,18 @@ Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, 
 ### [hugo-media-proxy](./workers/hugo-media-proxy)
 
 Serves media from third party sites.
+
+### [markdown-reader](./workers/markdown-reader)
+
+A reader for web-hosted markdown files.
+
+### [nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com)
+
+Handles redirects from my old domain to various destinations.
+
+### [newsletter-subscription-form](./workers/newsletter-subscription-form)
+
+Manages requests to subscribe/unsubscribe from my newsletter.
 
 ### ~~[bandcamp-embed-cors-proxy](./workers/bandcamp-embed-cors-proxy)~~
 
