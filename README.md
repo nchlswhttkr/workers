@@ -1,3 +1,5 @@
+<!-- TODO: Use Boom for error handling -->
+
 # workers
 
 My [Cloudflare Workers](https://workers.dev), for assorted purposes.
@@ -47,13 +49,13 @@ Running Golang as WASM inside Cloudflare Workers.
 
 A shortcut service using Workers KV.
 
-### [hugo-proxy](./workers/hugo-proxy)
-
-Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
-
 ### [hugo-media-proxy](./workers/hugo-media-proxy)
 
 Serves media from third party sites.
+
+### [hugo-proxy](./workers/hugo-proxy)
+
+Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
 
 ### [markdown-reader](./workers/markdown-reader)
 
