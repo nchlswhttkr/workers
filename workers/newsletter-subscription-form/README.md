@@ -10,7 +10,7 @@ Manages requests to subscribe to [my newsletter](https://nicholas.cloud/newslett
 | `POST` | `/newsletter/subscribe/`        | Subscribes a user to the mailing list, expects completed form data.  |
 | `*`    | `/newsletter/subscribe/confirm` | Confirms a mailing list subscription, expects email and a signature. |
 
-It needs a few secrets to be provided with [@nchlswhttkr/inject-env-loader](#inject-env-loader).
+It needs a few secrets to deploy.
 
 - `EMAIL_SIGNING_SECRET` - The sequence of bytes used to sign emails in confirmation links
 - `MAILGUN_API_KEY` - An API key to make calls to the Mailgun API

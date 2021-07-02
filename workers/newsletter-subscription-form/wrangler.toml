@@ -1,4 +1,3 @@
 name = "newsletter-subscription-form"
-type = "webpack"
-webpack_config = "webpack.config.js"
+type = "javascript"
 route = "https://nicholas.cloud/newsletter/subscribe*"

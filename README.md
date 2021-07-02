@@ -64,13 +64,15 @@ Having some fun with isolate persistence in Cloudflare Workers.
 
 Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
 
-### [bandcamp-embed-cors-proxy](./workers/bandcamp-embed-cors-proxy)
-
-Proxies requests for my custom Bandcamp embed, adding CORS headers.
-
 ### [hugo-media-proxy](./workers/hugo-media-proxy)
 
 Serves media from third party sites.
+
+### ~~[bandcamp-embed-cors-proxy](./workers/bandcamp-embed-cors-proxy)~~
+
+> :exclamation: I've moved this worker in with the embed itself at https://github.com/nchlswhttkr/bandcamp-mini-embed. I don't maintain this anymore.
+
+Proxies requests for my custom Bandcamp embed, adding CORS headers.
 
 ### ~~[inject-env-loader](./webpack/inject-env-loader)~~
 

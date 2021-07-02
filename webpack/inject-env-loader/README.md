@@ -1,4 +1,4 @@
-# inject-env-loader
+# ~~inject-env-loader~~
 
 > :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I've since migrated, and I don't maintain this anymore.
 
