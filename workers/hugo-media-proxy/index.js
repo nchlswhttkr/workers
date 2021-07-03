@@ -18,27 +18,10 @@ async function handleRequest(event) {
     if (key === null) {
       throw new Error("Expected key");
     }
-
-    let media;
-    try {
-      // Try to serve it by hotlinking
-      media = await fetch(url)
-        .then((response) => {
-          if (response.status !== 200) {
-            throw new Error(`Received ${respnose.status} from ${key}`);
-          }
-          return response;
-        })
-        .then((response) => response.arrayBuffer());
-    } catch (error) {
-      console.error(error);
-
-      // Failing that, serve from KV
-      media = await CACHED_MEDIA.get(
-        url.searchParams.get("url"),
-        "arrayBuffer"
-      );
-    }
+    let media = await CACHED_MEDIA.get(
+      url.searchParams.get("url"),
+      "arrayBuffer"
+    );
 
     // It's always possible the media in question might not be available
     if (!media) {
