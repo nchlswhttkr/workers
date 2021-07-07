@@ -49,6 +49,7 @@ async function handleRequest(event) {
           "Accept-Ranges": "bytes",
           "Content-Length": media.length,
           "Content-Type": getMime(key),
+          "X-Robots-Tag": "noindex",
         },
       });
     }
