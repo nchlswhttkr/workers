@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -eu
+set -euo pipefail
 
 prettier --ignore-path "../../.prettierignore" --check "**/*.js"
