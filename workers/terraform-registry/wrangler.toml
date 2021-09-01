@@ -1,0 +1,4 @@
+name = "terraform-registry"
+type = "webpack"
+workers_dev = false
+route = "https://nicholas.cloud/terraform-registry/*"

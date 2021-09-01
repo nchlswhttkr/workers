@@ -1,0 +1,28 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@hapi/boom': ^9.1.4
+  '@hapi/call': ^8.0.1
+
+dependencies:
+  '@hapi/boom': 9.1.4
+  '@hapi/call': 8.0.1
+
+packages:
+
+  /@hapi/boom/9.1.4:
+    resolution: {integrity: sha512-Ls1oH8jaN1vNsqcaHVYJrKmgMcKsC1wcp8bujvXrHaAqD2iDYq3HoOwsxwo09Cuda5R5nC0o0IxlrlTuvPuzSw==}
+    dependencies:
+      '@hapi/hoek': 9.2.0
+    dev: false
+
+  /@hapi/call/8.0.1:
+    resolution: {integrity: sha512-bOff6GTdOnoe5b8oXRV3lwkQSb/LAWylvDMae6RgEWWntd0SHtkYbQukDHKlfaYtVnSAgIavJ0kqszF/AIBb6g==}
+    dependencies:
+      '@hapi/boom': 9.1.4
+      '@hapi/hoek': 9.2.0
+    dev: false
+
+  /@hapi/hoek/9.2.0:
+    resolution: {integrity: sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==}
+    dev: false

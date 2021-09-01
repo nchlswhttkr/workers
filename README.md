@@ -69,6 +69,10 @@ Handles redirects from my old domain to various destinations.
 
 Manages requests to subscribe/unsubscribe from my newsletter.
 
+### [terraform-registry](./workers/terraform-registry)
+
+Mimics a Terraform registry to serve my custom providers.
+
 ### ~~[bandcamp-embed-cors-proxy](./workers/bandcamp-embed-cors-proxy)~~
 
 > :exclamation: I've moved this worker in with the embed itself at https://github.com/nchlswhttkr/bandcamp-mini-embed. I don't maintain this anymore.
