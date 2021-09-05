@@ -51,13 +51,14 @@ async function listVersions({ namespace, type }) {
     throw Boom.notFound();
   }
 
-  const tags = await fetch(
-    `https://api.github.com/repos/nchlswhttkr/terraform-provider-${type}/tags`,
+  // TODO: Handle pagination when there are many releases
+  const releases = await fetch(
+    `https://api.github.com/repos/nchlswhttkr/terraform-provider-${type}/releases`,
     { headers: { "User-Agent": "@nchlswhttkr workers/terraform-registry" } }
   ).then(async (response) => {
     if (response.status !== 200) {
       throw new Error(
-        `Received ${response.status} while fetching tags from GitHub`
+        `Received ${response.status} while fetching releases from GitHub`
       );
     }
     return response.json();
@@ -65,8 +66,8 @@ async function listVersions({ namespace, type }) {
 
   return new Response(
     JSON.stringify({
-      versions: tags.map((tag) => ({
-        version: tag.name.substring(1), // trim 'v' from version
+      versions: releases.map((release) => ({
+        version: release.tag_name.substring(1), // trim 'v' from version
       })),
     }),
     { status: 200, headers: { "Content-Type": "application/json" } }
@@ -89,7 +90,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
   });
 
   const downloadHash = await fetch(
-    `https://nicholas.cloud/files/terraform-provider-${type}/${version}/terraform-provider-${type}_${version}_${os}_${arch}.zip`
+    `https://github.com/nchlswhttkr/terraform-provider-${type}/releases/download/v${version}/terraform-provider-${type}_${version}_${os}_${arch}.zip`
   )
     .then((response) => {
       if (response.status !== 200) {
@@ -114,9 +115,9 @@ async function getPackage({ namespace, type, version, os, arch }) {
       os,
       arch,
       filename: `terraform-provider-${type}_${version}_${os}_${arch}.zip`,
-      download_url: `https://nicholas.cloud/files/terraform-provider-${type}/${version}/terraform-provider-${type}_${version}_${os}_${arch}.zip`,
-      shasums_url: `https://nicholas.cloud/files/terraform-provider-${type}/${version}/terraform-provider-${type}_${version}_SHA256SUMS`,
-      shasums_signature_url: `https://nicholas.cloud/files/terraform-provider-${type}/${version}/terraform-provider-${type}_${version}_SHA256SUMS.sig`,
+      download_url: `https://github.com/nchlswhttkr/terraform-provider-${type}/releases/download/v${version}/terraform-provider-${type}_${version}_${os}_${arch}.zip`,
+      shasums_url: `https://github.com/nchlswhttkr/terraform-provider-${type}/releases/download/v${version}/terraform-provider-${type}_${version}_SHA256SUMS`,
+      shasums_signature_url: `https://github.com/nchlswhttkr/terraform-provider-${type}/releases/download/v${version}/terraform-provider-${type}_${version}_SHA256SUMS.sig`,
       shasum: downloadHash,
       signing_keys: {
         gpg_public_keys: [
