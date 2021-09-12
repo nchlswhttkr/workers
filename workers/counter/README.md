@@ -1,4 +1,6 @@
-# counter
+# ~~counter~~
+
+> :exclamation: I've taken this down since I'm not actively using it at the moment. You can still view the source code.
 
 Having some fun with isolate persistence in Cloudflare Workers.
 

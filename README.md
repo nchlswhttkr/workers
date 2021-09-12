@@ -37,14 +37,6 @@ New workers can be created from the template worker. Make sure to add them the `
 
 ## Packages
 
-### [counter](./workers/counter)
-
-Having some fun with isolate persistence in Cloudflare Workers.
-
-### [experimental-golang-worker](./workers/experimental-golang-worker)
-
-Running Golang as WASM inside Cloudflare Workers.
-
 ### [hero-of-time-link](./workers/hero-of-time-link)
 
 A shortcut service using Workers KV.
@@ -56,10 +48,6 @@ Serves media from third party sites.
 ### [hugo-proxy](./workers/hugo-proxy)
 
 Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
-
-### [markdown-reader](./workers/markdown-reader)
-
-A reader for web-hosted markdown files.
 
 ### [nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com)
 
@@ -79,8 +67,26 @@ Mimics a Terraform registry to serve my custom providers.
 
 Proxies requests for my custom Bandcamp embed, adding CORS headers.
 
+### ~~[counter](./workers/counter)~~
+
+> :exclamation: I've taken this down since I'm not actively using it at the moment. You can still view the source code.
+
+Having some fun with isolate persistence in Cloudflare Workers.
+
+### ~~[experimental-golang-worker](./workers/experimental-golang-worker)~~
+
+> :exclamation: I've taken this down since I'm not actively using it at the moment. You can still view the source code.
+
+Running Golang as WASM inside Cloudflare Workers.
+
 ### ~~[inject-env-loader](./webpack/inject-env-loader)~~
 
 > :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I've since migrated, and I don't maintain this anymore.
 
 A Webpack loader to inject environment variables as a part of builds.
+
+### ~~[markdown-reader](./workers/markdown-reader)~~
+
+> :exclamation: I've since taken this down, as I'm not using it anymore. Consider a service like [nicedoc.io](https://nicedoc.io/) if you're looking for a markdown viewer of GitHub-hosted files.
+
+A reader for web-hosted markdown files.

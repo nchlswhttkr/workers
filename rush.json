@@ -290,24 +290,12 @@
    */
   "projects": [
     {
-      "packageName": "@nchlswhttkr/counter",
-      "projectFolder": "workers/counter"
-    },
-    {
-      "packageName": "@nchlswhttkr/experimental-golang-worker",
-      "projectFolder": "workers/experimental-golang-worker"
-    },
-    {
       "packageName": "@nchlswhttkr/hero-of-time-link",
       "projectFolder": "workers/hero-of-time-link"
     },
     {
       "packageName": "@nchlswhttkr/newsletter-subscription-form",
       "projectFolder": "workers/newsletter-subscription-form"
-    },
-    {
-      "packageName": "@nchlswhttkr/markdown-reader",
-      "projectFolder": "workers/markdown-reader"
     },
     {
       "packageName": "@nchlswhttkr/nchlswhttkr-dot-com",
