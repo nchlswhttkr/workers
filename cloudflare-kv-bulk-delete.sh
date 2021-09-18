@@ -40,7 +40,7 @@ fi
 # Require manual confirmation before proceeding with delete operation
 echo -e "This will delete \033[33m$KEY_COUNT\033[0m KV pairs"
 read -rp "Enter this number to confirm > " DELETE_COUNT
-if [[ $KEY_COUNT != $DELETE_COUNT ]]; then
+if [[ $KEY_COUNT != "$DELETE_COUNT" ]]; then
     echo -e "\033[31mDifferent number of keys specified, skipping delete\033[0m"
     exit 1
 fi
