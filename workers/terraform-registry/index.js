@@ -37,6 +37,7 @@ async function handleRequest(event) {
     throw Boom.notFound();
   } catch (error) {
     if (error.isBoom) {
+      console.error(error.message);
       return new Response(error.output.payload.error, {
         status: error.output.payload.statusCode,
       });
@@ -55,9 +56,9 @@ async function listVersions({ namespace, type }) {
   const releases = await fetch(
     `https://api.github.com/repos/nchlswhttkr/terraform-provider-${type}/releases`,
     { headers: { "User-Agent": "@nchlswhttkr workers/terraform-registry" } }
-  ).then(async (response) => {
+  ).then((response) => {
     if (response.status !== 200) {
-      throw new Error(
+      throw Boom.internal(
         `Received ${response.status} while fetching releases from GitHub`
       );
     }
@@ -84,7 +85,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
     `https://nicholas.cloud/files/keys/${GPG_KEY_ID}.asc`
   ).then((response) => {
     if (response.status !== 200) {
-      throw new Error(`Received ${response.status} while fetching GPG key`);
+      throw Boom.internal(`Received ${response.status} while fetching GPG key`);
     }
     return response.text();
   });
@@ -94,7 +95,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
   )
     .then((response) => {
       if (response.status !== 200) {
-        throw new Error(
+        throw Boom.internal(
           `Received ${response.status} while fetching zipped package`
         );
       }
