@@ -36,7 +36,7 @@ async function loadVimeoVideo(id) {
   return {
       channel_url: video.user.link,
       channel_title: video.user.name,
-      thumbnail_url: await storedMediaAt(`https://i.vimeocdn.com/video/${video.pictures.uri.split('/')[4]}_${width}x${height}.jpg`), // "?r=pad"
+      thumbnail_url: await storedMediaAt(video.pictures.base_link + `_${width}x${height}`), // "?r=pad"
       thumbnail_height: height,
       thumbnail_width: width,
       video_title: video.name,
