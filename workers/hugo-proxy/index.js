@@ -48,7 +48,7 @@ async function handleRequest(event) {
         return new Response("404 Not Found", { status: 404 });
     }
 
-    const key = `${source}_${args.join("_")}`;
+    const key = `${source} ${args.join(" ")}`;
     let response = await CACHED_RESPONSES.get(key);
 
     if (!response) {
