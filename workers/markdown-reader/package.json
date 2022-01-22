@@ -6,11 +6,5 @@
     "build": "source build.sh"
   },
   "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "marked": "^2.0.7"
-  },
-  "devDependencies": {
-    "prettier": "^2.1.2"
-  }
+  "private": true
 }
