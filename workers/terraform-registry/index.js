@@ -16,6 +16,13 @@ router.add(
   },
   "get-package"
 );
+router.add(
+  {
+    method: "get",
+    path: "/.well-known/terraform.json",
+  },
+  "service-discovery"
+);
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));
@@ -32,6 +39,11 @@ async function handleRequest(event) {
       return await listVersions(match.params);
     } else if (match.route === "get-package") {
       return await getPackage(match.params);
+    } else if (match.route === "service-discovery") {
+      return new Response(
+        JSON.stringify({ "providers.v1": "/terraform-registry/providers/v1/" }),
+        { status: 200, headers: { "Content-Type": "application/json" } }
+      );
     }
 
     throw Boom.notFound();
