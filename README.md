@@ -57,6 +57,10 @@ Handles redirects from my old domain to various destinations.
 
 Manages requests to subscribe/unsubscribe from my newsletter.
 
+### [rss-feeds](./workers/rss-feeds)
+
+Generates RSS feeds for a few websites I browse.
+
 ### [terraform-registry](./workers/terraform-registry)
 
 Mimics a Terraform registry to serve my custom providers.

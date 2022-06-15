@@ -312,6 +312,10 @@
     {
       "packageName": "@nchlswhttkr/terraform-registry",
       "projectFolder": "workers/terraform-registry"
+    },
+    {
+      "packageName": "@nchlswhttkr/rss-feeds",
+      "projectFolder": "workers/rss-feeds"
     }
     // {
     //   /**
