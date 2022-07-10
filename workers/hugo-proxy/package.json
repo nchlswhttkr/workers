@@ -10,5 +10,8 @@
   "devDependencies": {
     "prettier": "^2.1.2"
   },
-  "main": "index.js"
+  "dependencies": {
+    "wrangler": "^2.0.16",
+    "esbuild": "^0.14.43"
+  }
 }

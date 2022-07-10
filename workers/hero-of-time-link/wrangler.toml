@@ -1,4 +1,7 @@
 name = "hero-of-time-link"
-type = "javascript"
+main = "index.js"
+compatibility_date = "2022-07-01"
 route = "nicholas.cloud/goto*"
-kv_namespaces = [{ binding="SHORTCUTS", id="5504ea7cb33b4d2c908da38ebbb6ac29" }]
+kv_namespaces = [
+    { binding="SHORTCUTS", id="5504ea7cb33b4d2c908da38ebbb6ac29" }
+]

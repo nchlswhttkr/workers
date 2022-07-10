@@ -2,13 +2,13 @@
 
 set -euo pipefail
 
-prettier --ignore-path "../../.prettierignore" --check "**/*.js"
+prettier --ignore-path "../../.prettierignore" --check "**/*.(js|json)"
 
-export CF_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
-export CF_API_TOKEN=$(pass show workers/cloudflare-api-token)
+export CLOUDFLARE_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
+export CLOUDFLARE_API_TOKEN=$(pass show workers/cloudflare-api-token)
 
 mkdir -p build/handlebars
-handlebars feed.hbs -f build/handlebars/feed.hbs.js
-esbuild index.js --bundle --external:fs --outfile=build/worker/main.js --log-level="warning"
+handlebars feed.hbs -f build/feed.hbs.js
+esbuild index.js --bundle --external:fs --outfile=build/worker.js --log-level="warning"
 
-wrangler publish 2>&1
+wrangler publish

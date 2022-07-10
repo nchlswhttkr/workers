@@ -5,7 +5,7 @@
  */
 global = {};
 Handlebars = require("handlebars");
-require("./build/handlebars/feed.hbs.js");
+require("./build/feed.hbs.js");
 
 import { getBandcampDailyArticles } from "./bandcamp-daily";
 

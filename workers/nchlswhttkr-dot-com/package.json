@@ -1,14 +1,16 @@
 {
-    "name": "@nchlswhttkr/nchlswhttkr-dot-com",
-    "version": "0.1.0",
-    "description": "Handles redirects from my old domain to various destinations",
-    "scripts": {
-        "build": "source build.sh"
-    },
-    "license": "MIT",
-    "private": true,
-    "devDependencies": {
-        "prettier": "^2.1.2"
-    },
-    "main": "index.js"
+  "name": "@nchlswhttkr/nchlswhttkr-dot-com",
+  "version": "0.1.0",
+  "description": "Handles redirects from my old domain to various destinations",
+  "scripts": {
+    "build": "source build.sh"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "wrangler": "^2.0.16"
+  }
 }
