@@ -979,10 +979,11 @@ packages:
     dev: false
 
   file:projects/hugo-proxy.tgz:
-    resolution: {integrity: sha512-/T2caq/e/hyQ+cicR0oUcQdCta6L8907DPiqdWzp6vG5CGFv4bkzgP0GcoBMv63vLNcH4TjdJU5WF+2/4TLd5w==, tarball: file:projects/hugo-proxy.tgz}
+    resolution: {integrity: sha512-8er4s8vhVkQdTSe1hjclbfVjbIsxH06vL/gzgD484nS8lnLgjkQ6wZqtPgW48BwTG+tlPMf/Rh08BhxXYrM0sQ==, tarball: file:projects/hugo-proxy.tgz}
     name: '@rush-temp/hugo-proxy'
     version: 0.0.0
     dependencies:
+      esbuild: 0.14.47
       prettier: 2.3.2
       wrangler: 2.0.16
     transitivePeerDependencies:
