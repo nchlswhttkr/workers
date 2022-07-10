@@ -10,7 +10,6 @@
   "devDependencies": {
     "prettier": "^2.1.2"
   },
-  "main": "index.js",
   "dependencies": {
     "@hapi/boom": "^9.1.4",
     "@hapi/call": "^8.0.1",

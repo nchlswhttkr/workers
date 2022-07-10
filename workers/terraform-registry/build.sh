@@ -2,12 +2,12 @@
 
 set -euo pipefail
 
-prettier --ignore-path "../../.prettierignore" --check "**/*.js"
+prettier --ignore-path "../../.prettierignore" --check "**/*.(js|json)"
+esbuild index.js --bundle --outfile="build/worker.js" --log-level="warning"
 
-export CF_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
-export CF_API_TOKEN=$(pass show workers/cloudflare-api-token)
-export CF_ZONE_ID=$(pass show workers/cloudflare-zone-id-nicholas.cloud)
+export CLOUDFLARE_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
+export CLOUDFLARE_API_TOKEN=$(pass show workers/cloudflare-api-token)
 
 git config user.signingkey | wrangler secret put GPG_KEY_ID
 
-wrangler publish 2>&1
+wrangler publish
