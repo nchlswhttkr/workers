@@ -12,7 +12,7 @@
   },
   "main": "build/worker/main.js",
   "dependencies": {
-    "esbuild": "~0.14.43",
-    "handlebars": "~4.7.7"
+    "esbuild": "^0.14.43",
+    "handlebars": "^4.7.7"
   }
 }
