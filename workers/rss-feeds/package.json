@@ -10,7 +10,6 @@
   "devDependencies": {
     "prettier": "^2.1.2"
   },
-  "main": "build/worker/main.js",
   "dependencies": {
     "esbuild": "^0.14.43",
     "handlebars": "^4.7.7",
