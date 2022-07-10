@@ -1,62 +1,55 @@
 lockfileVersion: 5.3
 
 specifiers:
-  "@hapi/boom": ^9.1.4
-  "@hapi/call": ^8.0.1
-  "@rush-temp/rss-feeds": file:./projects/rss-feeds.tgz
-  "@rush-temp/hero-of-time-link": file:./projects/hero-of-time-link.tgz
-  "@rush-temp/hugo-media-proxy": file:./projects/hugo-media-proxy.tgz
-  "@rush-temp/hugo-proxy": file:./projects/hugo-proxy.tgz
-  "@rush-temp/nchlswhttkr-dot-com": file:./projects/nchlswhttkr-dot-com.tgz
-  "@rush-temp/newsletter-subscription-form": file:./projects/newsletter-subscription-form.tgz
-  "@rush-temp/terraform-registry": file:./projects/terraform-registry.tgz
+  '@hapi/boom': ^9.1.4
+  '@hapi/call': ^8.0.1
+  '@rush-temp/hero-of-time-link': file:./projects/hero-of-time-link.tgz
+  '@rush-temp/hugo-media-proxy': file:./projects/hugo-media-proxy.tgz
+  '@rush-temp/hugo-proxy': file:./projects/hugo-proxy.tgz
+  '@rush-temp/nchlswhttkr-dot-com': file:./projects/nchlswhttkr-dot-com.tgz
+  '@rush-temp/newsletter-subscription-form': file:./projects/newsletter-subscription-form.tgz
+  '@rush-temp/rss-feeds': file:./projects/rss-feeds.tgz
+  '@rush-temp/terraform-registry': file:./projects/terraform-registry.tgz
+  esbuild: ^0.14.43
+  handlebars: ^4.7.7
   prettier: ^2.1.2
 
 dependencies:
-  "@hapi/boom": 9.1.4
-  "@hapi/call": 8.0.1
-  "@rush-temp/rss-feeds": file:projects/rss-feeds.tgz
-  "@rush-temp/hero-of-time-link": file:projects/hero-of-time-link.tgz
-  "@rush-temp/hugo-media-proxy": file:projects/hugo-media-proxy.tgz
-  "@rush-temp/hugo-proxy": file:projects/hugo-proxy.tgz
-  "@rush-temp/nchlswhttkr-dot-com": file:projects/nchlswhttkr-dot-com.tgz
-  "@rush-temp/newsletter-subscription-form": file:projects/newsletter-subscription-form.tgz
-  "@rush-temp/terraform-registry": file:projects/terraform-registry.tgz
+  '@hapi/boom': 9.1.4
+  '@hapi/call': 8.0.1
+  '@rush-temp/hero-of-time-link': file:projects/hero-of-time-link.tgz
+  '@rush-temp/hugo-media-proxy': file:projects/hugo-media-proxy.tgz
+  '@rush-temp/hugo-proxy': file:projects/hugo-proxy.tgz
+  '@rush-temp/nchlswhttkr-dot-com': file:projects/nchlswhttkr-dot-com.tgz
+  '@rush-temp/newsletter-subscription-form': file:projects/newsletter-subscription-form.tgz
+  '@rush-temp/rss-feeds': file:projects/rss-feeds.tgz
+  '@rush-temp/terraform-registry': file:projects/terraform-registry.tgz
+  esbuild: 0.14.43
+  handlebars: 4.7.7
   prettier: 2.3.2
 
 packages:
+
   /@hapi/boom/9.1.4:
-    resolution:
-      {
-        integrity: sha512-Ls1oH8jaN1vNsqcaHVYJrKmgMcKsC1wcp8bujvXrHaAqD2iDYq3HoOwsxwo09Cuda5R5nC0o0IxlrlTuvPuzSw==,
-      }
+    resolution: {integrity: sha512-Ls1oH8jaN1vNsqcaHVYJrKmgMcKsC1wcp8bujvXrHaAqD2iDYq3HoOwsxwo09Cuda5R5nC0o0IxlrlTuvPuzSw==}
     dependencies:
-      "@hapi/hoek": 9.2.0
+      '@hapi/hoek': 9.2.0
     dev: false
 
   /@hapi/call/8.0.1:
-    resolution:
-      {
-        integrity: sha512-bOff6GTdOnoe5b8oXRV3lwkQSb/LAWylvDMae6RgEWWntd0SHtkYbQukDHKlfaYtVnSAgIavJ0kqszF/AIBb6g==,
-      }
+    resolution: {integrity: sha512-bOff6GTdOnoe5b8oXRV3lwkQSb/LAWylvDMae6RgEWWntd0SHtkYbQukDHKlfaYtVnSAgIavJ0kqszF/AIBb6g==}
     dependencies:
-      "@hapi/boom": 9.1.4
-      "@hapi/hoek": 9.2.0
+      '@hapi/boom': 9.1.4
+      '@hapi/hoek': 9.2.0
     dev: false
 
   /@hapi/hoek/9.2.0:
-    resolution:
-      {
-        integrity: sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==,
-      }
+    resolution: {integrity: sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==}
     dev: false
 
   /esbuild-android-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-kqFXAS72K6cNrB6RiM7YJ5lNvmWRDSlpi7ZuRZ1hu1S3w0zlwcoCxWAyM23LQUyZSs1PbjHgdbbfYAN8IGh6xg==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-kqFXAS72K6cNrB6RiM7YJ5lNvmWRDSlpi7ZuRZ1hu1S3w0zlwcoCxWAyM23LQUyZSs1PbjHgdbbfYAN8IGh6xg==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
     requiresBuild: true
@@ -64,11 +57,8 @@ packages:
     optional: true
 
   /esbuild-android-arm64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-bKS2BBFh+7XZY9rpjiHGRNA7LvWYbZWP87pLehggTG7tTaCDvj8qQGOU/OZSjCSKDYbgY7Q+oDw8RlYQ2Jt2BA==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-bKS2BBFh+7XZY9rpjiHGRNA7LvWYbZWP87pLehggTG7tTaCDvj8qQGOU/OZSjCSKDYbgY7Q+oDw8RlYQ2Jt2BA==}
+    engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
@@ -76,11 +66,8 @@ packages:
     optional: true
 
   /esbuild-darwin-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-/3PSilx011ttoieRGkSZ0XV8zjBf2C9enV4ScMMbCT4dpx0mFhMOpFnCHkOK0pWGB8LklykFyHrWk2z6DENVUg==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-/3PSilx011ttoieRGkSZ0XV8zjBf2C9enV4ScMMbCT4dpx0mFhMOpFnCHkOK0pWGB8LklykFyHrWk2z6DENVUg==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
@@ -88,11 +75,8 @@ packages:
     optional: true
 
   /esbuild-darwin-arm64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-1HyFUKs8DMCBOvw1Qxpr5Vv/ThNcVIFb5xgXWK3pyT40WPvgYIiRTwJCvNs4l8i5qWF8/CK5bQxJVDjQvtv0Yw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-1HyFUKs8DMCBOvw1Qxpr5Vv/ThNcVIFb5xgXWK3pyT40WPvgYIiRTwJCvNs4l8i5qWF8/CK5bQxJVDjQvtv0Yw==}
+    engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
@@ -100,11 +84,8 @@ packages:
     optional: true
 
   /esbuild-freebsd-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-FNWc05TPHYgaXjbPZO5/rJKSBslfG6BeMSs8GhwnqAKP56eEhvmzwnIz1QcC9cRVyO+IKqWNfmHFkCa1WJTULA==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-FNWc05TPHYgaXjbPZO5/rJKSBslfG6BeMSs8GhwnqAKP56eEhvmzwnIz1QcC9cRVyO+IKqWNfmHFkCa1WJTULA==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
@@ -112,11 +93,8 @@ packages:
     optional: true
 
   /esbuild-freebsd-arm64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-amrYopclz3VohqisOPR6hA3GOWA3LZC1WDLnp21RhNmoERmJ/vLnOpnrG2P/Zao+/erKTCUqmrCIPVtj58DRoA==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-amrYopclz3VohqisOPR6hA3GOWA3LZC1WDLnp21RhNmoERmJ/vLnOpnrG2P/Zao+/erKTCUqmrCIPVtj58DRoA==}
+    engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
@@ -124,11 +102,8 @@ packages:
     optional: true
 
   /esbuild-linux-32/0.14.43:
-    resolution:
-      {
-        integrity: sha512-KoxoEra+9O3AKVvgDFvDkiuddCds6q71owSQEYwjtqRV7RwbPzKxJa6+uyzUulHcyGVq0g15K0oKG5CFBcvYDw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-KoxoEra+9O3AKVvgDFvDkiuddCds6q71owSQEYwjtqRV7RwbPzKxJa6+uyzUulHcyGVq0g15K0oKG5CFBcvYDw==}
+    engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
@@ -136,11 +111,8 @@ packages:
     optional: true
 
   /esbuild-linux-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-EwINwGMyiJMgBby5/SbMqKcUhS5AYAZ2CpEBzSowsJPNBJEdhkCTtEjk757TN/wxgbu3QklqDM6KghY660QCUw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-EwINwGMyiJMgBby5/SbMqKcUhS5AYAZ2CpEBzSowsJPNBJEdhkCTtEjk757TN/wxgbu3QklqDM6KghY660QCUw==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
@@ -148,11 +120,8 @@ packages:
     optional: true
 
   /esbuild-linux-arm/0.14.43:
-    resolution:
-      {
-        integrity: sha512-e6YzQUoDxxtyamuF12eVzzRC7bbEFSZohJ6igQB9tBqnNmIQY3fI6Cns3z2wxtbZ3f2o6idkD2fQnlvs2902Dg==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-e6YzQUoDxxtyamuF12eVzzRC7bbEFSZohJ6igQB9tBqnNmIQY3fI6Cns3z2wxtbZ3f2o6idkD2fQnlvs2902Dg==}
+    engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
@@ -160,11 +129,8 @@ packages:
     optional: true
 
   /esbuild-linux-arm64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-UlSpjMWllAc70zYbHxWuDS3FJytyuR/gHJYBr8BICcTNb/TSOYVBg6U7b3jZ3mILTrgzwJUHwhEwK18FZDouUQ==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-UlSpjMWllAc70zYbHxWuDS3FJytyuR/gHJYBr8BICcTNb/TSOYVBg6U7b3jZ3mILTrgzwJUHwhEwK18FZDouUQ==}
+    engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
@@ -172,11 +138,8 @@ packages:
     optional: true
 
   /esbuild-linux-mips64le/0.14.43:
-    resolution:
-      {
-        integrity: sha512-f+v8cInPEL1/SDP//CfSYzcDNgE4CY3xgDV81DWm3KAPWzhvxARrKxB1Pstf5mB56yAslJDxu7ryBUPX207EZA==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-f+v8cInPEL1/SDP//CfSYzcDNgE4CY3xgDV81DWm3KAPWzhvxARrKxB1Pstf5mB56yAslJDxu7ryBUPX207EZA==}
+    engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
@@ -184,11 +147,8 @@ packages:
     optional: true
 
   /esbuild-linux-ppc64le/0.14.43:
-    resolution:
-      {
-        integrity: sha512-5wZYMDGAL/K2pqkdIsW+I4IR41kyfHr/QshJcNpUfK3RjB3VQcPWOaZmc+74rm4ZjVirYrtz+jWw0SgxtxRanA==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-5wZYMDGAL/K2pqkdIsW+I4IR41kyfHr/QshJcNpUfK3RjB3VQcPWOaZmc+74rm4ZjVirYrtz+jWw0SgxtxRanA==}
+    engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
@@ -196,11 +156,8 @@ packages:
     optional: true
 
   /esbuild-linux-riscv64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-lYcAOUxp85hC7lSjycJUVSmj4/9oEfSyXjb/ua9bNl8afonaduuqtw7hvKMoKuYnVwOCDw4RSfKpcnIRDWq+Bw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-lYcAOUxp85hC7lSjycJUVSmj4/9oEfSyXjb/ua9bNl8afonaduuqtw7hvKMoKuYnVwOCDw4RSfKpcnIRDWq+Bw==}
+    engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
@@ -208,11 +165,8 @@ packages:
     optional: true
 
   /esbuild-linux-s390x/0.14.43:
-    resolution:
-      {
-        integrity: sha512-27e43ZhHvhFE4nM7HqtUbMRu37I/4eNSUbb8FGZWszV+uLzMIsHDwLoBiJmw7G9N+hrehNPeQ4F5Ujad0DrUKQ==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-27e43ZhHvhFE4nM7HqtUbMRu37I/4eNSUbb8FGZWszV+uLzMIsHDwLoBiJmw7G9N+hrehNPeQ4F5Ujad0DrUKQ==}
+    engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
@@ -220,11 +174,8 @@ packages:
     optional: true
 
   /esbuild-netbsd-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-2mH4QF6hHBn5zzAfxEI/2eBC0mspVsZ6UVo821LpAJKMvLJPBk3XJO5xwg7paDqSqpl7p6IRrAenW999AEfJhQ==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-2mH4QF6hHBn5zzAfxEI/2eBC0mspVsZ6UVo821LpAJKMvLJPBk3XJO5xwg7paDqSqpl7p6IRrAenW999AEfJhQ==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
@@ -232,11 +183,8 @@ packages:
     optional: true
 
   /esbuild-openbsd-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-ZhQpiZjvqCqO8jKdGp9+8k9E/EHSA+zIWOg+grwZasI9RoblqJ1QiZqqi7jfd6ZrrG1UFBNGe4m0NFxCFbMVbg==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-ZhQpiZjvqCqO8jKdGp9+8k9E/EHSA+zIWOg+grwZasI9RoblqJ1QiZqqi7jfd6ZrrG1UFBNGe4m0NFxCFbMVbg==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
@@ -244,11 +192,8 @@ packages:
     optional: true
 
   /esbuild-sunos-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-DgxSi9DaHReL9gYuul2rrQCAapgnCJkh3LSHPKsY26zytYppG0HgkgVF80zjIlvEsUbGBP/GHQzBtrezj/Zq1Q==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-DgxSi9DaHReL9gYuul2rrQCAapgnCJkh3LSHPKsY26zytYppG0HgkgVF80zjIlvEsUbGBP/GHQzBtrezj/Zq1Q==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
@@ -256,11 +201,8 @@ packages:
     optional: true
 
   /esbuild-windows-32/0.14.43:
-    resolution:
-      {
-        integrity: sha512-Ih3+2O5oExiqm0mY6YYE5dR0o8+AspccQ3vIAtRodwFvhuyGLjb0Hbmzun/F3Lw19nuhPMu3sW2fqIJ5xBxByw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-Ih3+2O5oExiqm0mY6YYE5dR0o8+AspccQ3vIAtRodwFvhuyGLjb0Hbmzun/F3Lw19nuhPMu3sW2fqIJ5xBxByw==}
+    engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
@@ -268,11 +210,8 @@ packages:
     optional: true
 
   /esbuild-windows-64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-8NsuNfI8xwFuJbrCuI+aBqNTYkrWErejFO5aYM+yHqyHuL8mmepLS9EPzAzk8rvfaJrhN0+RvKWAcymViHOKEw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-8NsuNfI8xwFuJbrCuI+aBqNTYkrWErejFO5aYM+yHqyHuL8mmepLS9EPzAzk8rvfaJrhN0+RvKWAcymViHOKEw==}
+    engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -280,11 +219,8 @@ packages:
     optional: true
 
   /esbuild-windows-arm64/0.14.43:
-    resolution:
-      {
-        integrity: sha512-7ZlD7bo++kVRblJEoG+cepljkfP8bfuTPz5fIXzptwnPaFwGS6ahvfoYzY7WCf5v/1nX2X02HDraVItTgbHnKw==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-7ZlD7bo++kVRblJEoG+cepljkfP8bfuTPz5fIXzptwnPaFwGS6ahvfoYzY7WCf5v/1nX2X02HDraVItTgbHnKw==}
+    engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
@@ -292,11 +228,8 @@ packages:
     optional: true
 
   /esbuild/0.14.43:
-    resolution:
-      {
-        integrity: sha512-Uf94+kQmy/5jsFwKWiQB4hfo/RkM9Dh7b79p8yqd1tshULdr25G2szLz631NoH3s2ujnKEKVD16RmOxvCNKRFA==,
-      }
-    engines: { node: ">=12" }
+    resolution: {integrity: sha512-Uf94+kQmy/5jsFwKWiQB4hfo/RkM9Dh7b79p8yqd1tshULdr25G2szLz631NoH3s2ujnKEKVD16RmOxvCNKRFA==}
+    engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
@@ -323,11 +256,8 @@ packages:
     dev: false
 
   /handlebars/4.7.7:
-    resolution:
-      {
-        integrity: sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==,
-      }
-    engines: { node: ">=0.4.7" }
+    resolution: {integrity: sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==}
+    engines: {node: '>=0.4.7'}
     hasBin: true
     dependencies:
       minimist: 1.2.6
@@ -339,58 +269,79 @@ packages:
     dev: false
 
   /minimist/1.2.6:
-    resolution:
-      {
-        integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==,
-      }
+    resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: false
 
   /neo-async/2.6.2:
-    resolution:
-      {
-        integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==,
-      }
+    resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: false
 
   /prettier/2.3.2:
-    resolution:
-      {
-        integrity: sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==,
-      }
-    engines: { node: ">=10.13.0" }
+    resolution: {integrity: sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==}
+    engines: {node: '>=10.13.0'}
     hasBin: true
     dev: false
 
   /source-map/0.6.1:
-    resolution:
-      {
-        integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==,
-      }
-    engines: { node: ">=0.10.0" }
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
+    engines: {node: '>=0.10.0'}
     dev: false
 
   /uglify-js/3.16.0:
-    resolution:
-      {
-        integrity: sha512-FEikl6bR30n0T3amyBh3LoiBdqHRy/f4H80+My34HOesOKyHfOsxAPAxOoqC0JUnC1amnO0IwkYC3sko51caSw==,
-      }
-    engines: { node: ">=0.8.0" }
+    resolution: {integrity: sha512-FEikl6bR30n0T3amyBh3LoiBdqHRy/f4H80+My34HOesOKyHfOsxAPAxOoqC0JUnC1amnO0IwkYC3sko51caSw==}
+    engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true
     dev: false
     optional: true
 
   /wordwrap/1.0.0:
-    resolution: { integrity: sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus= }
+    resolution: {integrity: sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==}
+    dev: false
+
+  file:projects/hero-of-time-link.tgz:
+    resolution: {integrity: sha512-KS2F4XS0mZXzWc80Q9FKETlNZxdH/r53Bcl8d1yQXZzJCcbSncOZgdejtRz3r25jxGqKbtmMhGextgNj+25VyQ==, tarball: file:projects/hero-of-time-link.tgz}
+    name: '@rush-temp/hero-of-time-link'
+    version: 0.0.0
+    dependencies:
+      prettier: 2.3.2
+    dev: false
+
+  file:projects/hugo-media-proxy.tgz:
+    resolution: {integrity: sha512-Bco3BG4vLvLVQ+By/onxRkod62JQrvbqi+Bvfjoka3fDoODNhJS1moxNfNbT7eR5IIQFCRtUMNp/C2uwqewwUw==, tarball: file:projects/hugo-media-proxy.tgz}
+    name: '@rush-temp/hugo-media-proxy'
+    version: 0.0.0
+    dependencies:
+      prettier: 2.3.2
+    dev: false
+
+  file:projects/hugo-proxy.tgz:
+    resolution: {integrity: sha512-K6zkuZGkf2OeYlHE0CGXJ/UZaXKsz9YaqgiLYonvqxd2gB43b+bZVICINkXZTbfhUBxevLuBZXW7ivvUs0tjPQ==, tarball: file:projects/hugo-proxy.tgz}
+    name: '@rush-temp/hugo-proxy'
+    version: 0.0.0
+    dependencies:
+      prettier: 2.3.2
+    dev: false
+
+  file:projects/nchlswhttkr-dot-com.tgz:
+    resolution: {integrity: sha512-xBxuaABnMq2ZzgJQ1TELNAbV7mmUywKHZzWcC0iUhjnUQambXroxJeqDqqvwImHoE7ozCgIFOjcPmOKcXUFapw==, tarball: file:projects/nchlswhttkr-dot-com.tgz}
+    name: '@rush-temp/nchlswhttkr-dot-com'
+    version: 0.0.0
+    dependencies:
+      prettier: 2.3.2
+    dev: false
+
+  file:projects/newsletter-subscription-form.tgz:
+    resolution: {integrity: sha512-eElyfKX3d+mdueiqZ2vn/F+H0z+W6v38P0KqtsQNlhl4cvymcPOtrpYiahFB1d43EMd2UxWQFkfRnqjYM8S6yg==, tarball: file:projects/newsletter-subscription-form.tgz}
+    name: '@rush-temp/newsletter-subscription-form'
+    version: 0.0.0
+    dependencies:
+      prettier: 2.3.2
     dev: false
 
   file:projects/rss-feeds.tgz:
-    resolution:
-      {
-        integrity: sha512-EOAoFXt2Xdz8TRXHeO9TtCaET6WPHerEjtllyjkEHSp7clYDZhWoC5wObylTkvVDcL0hxQQSz/rLL1imw2RDZg==,
-        tarball: file:projects/rss-feeds.tgz,
-      }
-    name: "@rush-temp/rss-feeds"
+    resolution: {integrity: sha512-B+CwQUSjkvF3IeAeT2nnuoIbBdue9ZpE8oKuwDHJKa84B3fDZPvj5QTQ/Kl328Es48ove7ySV4/zyJ2TR/qHjA==, tarball: file:projects/rss-feeds.tgz}
+    name: '@rush-temp/rss-feeds'
     version: 0.0.0
     dependencies:
       esbuild: 0.14.43
@@ -398,76 +349,12 @@ packages:
       prettier: 2.3.2
     dev: false
 
-  file:projects/hero-of-time-link.tgz:
-    resolution:
-      {
-        integrity: sha512-KS2F4XS0mZXzWc80Q9FKETlNZxdH/r53Bcl8d1yQXZzJCcbSncOZgdejtRz3r25jxGqKbtmMhGextgNj+25VyQ==,
-        tarball: file:projects/hero-of-time-link.tgz,
-      }
-    name: "@rush-temp/hero-of-time-link"
-    version: 0.0.0
-    dependencies:
-      prettier: 2.3.2
-    dev: false
-
-  file:projects/hugo-media-proxy.tgz:
-    resolution:
-      {
-        integrity: sha512-Bco3BG4vLvLVQ+By/onxRkod62JQrvbqi+Bvfjoka3fDoODNhJS1moxNfNbT7eR5IIQFCRtUMNp/C2uwqewwUw==,
-        tarball: file:projects/hugo-media-proxy.tgz,
-      }
-    name: "@rush-temp/hugo-media-proxy"
-    version: 0.0.0
-    dependencies:
-      prettier: 2.3.2
-    dev: false
-
-  file:projects/hugo-proxy.tgz:
-    resolution:
-      {
-        integrity: sha512-K6zkuZGkf2OeYlHE0CGXJ/UZaXKsz9YaqgiLYonvqxd2gB43b+bZVICINkXZTbfhUBxevLuBZXW7ivvUs0tjPQ==,
-        tarball: file:projects/hugo-proxy.tgz,
-      }
-    name: "@rush-temp/hugo-proxy"
-    version: 0.0.0
-    dependencies:
-      prettier: 2.3.2
-    dev: false
-
-  file:projects/nchlswhttkr-dot-com.tgz:
-    resolution:
-      {
-        integrity: sha512-xBxuaABnMq2ZzgJQ1TELNAbV7mmUywKHZzWcC0iUhjnUQambXroxJeqDqqvwImHoE7ozCgIFOjcPmOKcXUFapw==,
-        tarball: file:projects/nchlswhttkr-dot-com.tgz,
-      }
-    name: "@rush-temp/nchlswhttkr-dot-com"
-    version: 0.0.0
-    dependencies:
-      prettier: 2.3.2
-    dev: false
-
-  file:projects/newsletter-subscription-form.tgz:
-    resolution:
-      {
-        integrity: sha512-eElyfKX3d+mdueiqZ2vn/F+H0z+W6v38P0KqtsQNlhl4cvymcPOtrpYiahFB1d43EMd2UxWQFkfRnqjYM8S6yg==,
-        tarball: file:projects/newsletter-subscription-form.tgz,
-      }
-    name: "@rush-temp/newsletter-subscription-form"
-    version: 0.0.0
-    dependencies:
-      prettier: 2.3.2
-    dev: false
-
   file:projects/terraform-registry.tgz:
-    resolution:
-      {
-        integrity: sha512-0qaQiG9Dw/A97ta2lNMtA6Haf0eXbN3Sxm9PbJ/Etr6TL5loca5vWXQsdtinll1b35HSlAfCszcVRufl9SPhJQ==,
-        tarball: file:projects/terraform-registry.tgz,
-      }
-    name: "@rush-temp/terraform-registry"
+    resolution: {integrity: sha512-0qaQiG9Dw/A97ta2lNMtA6Haf0eXbN3Sxm9PbJ/Etr6TL5loca5vWXQsdtinll1b35HSlAfCszcVRufl9SPhJQ==, tarball: file:projects/terraform-registry.tgz}
+    name: '@rush-temp/terraform-registry'
     version: 0.0.0
     dependencies:
-      "@hapi/boom": 9.1.4
-      "@hapi/call": 8.0.1
+      '@hapi/boom': 9.1.4
+      '@hapi/call': 8.0.1
       prettier: 2.3.2
     dev: false
