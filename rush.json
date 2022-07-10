@@ -290,6 +290,10 @@
    */
   "projects": [
     {
+      "packageName": "@nchlswhttkr/template-worker",
+      "projectFolder": "workers/template-worker"
+    },
+    {
       "packageName": "@nchlswhttkr/hero-of-time-link",
       "projectFolder": "workers/hero-of-time-link"
     },

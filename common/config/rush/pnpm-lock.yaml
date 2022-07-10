@@ -9,6 +9,7 @@ specifiers:
   '@rush-temp/nchlswhttkr-dot-com': file:./projects/nchlswhttkr-dot-com.tgz
   '@rush-temp/newsletter-subscription-form': file:./projects/newsletter-subscription-form.tgz
   '@rush-temp/rss-feeds': file:./projects/rss-feeds.tgz
+  '@rush-temp/template-worker': file:./projects/template-worker.tgz
   '@rush-temp/terraform-registry': file:./projects/terraform-registry.tgz
   esbuild: ^0.14.43
   handlebars: ^4.7.7
@@ -24,6 +25,7 @@ dependencies:
   '@rush-temp/nchlswhttkr-dot-com': file:projects/nchlswhttkr-dot-com.tgz
   '@rush-temp/newsletter-subscription-form': file:projects/newsletter-subscription-form.tgz
   '@rush-temp/rss-feeds': file:projects/rss-feeds.tgz
+  '@rush-temp/template-worker': file:projects/template-worker.tgz
   '@rush-temp/terraform-registry': file:projects/terraform-registry.tgz
   esbuild: 0.14.48
   handlebars: 4.7.7
@@ -1031,6 +1033,21 @@ packages:
     dependencies:
       esbuild: 0.14.48
       handlebars: 4.7.7
+      prettier: 2.7.1
+      wrangler: 2.0.16
+    transitivePeerDependencies:
+      - '@miniflare/storage-redis'
+      - bufferutil
+      - cron-schedule
+      - ioredis
+      - utf-8-validate
+    dev: false
+
+  file:projects/template-worker.tgz:
+    resolution: {integrity: sha512-Vj8DovZF1oXTy8Qc52AUJiS7gtYSwxqMAWG/1v29qbBAjiNn41e5o1+FSDpYicsUZeT9sRUQqZurVTAkX4zrEA==, tarball: file:projects/template-worker.tgz}
+    name: '@rush-temp/template-worker'
+    version: 0.0.0
+    dependencies:
       prettier: 2.7.1
       wrangler: 2.0.16
     transitivePeerDependencies:
