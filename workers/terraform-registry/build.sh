@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-prettier --ignore-path "../../.prettierignore" --check "**/*.(js|json)"
+prettier --ignore-path "../../.prettierignore" --check .
 esbuild index.js --bundle --outfile="build/worker.js" --log-level="warning"
 
 export CLOUDFLARE_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
