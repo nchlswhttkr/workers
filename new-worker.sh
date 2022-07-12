@@ -17,4 +17,4 @@ echo -n ",
       \"packageName\": \"@nchlswhttkr/$1\",
       \"projectFolder\": \"workers/$1\"
     }" | pbcopy
-code --goto rush.json:291
+code --goto "rush.json:$(wc -l rush.json | grep --only-matching "[0-9]+")"
