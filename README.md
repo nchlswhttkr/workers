@@ -8,31 +8,18 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 
 ## Usage
 
-You should make sure you can publish your workers.
-
-1. Have credentials ready in [`pass`](https://passwordstore.org/).
-1. Make sure you have [wrangler](https://github.com/cloudflare/wrangler) installed.
-
-After this, you can publish all your workers, or just a single chosen worker.
+You'll need credentials on hand in your [`pass`](https://passwordstore.org/) store, and [Rush](https://rushjs.io/) needs to be installed.
 
 ```sh
+nvm use
+rush update
 rush build
-rush build --to @nchlswhttkr/newsletter-subscription-form
 ```
 
-Rush will not rebuild a package unless it changes, or one of its dependencies changes. Changes to `.gitignore`'d files and external sources (secrets within `pass`) **will be ignored**.
-
-You can always force a rebuild of a particular package or all packages.
+Subsequent builds will be incremental, and won't run from changes to ignored files and external sources (secrets in `pass`, files outside a project's folder). In this case, you can force a full rebuild of a project and its dependencies.
 
 ```sh
-rush rebuild
-rush rebuild --to @nchlswhttkr/newsletter-subscription-form
-```
-
-New workers can be created from the template worker. Make sure to add them the `rush.json` config so they will be published!
-
-```
-./new-worker.sh "new-worker-name"
+rush rebuild --to "@nchlswhttkr/template-worker"
 ```
 
 ## Packages
