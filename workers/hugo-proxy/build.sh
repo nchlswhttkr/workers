@@ -3,6 +3,7 @@
 set -euo pipefail
 
 prettier --ignore-path "../../.prettierignore" --check .
+eslint --ignore-path "../../.eslintignore" .
 esbuild index.js --bundle --outfile="build/worker.js" --log-level="warning"
 
 export CLOUDFLARE_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)

@@ -12,6 +12,26 @@
   },
   "dependencies": {
     "wrangler": "^2.0.16",
-    "esbuild": "^0.14.43"
+    "esbuild": "^0.14.43",
+    "eslint": "^8.19.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "rules": {},
+    "globals": {
+      "CACHED_MEDIA": true,
+      "CACHED_RESPONSES": true,
+      "VIMEO_SECRET_KEY": true,
+      "WRITER_SECRET": true,
+      "YOUTUBE_SECRET_KEY": true
+    }
   }
 }

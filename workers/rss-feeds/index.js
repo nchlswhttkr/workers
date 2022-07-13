@@ -3,7 +3,7 @@
  * either the global or window APIs need to be available. Using an implicit
  * global achieves this, even if it janky.
  */
-global = {};
+global = {}; // eslint-disable-line no-global-assign
 Handlebars = require("handlebars");
 require("./build/feed.hbs.js");
 
