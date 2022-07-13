@@ -13,5 +13,19 @@
   "dependencies": {
     "wrangler": "^2.0.16",
     "eslint": "^8.19.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "rules": {},
+    "globals": {
+      "SHORTCUTS": true
+    }
   }
 }
