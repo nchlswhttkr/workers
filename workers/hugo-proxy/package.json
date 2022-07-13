@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "wrangler": "^2.0.16",
-    "esbuild": "^0.14.43"
+    "esbuild": "^0.14.43",
+    "eslint": "^8.19.0"
   }
 }
