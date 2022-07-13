@@ -16,5 +16,21 @@
     "wrangler": "^2.0.16",
     "esbuild": "^0.14.43",
     "eslint": "^8.19.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "rules": {},
+    "globals": {
+      "Buffer": true,
+      "GPG_KEY_ID": true
+    }
   }
 }
