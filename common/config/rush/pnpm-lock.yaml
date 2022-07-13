@@ -12,9 +12,8 @@ importers:
       wrangler: ^2.0.16
     dependencies:
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/hugo-media-proxy:
     specifiers:
@@ -23,9 +22,8 @@ importers:
       wrangler: ^2.0.16
     dependencies:
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/hugo-proxy:
     specifiers:
@@ -36,9 +34,8 @@ importers:
     dependencies:
       esbuild: 0.14.49
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/nchlswhttkr-dot-com:
     specifiers:
@@ -47,9 +44,8 @@ importers:
       wrangler: ^2.0.16
     dependencies:
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/newsletter-subscription-form:
     specifiers:
@@ -58,9 +54,8 @@ importers:
       wrangler: ^2.0.16
     dependencies:
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/rss-feeds:
     specifiers:
@@ -73,9 +68,8 @@ importers:
       esbuild: 0.14.49
       eslint: 8.19.0
       handlebars: 4.7.7
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/template-worker:
     specifiers:
@@ -84,9 +78,8 @@ importers:
       wrangler: ^2.0.16
     dependencies:
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
   ../../workers/terraform-registry:
     specifiers:
@@ -101,9 +94,8 @@ importers:
       '@hapi/call': 8.0.1
       esbuild: 0.14.49
       eslint: 8.19.0
-      wrangler: 2.0.18
-    devDependencies:
       prettier: 2.7.1
+      wrangler: 2.0.18
 
 packages:
 
@@ -1323,7 +1315,7 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
+    dev: false
 
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}

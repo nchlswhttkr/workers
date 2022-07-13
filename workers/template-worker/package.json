@@ -6,10 +6,8 @@
   },
   "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "prettier": "^2.1.2"
-  },
   "dependencies": {
+    "prettier": "^2.1.2",
     "wrangler": "^2.0.16",
     "eslint": "^8.19.0"
   },
