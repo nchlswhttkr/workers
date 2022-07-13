@@ -15,5 +15,22 @@
     "handlebars": "^4.7.7",
     "wrangler": "^2.0.16",
     "eslint": "^8.19.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {},
+    "globals": {
+      "Handlebars": true,
+      "HTMLRewriter": true
+    }
   }
 }
