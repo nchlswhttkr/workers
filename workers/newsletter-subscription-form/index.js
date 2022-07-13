@@ -227,7 +227,7 @@ async function handleRequest(event) {
   }
 }
 
-async function showRegistrationForm(event) {
+async function showRegistrationForm() {
   const baseCommand =
     "curl https://nicholas.cloud/newsletter/subscribe/ --data-urlencode email=";
   return new Response(
