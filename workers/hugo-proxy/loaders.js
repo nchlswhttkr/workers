@@ -147,7 +147,7 @@ async function loadTwitterTweet(id) {
     await storedMediaAt(p.url);
     await storedMediaAt(p.high_res_url);
   }
-  if (!!video) {
+  if (video) {
     await storedMediaAt(video.src);
   }
 

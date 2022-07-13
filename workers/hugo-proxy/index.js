@@ -9,7 +9,7 @@ async function handleRequest(event) {
     const url = new URL(event.request.url);
     const source = url.pathname.substring(1);
 
-    let args;
+    let args, loader;
     switch (source) {
       case "bandcamp": {
         const artist = url.searchParams.get("artist");
@@ -37,12 +37,13 @@ async function handleRequest(event) {
         break;
       }
 
-      case "youtube":
+      case "youtube": {
         const id = url.searchParams.get("id");
         if (!id) throw new Error("Expected ID for YouTube video");
         args = [id];
         loader = loaders.loadYoutubeVideo;
         break;
+      }
 
       default:
         return new Response("404 Not Found", { status: 404 });
