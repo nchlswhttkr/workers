@@ -482,6 +482,10 @@
     {
       "packageName": "@nchlswhttkr/rss-feeds",
       "projectFolder": "workers/rss-feeds"
+    },
+    {
+      "packageName": "@nchlswhttkr/esbuild-plugin-handlebars",
+      "projectFolder": "esbuild-plugins/esbuild-plugin-handlebars"
     }
   ]
 }

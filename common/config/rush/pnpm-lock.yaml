@@ -5,6 +5,16 @@ importers:
   .:
     specifiers: {}
 
+  ../../esbuild-plugins/esbuild-plugin-handlebars:
+    specifiers:
+      eslint: ^8.19.0
+      handlebars: ^4.7.7
+      prettier: ^2.1.2
+    dependencies:
+      eslint: 8.19.0
+      handlebars: 4.7.7
+      prettier: 2.7.1
+
   ../../workers/hero-of-time-link:
     specifiers:
       eslint: ^8.19.0
@@ -59,12 +69,14 @@ importers:
 
   ../../workers/rss-feeds:
     specifiers:
+      '@nchlswhttkr/esbuild-plugin-handlebars': workspace:*
       esbuild: ^0.14.43
       eslint: ^8.19.0
       handlebars: ^4.7.7
       prettier: ^2.1.2
       wrangler: ^2.0.16
     dependencies:
+      '@nchlswhttkr/esbuild-plugin-handlebars': link:../../esbuild-plugins/esbuild-plugin-handlebars
       esbuild: 0.14.49
       eslint: 8.19.0
       handlebars: 4.7.7

@@ -5,7 +5,8 @@
  */
 global = {}; // eslint-disable-line no-global-assign
 Handlebars = require("handlebars");
-require("./build/feed.hbs.js");
+Handlebars.templates = Handlebars.templates || {};
+Handlebars.templates["feed"] = Handlebars.template(require("feed.hbs"));
 
 import { getBandcampDailyArticles } from "./bandcamp-daily";
 
@@ -29,7 +30,7 @@ async function handleRequest(event) {
     }
 
     return new Response(
-      Handlebars.templates["feed.hbs"]({ title, link, description, articles }),
+      Handlebars.templates["feed"]({ title, link, description, articles }),
       {
         status: 200,
         headers: {

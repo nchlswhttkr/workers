@@ -24,6 +24,10 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 
 ## Packages
 
+### [esbuild-plugin-handlebars](./esbuild-plugins/esbuild-plugin-handlebars)
+
+An esbuild plugin to load and precompile Handlebars templates.
+
 ### [hero-of-time-link](./workers/hero-of-time-link)
 
 A shortcut service using Workers KV.

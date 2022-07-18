@@ -12,7 +12,8 @@
     "esbuild": "^0.14.43",
     "handlebars": "^4.7.7",
     "wrangler": "^2.0.16",
-    "eslint": "^8.19.0"
+    "eslint": "^8.19.0",
+    "@nchlswhttkr/esbuild-plugin-handlebars": "workspace:*"
   },
   "eslintConfig": {
     "env": {
