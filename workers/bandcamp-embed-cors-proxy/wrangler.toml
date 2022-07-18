@@ -1,3 +1,0 @@
-name = "bandcamp-embed-cors-proxy"
-type = "javascript"
-route = "https://nicholas.cloud/bandcamp-proxy/*"

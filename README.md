@@ -56,32 +56,42 @@ Generates RSS feeds for a few websites I browse.
 
 Mimics a Terraform registry to serve my custom providers.
 
-### ~~[bandcamp-embed-cors-proxy](./workers/bandcamp-embed-cors-proxy)~~
+### ~~[bandcamp-embed-cors-proxy](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/bandcamp-embed-cors-proxy)~~
 
-> :exclamation: I've moved this worker in with the embed itself at https://github.com/nchlswhttkr/bandcamp-mini-embed. I don't maintain this anymore.
+> **Warning**
+>
+> I've moved this worker in with the embed itself at https://github.com/nchlswhttkr/bandcamp-mini-embed. I don't maintain this anymore.
 
 Proxies requests for my custom Bandcamp embed, adding CORS headers.
 
-### ~~[counter](./workers/counter)~~
+### ~~[counter](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/counter)~~
 
-> :exclamation: I've taken this down since I'm not actively using it at the moment. You can still view the source code.
+> **Warning**
+>
+> I've taken this down since I'm not actively using it at the moment. You can still view the source code.
 
 Having some fun with isolate persistence in Cloudflare Workers.
 
-### ~~[experimental-golang-worker](./workers/experimental-golang-worker)~~
+### ~~[experimental-golang-worker](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/experimental-golang-worker)~~
 
-> :exclamation: I've taken this down since I'm not actively using it at the moment. You can still view the source code.
+> **Warning**
+>
+> I've taken this down since I'm not actively using it at the moment. You can still view the source code.
 
 Running Golang as WASM inside Cloudflare Workers.
 
-### ~~[inject-env-loader](./webpack/inject-env-loader)~~
+### ~~[inject-env-loader](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/webpack/inject-env-loader)~~
 
-> :exclamation: I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I've since migrated, and I don't maintain this anymore.
+> **Warning**
+>
+> I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I've since migrated, and I don't maintain this anymore.
 
 A Webpack loader to inject environment variables as a part of builds.
 
-### ~~[markdown-reader](./workers/markdown-reader)~~
+### ~~[markdown-reader](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/markdown-reader)~~
 
-> :exclamation: I've since taken this down, as I'm not using it anymore. Consider a service like [nicedoc.io](https://nicedoc.io/) if you're looking for a markdown viewer of GitHub-hosted files.
+> **Warning**
+>
+> I've since taken this down, as I'm not using it anymore. Consider a service like [nicedoc.io](https://nicedoc.io/) if you're looking for a markdown viewer of GitHub-hosted files.
 
 A reader for web-hosted markdown files.
