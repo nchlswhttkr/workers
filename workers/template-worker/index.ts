@@ -2,7 +2,7 @@ addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));
 });
 
-async function handleRequest(event) {
+async function handleRequest(event: FetchEvent) {
   try {
     return new Response(
       `Hello ${event.request.headers.get("User-Agent") || "world"}`,
