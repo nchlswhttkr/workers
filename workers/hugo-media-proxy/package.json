@@ -1,7 +1,7 @@
 {
   "name": "@nchlswhttkr/hugo-media-proxy",
   "version": "0.1.0",
-  "description": "",
+  "description": "Serves media from third party sites for my personal website",
   "scripts": {
     "build": "source build.sh"
   },

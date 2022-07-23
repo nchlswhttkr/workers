@@ -34,7 +34,7 @@ A shortcut service using Workers KV.
 
 ### [hugo-media-proxy](./workers/hugo-media-proxy)
 
-Serves media from third party sites.
+Serves media from third party sites for my personal website.
 
 ### [hugo-proxy](./workers/hugo-proxy)
 

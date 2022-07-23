@@ -1,4 +1,4 @@
-async function loadYoutubeVideo(id) {
+export async function loadYoutubeVideo(id) {
   const video = await fetch(
     `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${YOUTUBE_SECRET_KEY}&part=snippet`
   ).then((r) => {
@@ -19,7 +19,7 @@ async function loadYoutubeVideo(id) {
   };
 }
 
-async function loadVimeoVideo(id) {
+export async function loadVimeoVideo(id) {
   const video = await fetch(`https://api.vimeo.com/videos/${id}`, {
     headers: { Authorization: "Bearer " + VIMEO_SECRET_KEY },
   }).then((r) => {
@@ -44,7 +44,7 @@ async function loadVimeoVideo(id) {
     }
 }
 
-async function loadBandcampAlbum(artist, album) {
+export async function loadBandcampAlbum(artist, album) {
   const url = `https://${artist}.bandcamp.com/album/${album}`;
   let bandcamp = await fetch(url).then((r) => {
     if (r.status === 200) {
@@ -70,7 +70,7 @@ async function loadBandcampAlbum(artist, album) {
   };
 }
 
-async function loadTwitterTweet(id) {
+export async function loadTwitterTweet(id) {
   let tweet = await fetch(
     `https://cdn.syndication.twimg.com/tweet?id=${id}`
   ).then((r) => {
@@ -169,13 +169,6 @@ async function loadTwitterTweet(id) {
     video: video || null,
   };
 }
-
-module.exports = {
-  loadBandcampAlbum,
-  loadTwitterTweet,
-  loadVimeoVideo,
-  loadYoutubeVideo,
-};
 
 // Drop-in solution to store remote media
 async function storedMediaAt(url) {

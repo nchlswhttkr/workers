@@ -1,4 +1,4 @@
-const loaders = require("./loaders");
+import * as loaders from "./loaders";
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event));
