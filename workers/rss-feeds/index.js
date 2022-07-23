@@ -4,7 +4,7 @@
  * global achieves this, even if it janky.
  */
 global = {}; // eslint-disable-line no-global-assign
-Handlebars = require("handlebars");
+Handlebars = require("handlebars/runtime");
 Handlebars.templates = Handlebars.templates || {};
 Handlebars.templates["feed"] = Handlebars.template(require("feed.hbs"));
 
