@@ -486,6 +486,10 @@
     {
       "packageName": "@nchlswhttkr/esbuild-plugin-handlebars",
       "projectFolder": "esbuild-plugins/esbuild-plugin-handlebars"
+    },
+    {
+      "packageName": "@nchlswhttkr/enforce-https",
+      "projectFolder": "workers/enforce-https"
     }
   ]
 }

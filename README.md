@@ -28,6 +28,10 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 
 An esbuild plugin to load and precompile Handlebars templates.
 
+### [enforce-https](./workers/enforce-https/)
+
+Enforces HTTPS for requests to my website and any subdomains.
+
 ### [hero-of-time-link](./workers/hero-of-time-link)
 
 A shortcut service using Workers KV.

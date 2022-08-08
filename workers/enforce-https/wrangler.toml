@@ -1,0 +1,7 @@
+name = "enforce-https"
+main = "build/worker.js"
+compatibility_date = "2022-07-01"
+routes = [
+    "http://nicholas.cloud/*",
+    "http://*.nicholas.cloud/*"
+]

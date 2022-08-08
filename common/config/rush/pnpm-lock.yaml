@@ -15,6 +15,26 @@ importers:
       handlebars: 4.7.7
       prettier: 2.7.1
 
+  ../../workers/enforce-https:
+    specifiers:
+      '@cloudflare/workers-types': ~3.14.1
+      '@typescript-eslint/eslint-plugin': ^5.30.7
+      '@typescript-eslint/parser': ^5.30.7
+      esbuild: ^0.14.43
+      eslint: ^8.19.0
+      prettier: ^2.1.2
+      typescript: ^4.7.4
+      wrangler: ^2.0.16
+    dependencies:
+      '@cloudflare/workers-types': 3.14.1
+      '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
+      '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
+      esbuild: 0.14.49
+      eslint: 8.20.0
+      prettier: 2.7.1
+      typescript: 4.7.4
+      wrangler: 2.0.22
+
   ../../workers/hero-of-time-link:
     specifiers:
       eslint: ^8.19.0
