@@ -11,7 +11,6 @@ export CLOUDFLARE_ACCOUNT_ID
 CLOUDFLARE_API_TOKEN=$(pass show workers/cloudflare-api-token)
 export CLOUDFLARE_API_TOKEN
 
-pass show workers/hugo-proxy/writer-secret | wrangler secret put WRITER_SECRET
 pass show workers/hugo-proxy/youtube-secret-key | wrangler secret put YOUTUBE_SECRET_KEY
 pass show workers/hugo-proxy/vimeo-secret-key | wrangler secret put VIMEO_SECRET_KEY
 

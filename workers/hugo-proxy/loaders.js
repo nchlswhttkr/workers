@@ -1,3 +1,6 @@
+// TODO: Assert API responses match schema (joi?)
+// TODO: Use key listing to check for stored media without a read
+
 export async function loadYoutubeVideo(id) {
   const video = await fetch(
     `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${YOUTUBE_SECRET_KEY}&part=snippet`
@@ -36,7 +39,7 @@ export async function loadVimeoVideo(id) {
   return {
       channel_url: video.user.link,
       channel_title: video.user.name,
-      thumbnail_url: await storedMediaAt(video.pictures.base_link + `_${width}x${height}`), // "?r=pad"
+      thumbnail_url: await storedMediaAt(video.pictures.base_link + `_${width}x${height}.jpg`), // "?r=pad"
       thumbnail_height: height,
       thumbnail_width: width,
       video_title: video.name,
@@ -172,7 +175,40 @@ export async function loadTwitterTweet(id) {
 
 // Drop-in solution to store remote media
 async function storedMediaAt(url) {
-  const media = await fetch(url).then((response) => response.arrayBuffer());
-  await CACHED_MEDIA.put(url, media);
+  if ((await CACHED_MEDIA.get(url)) == null) {
+    const media = await fetch(url).then((response) => {
+      if (response.status === 200) {
+        return response.arrayBuffer();
+      }
+      throw new Error(
+        `Received ${response.status} while fetching media to store`
+      );
+    });
+    await CACHED_MEDIA.put(url, media, {
+      metadata: {
+        mimeType: getMime(url),
+        createdAt: new Date().toISOString(),
+      },
+    });
+  }
   return url;
+}
+
+function getMime(url) {
+  const extension = url
+    .split("?")[0]
+    .split(".")
+    .reduce((_, value) => value);
+
+  switch (extension) {
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "png":
+      return "image/png";
+    case "mp4":
+      return "video/mp4";
+    default:
+      throw new Error("Could not determine MIME type");
+  }
 }

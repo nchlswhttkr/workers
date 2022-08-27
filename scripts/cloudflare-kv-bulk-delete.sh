@@ -15,14 +15,14 @@ KEYS_FILE=$(mktemp)
 
 # Get ID of the provided namespace
 KV_NAMESPACE_ID=$(
-    curl --silent --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces" -H "Authorization: Bearer $CF_API_TOKEN" \
+    curl --silent --show-error --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces" -H "Authorization: Bearer $CF_API_TOKEN" \
         | jq --raw-output ".result[] | select(.title == \"$KV_NAMESPACE\") | .id"
 )
 
 # Find matching keys
 if [[ $PATTERN =~ \*$ ]]; then
     PREFIX=${PATTERN%\*}
-    curl --silent --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/keys?prefix=$PREFIX" -H "Authorization: Bearer $CF_API_TOKEN" \
+    curl --silent --show-error --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/keys?prefix=$PREFIX" -H "Authorization: Bearer $CF_API_TOKEN" \
         | jq "[.result[].name]" > "$KEYS_FILE"
 else
     # An exact match _should not_ delete KV pairs with a matching prefix
@@ -45,20 +45,8 @@ if [[ $KEY_COUNT != "$DELETE_COUNT" ]]; then
     exit 1
 fi
 
-# Take a backup beforehand of all matching keys
-BACKUP_KV_PAIRS_DIR=$(mktemp -d)
-echo "Saving a backup of $KEY_COUNT KV pairs to $BACKUP_KV_PAIRS_DIR"
-jq --raw-output ".[]" "$KEYS_FILE" \
-    | xargs -P 8 -I "{}" \
-        curl --silent --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/values/{}" -H "Authorization: Bearer $CF_API_TOKEN" --output "$BACKUP_KV_PAIRS_DIR/{}.txt"
-if [[ $(uname -s) == "Darwin" ]]; then echo -n "$BACKUP_KV_PAIRS_DIR" | pbcopy; fi
-if [[ $(find "$BACKUP_KV_PAIRS_DIR" -mindepth 1 | wc -l | tr -d ' ') != "$KEY_COUNT" ]]; then
-    echo -e "\033[31mBackup failed (some KV pairs are missing), deletion will be skipped\033[0m"
-    exit 1
-fi
-
 # Bulk delete keys
-curl --fail -X DELETE "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/bulk" \
+curl --silent --show-error --fail -X DELETE "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/bulk" \
     -H "Authorization: Bearer $CF_API_TOKEN" \
     -H "Content-Type: application/json" \
     --data @"$KEYS_FILE"

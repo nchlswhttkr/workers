@@ -49,18 +49,15 @@ async function handleRequest(event) {
         return new Response("404 Not Found", { status: 404 });
     }
 
-    const key = `${source} ${args.join(" ")}`;
-    let response = await CACHED_RESPONSES.get(key);
-
-    if (!response) {
-      if (url.searchParams.get("secret") === WRITER_SECRET) {
-        response = JSON.stringify(await loader(...args));
-        await CACHED_RESPONSES.put(key, response);
-      } else {
-        return new Response("No stored response, will not fetch remotely", {
-          status: 403,
-        });
-      }
+    const key = `${source}/${args.join("/")}`;
+    let response = await CACHED_RESPONSES.get(key, { cacheTtl: 3600 });
+    if (response == null) {
+      response = JSON.stringify(await loader(...args));
+      await CACHED_RESPONSES.put(key, response, {
+        metadata: {
+          createdAt: new Date().toISOString(),
+        },
+      });
     }
 
     return new Response(response, {

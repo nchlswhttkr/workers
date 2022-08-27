@@ -28,7 +28,6 @@
       "CACHED_MEDIA": true,
       "CACHED_RESPONSES": true,
       "VIMEO_SECRET_KEY": true,
-      "WRITER_SECRET": true,
       "YOUTUBE_SECRET_KEY": true
     }
   }

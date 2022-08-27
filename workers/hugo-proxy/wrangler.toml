@@ -3,6 +3,6 @@ main = "build/worker.js"
 compatibility_date = "2022-07-01"
 workers_dev = true
 kv_namespaces = [
-    { binding="CACHED_RESPONSES", id="145ec58b13f846faa2a105356c1b30ec" },
-    { binding="CACHED_MEDIA", id="c976e3cbe4e24b8a8387e43ec4bf1236" },
+    { binding="CACHED_RESPONSES", id="0b51ba0b8c8a4b37b3218d933c67a253" },
+    { binding="CACHED_MEDIA", id="ac3f0d19f9af453d8c83ae011e0355a5" }
 ]

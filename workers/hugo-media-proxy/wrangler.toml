@@ -3,5 +3,5 @@ main = "index.js"
 compatibility_date = "2022-07-01"
 route = "https://nicholas.cloud/media-proxy/*"
 kv_namespaces = [
-    { binding="CACHED_MEDIA", id="c976e3cbe4e24b8a8387e43ec4bf1236" },
+    { binding="CACHED_MEDIA", id="ac3f0d19f9af453d8c83ae011e0355a5" },
 ]
