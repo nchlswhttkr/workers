@@ -24,6 +24,10 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 
 ## Packages
 
+### [belles](./workers/belles)
+
+Records my transactions at [Belles Hot Chicken](https://belleshotchicken.com/).
+
 ### [esbuild-plugin-handlebars](./esbuild-plugins/esbuild-plugin-handlebars)
 
 An esbuild plugin to load and precompile Handlebars templates.
