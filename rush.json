@@ -490,6 +490,10 @@
     {
       "packageName": "@nchlswhttkr/enforce-https",
       "projectFolder": "workers/enforce-https"
+    },
+    {
+      "packageName": "@nchlswhttkr/belles",
+      "projectFolder": "workers/belles"
     }
   ]
 }

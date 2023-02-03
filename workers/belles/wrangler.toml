@@ -1,0 +1,7 @@
+name = "belles"
+main = "build/worker.js"
+compatibility_date = "2022-07-01"
+route = { pattern = "belles.nicholas.cloud", custom_domain = true }
+kv_namespaces = [
+    { binding="STORE", id="dcb32064b3f24d32b62261bd0c53a649"}
+]

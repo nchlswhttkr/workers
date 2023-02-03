@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types"],
+    "moduleResolution": "node16",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "noEmit": true
+  }
+}
