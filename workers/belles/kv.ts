@@ -1,15 +1,19 @@
 declare const STORE: KVNamespace;
 
 export async function upsertTransaction(transaction: any) {
-  STORE.put(`transactions/${transaction.id}`, JSON.stringify(transaction), {
-    metadata: {
-      createdAt: transaction.attributes.createdAt,
-      description: transaction.attributes.description,
-      status: transaction.attributes.status,
-      value: -transaction.attributes.amount.valueInBaseUnits,
-      raw: transaction.attributes.rawText,
-    },
-  });
+  await STORE.put(
+    `transactions/${transaction.id}`,
+    JSON.stringify(transaction),
+    {
+      metadata: {
+        createdAt: transaction.attributes.createdAt,
+        description: transaction.attributes.description,
+        status: transaction.attributes.status,
+        value: -transaction.attributes.amount.valueInBaseUnits,
+        raw: transaction.attributes.rawText,
+      },
+    }
+  );
 }
 
 export async function listTransactions(): Promise<any> {
