@@ -14,4 +14,4 @@ export CLOUDFLARE_API_TOKEN
 pass show workers/hugo-proxy/youtube-secret-key | wrangler secret put YOUTUBE_SECRET_KEY
 pass show workers/hugo-proxy/vimeo-secret-key | wrangler secret put VIMEO_SECRET_KEY
 
-wrangler publish
+wrangler deploy

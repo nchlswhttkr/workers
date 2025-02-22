@@ -14,4 +14,4 @@ esbuild index.ts --bundle --outfile="build/worker.js" --log-level="warning"
 
 # pass show workers/template-worker/secret | wrangler secret put SECRET
 
-# wrangler publish
+# wrangler deploy

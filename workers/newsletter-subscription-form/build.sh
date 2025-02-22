@@ -13,4 +13,4 @@ export CLOUDFLARE_API_TOKEN
 pass show workers/newsletter-subscription-form/mailgun-api-key | wrangler secret put MAILGUN_API_KEY
 pass show workers/newsletter-subscription-form/email-signing-secret | wrangler secret put EMAIL_SIGNING_SECRET
 
-wrangler publish
+wrangler deploy

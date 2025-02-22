@@ -10,4 +10,4 @@ export CLOUDFLARE_ACCOUNT_ID
 CLOUDFLARE_API_TOKEN=$(pass show workers/cloudflare-api-token)
 export CLOUDFLARE_API_TOKEN
 
-wrangler publish
+wrangler deploy
