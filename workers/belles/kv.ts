@@ -1,6 +1,8 @@
+import { Transaction } from "./up";
+
 declare const STORE: KVNamespace;
 
-export async function upsertTransaction(transaction: any) {
+export async function upsertTransaction(transaction: Transaction) {
   await STORE.put(
     `transactions/${transaction.id}`,
     JSON.stringify(transaction),

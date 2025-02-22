@@ -12,7 +12,7 @@ export CLOUDFLARE_ACCOUNT_ID
 CLOUDFLARE_API_TOKEN=$(pass show workers/cloudflare-api-token)
 export CLOUDFLARE_API_TOKEN
 
-pass show workers/belles/up-access-token | wrangler secret put UP_ACCESS_TOKEN
+pass show up/access-token | wrangler secret put UP_ACCESS_TOKEN
 pass show workers/belles/up-webhook-secret-key | wrangler secret put UP_WEBHOOK_SECRET_KEY
 
 wrangler deploy

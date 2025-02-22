@@ -13,6 +13,8 @@ async function handleRequest(event: FetchEvent): Promise<Response> {
       return await listTransactions();
     } else if (method === "post" && path === "/api/webhook") {
       return await receiveWebhook(event);
+    } else if (method === "post" && path === "/api/retry") {
+      return await retryTransaction(event);
     } else {
       return new Response("Not Found", { status: 404 });
     }
@@ -41,9 +43,16 @@ async function receiveWebhook(event: FetchEvent): Promise<Response> {
       const transaction = await up.getTransaction(
         payload.data.relationships.transaction.data.id
       );
-      if (transaction.attributes.description === "Belles Hot Chicken") {
+      const {
+        description,
+        amount: { valueInBaseUnits },
+      } = transaction.attributes;
+
+      // Money has to be going _out_ to Belles, no reimbursements
+      if (description.includes("Belles") && valueInBaseUnits < 0) {
         await kv.upsertTransaction(transaction);
       }
+
       // falls through
     }
     default:
@@ -52,4 +61,35 @@ async function receiveWebhook(event: FetchEvent): Promise<Response> {
         headers: { "Content-Type": "application/json" },
       });
   }
+}
+
+async function retryTransaction(event: FetchEvent): Promise<Response> {
+  const date = new Date(new URL(event.request.url).searchParams.get("date"));
+
+  const transactions = await up.listTransactionsByDate(date);
+  let transactionsMatched = 0;
+
+  for (const transaction of transactions) {
+    const {
+      description,
+      amount: { valueInBaseUnits },
+    } = transaction.attributes;
+
+    // Money has to be going _out_ to Belles, no reimbursements
+    if (description.includes("Belles") && valueInBaseUnits < 0) {
+      await kv.upsertTransaction(transaction);
+      transactionsMatched += 1;
+    }
+  }
+
+  return new Response(
+    JSON.stringify({
+      transactionsMatched,
+      transactionsReviewed: transactions.length,
+    }),
+    {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    }
+  );
 }

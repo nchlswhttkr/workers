@@ -1,7 +1,20 @@
 declare const UP_ACCESS_TOKEN: string;
 declare const UP_WEBHOOK_SECRET_KEY: string;
 
-export async function getTransaction(id: string): Promise<any> {
+export type Transaction = {
+  id: string;
+  attributes: {
+    status: string;
+    rawText: string;
+    description: string;
+    amount: {
+      valueInBaseUnits: number;
+    };
+    createdAt: string;
+  };
+};
+
+export async function getTransaction(id: string): Promise<Transaction> {
   console.log(`Fetching transaction ${id}`);
   const response: any = await fetch(
     `https://api.up.com.au/api/v1/transactions/${id}`,
@@ -11,6 +24,7 @@ export async function getTransaction(id: string): Promise<any> {
       },
     }
   ).then((response) => response.json());
+
   return response.data;
 }
 
@@ -48,4 +62,25 @@ export async function verifyWebhookRequestSignature(
   } else {
     console.log("Valid signature");
   }
+}
+
+export async function listTransactionsByDate(
+  date: Date
+): Promise<Transaction[]> {
+  const tomorrow = new Date(date);
+  tomorrow.setDate(date.getDate() + 1);
+
+  console.log(
+    `Listing transactions from ${date.toISOString()} to ${tomorrow.toISOString()}`
+  );
+  const response: any = await fetch(
+    `https://api.up.com.au/api/v1/transactions?page[size]=100&filter[since]=${date.toISOString()}&filter[until]=${tomorrow.toISOString()}`,
+    {
+      headers: {
+        Authorization: `Bearer ${UP_ACCESS_TOKEN}`,
+      },
+    }
+  ).then((response) => response.json());
+
+  return response.data;
 }
