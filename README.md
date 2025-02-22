@@ -11,7 +11,9 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 You'll need credentials on hand in your [`pass`](https://passwordstore.org/) store, and [Rush](https://rushjs.io/) needs to be installed.
 
 ```sh
+nvm install
 nvm use
+npm install --global @microsoft/rush
 rush update
 rush build
 ```
