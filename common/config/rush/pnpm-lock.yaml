@@ -94,6 +94,33 @@ importers:
         specifier: ^3.109.2
         version: 3.109.2(@cloudflare/workers-types@4.20250214.0)
 
+  ../../workers/honeycomb-buildkite-events-consumer:
+    dependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20250214.0
+        version: 4.20250214.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.30.7
+        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1)(typescript@4.9.5)
+      '@typescript-eslint/parser':
+        specifier: ^5.30.7
+        version: 5.62.0(eslint@8.57.1)(typescript@4.9.5)
+      esbuild:
+        specifier: ^0.25.0
+        version: 0.25.0
+      eslint:
+        specifier: ^8.19.0
+        version: 8.57.1
+      prettier:
+        specifier: ^2.1.2
+        version: 2.8.8
+      typescript:
+        specifier: ^4.7.4
+        version: 4.9.5
+      wrangler:
+        specifier: ^3.109.2
+        version: 3.109.2(@cloudflare/workers-types@4.20250214.0)
+
   ../../workers/hugo-media-proxy:
     dependencies:
       eslint:

@@ -1,0 +1,40 @@
+{
+  "name": "@nchlswhttkr/honeycomb-buildkite-events-consumer",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "source build.sh"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "prettier": "^2.1.2",
+    "wrangler": "^3.109.2",
+    "eslint": "^8.19.0",
+    "typescript": "^4.7.4",
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "esbuild": "^0.25.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {},
+    "globals": {
+      "CF_VERSION_METADATA": true
+    }
+  }
+}

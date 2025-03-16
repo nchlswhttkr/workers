@@ -490,6 +490,10 @@
     {
       "packageName": "@nchlswhttkr/belles",
       "projectFolder": "workers/belles"
+    },
+    {
+      "packageName": "@nchlswhttkr/honeycomb-buildkite-events-consumer",
+      "projectFolder": "workers/honeycomb-buildkite-events-consumer"
     }
   ]
 }
