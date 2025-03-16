@@ -2,11 +2,11 @@ name = "nchlswhttkr-dot-com"
 main = "index.js"
 compatibility_date = "2022-07-01"
 routes = [
-    { pattern = "nchlswhttkr.com", custom_domain = true},
-    { pattern = "blog.nchlswhttkr.com", custom_domain = true},
-    { pattern = "resume.nchlswhttkr.com", custom_domain = true},
-    { pattern = "source.nchlswhttkr.com", custom_domain = true},
-    { pattern = "barhack.nchlswhttkr.com", custom_domain = true},
-    { pattern = "www.nchlswhttkr.com", custom_domain = true},
-    { pattern = "dalordish.nchlswhttkr.com", custom_domain = true}
+    { pattern = "nchlswhttkr.com", custom_domain = true },
+    { pattern = "blog.nchlswhttkr.com", custom_domain = true },
+    { pattern = "resume.nchlswhttkr.com", custom_domain = true },
+    { pattern = "source.nchlswhttkr.com", custom_domain = true },
+    { pattern = "barhack.nchlswhttkr.com", custom_domain = true },
+    { pattern = "www.nchlswhttkr.com", custom_domain = true },
+    { pattern = "dalordish.nchlswhttkr.com", custom_domain = true }
 ]
