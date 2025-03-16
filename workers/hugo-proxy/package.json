@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "prettier": "^2.1.2",
-    "wrangler": "^3.109.2",
+    "wrangler": "^4.0.0",
     "esbuild": "^0.25.0",
     "eslint": "^8.19.0"
   },
