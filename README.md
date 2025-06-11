@@ -26,80 +26,28 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 
 ## Packages
 
-### [belles](./workers/belles)
+| Package                                                                               | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [libraries/cloudflare-workers-otel-trace](./libraries/cloudflare-workers-otel-trace/) | Initialises an OTel tracer compatible with Cloudflare Workers                                                                  |
+| [libraries/esbuild-plugin-handlebars/](./libraries/esbuild-plugin-handlebars/)        | An esbuild plugin to load and precompile Handlebars templates                                                                  |
+| [libraries/otlp-exporter-fetch](./libraries/otlp-exporter-fetch/)                     | Implements an OTLP exporter using `fetch()` for environments that do not support `XMLHttpRequest` and `Navigator.sendBeacon()` |
+| [workers/belles](./workers/belles/)                                                   | Records my transactions at [Belles Hot Chicken](https://belleshotchicken.com/)                                                 |
+| [workers/enforce-https](./workers/enforce-https/)                                     | Enforces HTTPS for requests to my website and any subdomains                                                                   |
+| [workers/hero-of-time-link](./workers/hero-of-time-link/)                             | A shortcut service using Workers KV                                                                                            |
+| [workers/hugo-media-proxy](./workers/hugo-media-proxy/)                               | Serves media from third party sites for my personal website                                                                    |
+| [workers/hugo-proxy](./workers/hugo-proxy/)                                           | Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded                           |
+| [workers/nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com/)                         | Handles redirects from my old domain to various destinations                                                                   |
+| [workers/newsletter-subscription-form](./workers/newsletter-subscription-form/)       | Manages requests to subscribe/unsubscribe from my newsletter                                                                   |
+| [workers/terraform-registry](./workers/terraform-registry/)                           | Mimics a Terraform registry to serve my custom providers                                                                       |
 
-Records my transactions at [Belles Hot Chicken](https://belleshotchicken.com/).
+<!-- bandcamp-embed-cors-proxy https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/bandcamp-embed-cors-proxy -->
 
-### [esbuild-plugin-handlebars](./esbuild-plugins/esbuild-plugin-handlebars)
+<!-- counter https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/counter -->
 
-An esbuild plugin to load and precompile Handlebars templates.
+<!-- experimental-golang-worker https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/experimental-golang-worker -->
 
-### [enforce-https](./workers/enforce-https/)
+<!-- inject-env-loader https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/webpack/inject-env-loader -->
 
-Enforces HTTPS for requests to my website and any subdomains.
+<!-- markdown-reader https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/markdown-reader -->
 
-### [hero-of-time-link](./workers/hero-of-time-link)
-
-A shortcut service using Workers KV.
-
-### [hugo-media-proxy](./workers/hugo-media-proxy)
-
-Serves media from third party sites for my personal website.
-
-### [hugo-proxy](./workers/hugo-proxy)
-
-Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded content on my website.
-
-### [nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com)
-
-Handles redirects from my old domain to various destinations.
-
-### [newsletter-subscription-form](./workers/newsletter-subscription-form)
-
-Manages requests to subscribe/unsubscribe from my newsletter.
-
-### [terraform-registry](./workers/terraform-registry)
-
-Mimics a Terraform registry to serve my custom providers.
-
-### ~~[bandcamp-embed-cors-proxy](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/bandcamp-embed-cors-proxy)~~
-
-> [!WARNING]
-> I've moved this worker in with the embed itself at https://github.com/nchlswhttkr/bandcamp-mini-embed. I don't maintain this anymore.
-
-Proxies requests for my custom Bandcamp embed, adding CORS headers.
-
-### ~~[counter](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/counter)~~
-
-> [!WARNING]
-> I've taken this down since I'm not actively using it at the moment. You can still view the source code.
-
-Having some fun with isolate persistence in Cloudflare Workers.
-
-### ~~[experimental-golang-worker](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/experimental-golang-worker)~~
-
-> [!WARNING]
-> I've taken this down since I'm not actively using it at the moment. You can still view the source code.
-
-Running Golang as WASM inside Cloudflare Workers.
-
-### ~~[inject-env-loader](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/webpack/inject-env-loader)~~
-
-> [!WARNING]
-> I wrote this before you were able to [include secrets/environment variables](https://blog.cloudflare.com/workers-secrets-environment/) with your Workers. I've since migrated, and I don't maintain this anymore.
-
-A Webpack loader to inject environment variables as a part of builds.
-
-### ~~[markdown-reader](https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/markdown-reader)~~
-
-> [!WARNING]
-> I've since taken this down, as I'm not using it anymore. Consider a service like [nicedoc.io](https://nicedoc.io/) if you're looking for a markdown viewer of GitHub-hosted files.
-
-A reader for web-hosted markdown files.
-
-### [rss-feeds](https://github.com/nchlswhttkr/workers/tree/e02638fd69f0747b9187a4e0aecc3753a412e4d3/workers/rss-feeds)
-
-> [!WARNING]
-> I've taken this down since I'm not actively using it at the moment. You can still view the source code.
-
-Generates RSS feeds for a few websites I browse.
+<!-- rss-feeds https://github.com/nchlswhttkr/workers/tree/e02638fd69f0747b9187a4e0aecc3753a412e4d3/workers/rss-feeds -->

@@ -1,0 +1,1 @@
+export { SpanExporterFetch } from "./trace";

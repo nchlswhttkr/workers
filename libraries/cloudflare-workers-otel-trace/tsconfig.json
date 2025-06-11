@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types/experimental"],
+    "target": "esnext",
+    "lib": ["esnext"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  }
+}

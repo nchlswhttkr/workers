@@ -1,7 +1,6 @@
 {
-  "name": "@nchlswhttkr/nchlswhttkr-dot-com",
+  "name": "@nchlswhttkr/otlp-exporter-fetch",
   "version": "0.1.0",
-  "description": "Handles redirects from my old domain to various destinations",
   "scripts": {
     "build": "source build.sh"
   },
@@ -9,14 +8,14 @@
   "private": true,
   "dependencies": {
     "prettier": "^2.1.2",
-    "wrangler": "^4.0.0",
     "eslint": "^8.19.0",
     "typescript": "^5.0.0",
-    "@cloudflare/workers-types": "^4.20250606.0",
     "@typescript-eslint/parser": "^5.30.7",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
-    "@nchlswhttkr/cloudflare-workers-otel-trace": "workspace:*",
-    "@opentelemetry/api": "^1.9.0"
+    "@opentelemetry/otlp-exporter-base": "^0.200.0",
+    "@opentelemetry/sdk-trace-base": "^2.0.0",
+    "@opentelemetry/core": "^2.0.1",
+    "@opentelemetry/otlp-transformer": "^0.201.1"
   },
   "eslintConfig": {
     "env": {
@@ -34,6 +33,8 @@
     "plugins": [
       "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {
+      "@typescript-eslint/no-empty-function": "warn"
+    }
   }
 }

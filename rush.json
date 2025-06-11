@@ -481,7 +481,7 @@
     },
     {
       "packageName": "@nchlswhttkr/esbuild-plugin-handlebars",
-      "projectFolder": "esbuild-plugins/esbuild-plugin-handlebars"
+      "projectFolder": "libraries/esbuild-plugin-handlebars"
     },
     {
       "packageName": "@nchlswhttkr/enforce-https",
@@ -494,6 +494,14 @@
     {
       "packageName": "@nchlswhttkr/honeycomb-buildkite-events-consumer",
       "projectFolder": "workers/honeycomb-buildkite-events-consumer"
+    },
+    {
+      "packageName": "@nchlswhttkr/cloudflare-workers-otel-trace",
+      "projectFolder": "libraries/cloudflare-workers-otel-trace"
+    },
+    {
+      "packageName": "@nchlswhttkr/otlp-exporter-fetch",
+      "projectFolder": "libraries/otlp-exporter-fetch"
     }
   ]
 }
