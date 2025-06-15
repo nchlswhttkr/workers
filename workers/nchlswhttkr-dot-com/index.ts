@@ -1,8 +1,8 @@
-import { withTracing } from "@nchlswhttkr/cloudflare-workers-otel-trace";
+import { withOtel } from "@nchlswhttkr/cloudflare-workers-otel";
 import { trace } from "@opentelemetry/api";
 import { name, version } from "./package.json";
 
-export default withTracing("nchlswhttkr-dot-com", {
+export default withOtel("nchlswhttkr-dot-com", {
   async fetch(request) {
     const tracer = trace.getTracer(name, version);
     return tracer.startActiveSpan("fetch()", (span) => {

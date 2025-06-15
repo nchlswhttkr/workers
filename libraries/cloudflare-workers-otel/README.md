@@ -1,6 +1,6 @@
-# cloudflare-workers-otel-tracing
+# cloudflare-workers-otel
 
-Initialises an OTel tracer compatible with Cloudflare Workers.
+Initialises OpenTelemetry providers compatible with Cloudflare Workers. Currently supports the Traces and Logs API.
 
 This library requires several worker bindings, for OTel configuration and worker version metadata. Refer to the sample configuration below.
 
@@ -12,4 +12,16 @@ secrets_store_secrets = [
 
 [version_metadata]
 binding = "CF_VERSION_METADATA"
+```
+
+Providers will be automatically registered with the `withOtel` wrapper.
+
+```ts
+import { withOtel } from "@nchlswhttkr/cloudflare-workers-otel";
+
+export default withOtel("worker-script-name", {
+  async fetch(...args) {
+    return new Response("Hello world");
+  },
+});
 ```

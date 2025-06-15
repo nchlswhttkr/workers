@@ -496,8 +496,8 @@
       "projectFolder": "workers/honeycomb-buildkite-events-consumer"
     },
     {
-      "packageName": "@nchlswhttkr/cloudflare-workers-otel-trace",
-      "projectFolder": "libraries/cloudflare-workers-otel-trace"
+      "packageName": "@nchlswhttkr/cloudflare-workers-otel",
+      "projectFolder": "libraries/cloudflare-workers-otel"
     },
     {
       "packageName": "@nchlswhttkr/otlp-exporter-fetch",

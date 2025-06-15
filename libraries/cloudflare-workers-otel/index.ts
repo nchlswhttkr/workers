@@ -7,6 +7,9 @@ import {
   Context,
   ROOT_CONTEXT,
   trace,
+  diag,
+  DiagConsoleLogger,
+  DiagLogLevel,
 } from "@opentelemetry/api";
 import {
   BasicTracerProvider,
@@ -14,7 +17,17 @@ import {
 } from "@opentelemetry/sdk-trace-base";
 import { resourceFromAttributes } from "@opentelemetry/resources";
 import { ATTR_SERVICE_NAME } from "@opentelemetry/semantic-conventions";
-import { SpanExporterFetch } from "@nchlswhttkr/otlp-exporter-fetch";
+import {
+  SpanExporterFetch,
+  LogRecordExporterFetch,
+} from "@nchlswhttkr/otlp-exporter-fetch";
+import {
+  LoggerProvider,
+  SimpleLogRecordProcessor,
+  ConsoleLogRecordExporter,
+  BatchLogRecordProcessor,
+} from "@opentelemetry/sdk-logs";
+import { logs } from "@opentelemetry/api-logs";
 
 class AsyncLocalStorageContextManager implements ContextManager {
   private contextStorage: AsyncLocalStorage<Context>;
@@ -57,7 +70,9 @@ const contextManager = new AsyncLocalStorageContextManager();
 contextManager.enable();
 context.setGlobalContextManager(contextManager);
 
-export function withTracing(
+diag.setLogger(new DiagConsoleLogger(), { logLevel: DiagLogLevel.DEBUG });
+
+export function withOtel(
   workerName: string,
   worker: ExportedHandler
 ): ExportedHandler {
@@ -71,9 +86,6 @@ export function withTracing(
       headers[key] = value;
     }
 
-    const exporter = new SpanExporterFetch({ url, headers });
-    const processor = new SimpleSpanProcessor(exporter);
-
     const resource = resourceFromAttributes({
       [ATTR_SERVICE_NAME]: workerName,
       "cf.worker.version.id": env.CF_VERSION_METADATA.id,
@@ -84,19 +96,42 @@ export function withTracing(
       "telemetry.sdk.version": version,
     });
 
-    const provider = new BasicTracerProvider({
-      resource,
-      spanProcessors: [processor],
-    });
+    const tracerProvider = getTracerProvider({ url, headers }, resource);
+    const loggerProvider = getLoggerProvider({ url, headers }, resource);
 
-    // TODO: Investigate circumstances under which a provider might not register
-    trace.setGlobalTracerProvider(provider);
+    // TODO: Investigate circumstances under which provider might not register
+    trace.setGlobalTracerProvider(tracerProvider);
+    logs.setGlobalLoggerProvider(loggerProvider);
 
     try {
       return await worker.fetch(event, env, ctx);
     } finally {
-      ctx.waitUntil(provider.forceFlush());
+      ctx.waitUntil(tracerProvider.forceFlush());
+      ctx.waitUntil(loggerProvider.forceFlush());
     }
   };
   return { fetch };
+}
+
+function getTracerProvider(config, resource): BasicTracerProvider {
+  const exporter = new SpanExporterFetch(config);
+  const processor = new SimpleSpanProcessor(exporter);
+
+  return new BasicTracerProvider({
+    resource,
+    spanProcessors: [processor],
+  });
+}
+
+function getLoggerProvider(config, resource): LoggerProvider {
+  const exporter = new LogRecordExporterFetch(config);
+  const processor = new BatchLogRecordProcessor(exporter);
+
+  return new LoggerProvider({
+    resource,
+    processors: [
+      processor,
+      new SimpleLogRecordProcessor(new ConsoleLogRecordExporter()),
+    ],
+  });
 }

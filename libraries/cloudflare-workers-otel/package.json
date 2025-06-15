@@ -1,5 +1,5 @@
 {
-  "name": "@nchlswhttkr/cloudflare-workers-otel-trace",
+  "name": "@nchlswhttkr/cloudflare-workers-otel",
   "version": "0.1.0",
   "scripts": {
     "build": "source build.sh"
@@ -17,7 +17,9 @@
     "@opentelemetry/sdk-trace-base": "^2.0.0",
     "@opentelemetry/resources": "^2.0.0",
     "@opentelemetry/semantic-conventions": "^1.33.0",
-    "@nchlswhttkr/otlp-exporter-fetch": "workspace:*"
+    "@nchlswhttkr/otlp-exporter-fetch": "workspace:*",
+    "@opentelemetry/sdk-logs": "^0.202.0",
+    "@opentelemetry/api-logs": "^0.202.0"
   },
   "eslintConfig": {
     "env": {
