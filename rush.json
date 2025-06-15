@@ -468,14 +468,6 @@
       "projectFolder": "workers/nchlswhttkr-dot-com"
     },
     {
-      "packageName": "@nchlswhttkr/hugo-proxy",
-      "projectFolder": "workers/hugo-proxy"
-    },
-    {
-      "packageName": "@nchlswhttkr/hugo-media-proxy",
-      "projectFolder": "workers/hugo-media-proxy"
-    },
-    {
       "packageName": "@nchlswhttkr/terraform-registry",
       "projectFolder": "workers/terraform-registry"
     },

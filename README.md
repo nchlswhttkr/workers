@@ -34,8 +34,6 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 | [workers/belles](./workers/belles/)                                                   | Records my transactions at [Belles Hot Chicken](https://belleshotchicken.com/)                                                 |
 | [workers/enforce-https](./workers/enforce-https/)                                     | Enforces HTTPS for requests to my website and any subdomains                                                                   |
 | [workers/hero-of-time-link](./workers/hero-of-time-link/)                             | A shortcut service using Workers KV                                                                                            |
-| [workers/hugo-media-proxy](./workers/hugo-media-proxy/)                               | Serves media from third party sites for my personal website                                                                    |
-| [workers/hugo-proxy](./workers/hugo-proxy/)                                           | Transforms and caches responses from various sites (Bandcamp, YouTube, Twitter, etc...) for embedded                           |
 | [workers/nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com/)                         | Handles redirects from my old domain to various destinations                                                                   |
 | [workers/newsletter-subscription-form](./workers/newsletter-subscription-form/)       | Manages requests to subscribe/unsubscribe from my newsletter                                                                   |
 | [workers/terraform-registry](./workers/terraform-registry/)                           | Mimics a Terraform registry to serve my custom providers                                                                       |
@@ -45,6 +43,10 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 <!-- counter https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/counter -->
 
 <!-- experimental-golang-worker https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/experimental-golang-worker -->
+
+<!-- https://github.com/nchlswhttkr/workers/tree/cee5e0eef392876a1c5e541cb4bd1166a9d438c4/workers/hugo-media-proxy -->
+
+<!-- https://github.com/nchlswhttkr/workers/tree/cee5e0eef392876a1c5e541cb4bd1166a9d438c4/workers/hugo-proxy -->
 
 <!-- inject-env-loader https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/webpack/inject-env-loader -->
 

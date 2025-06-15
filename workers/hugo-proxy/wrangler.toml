@@ -1,8 +1,0 @@
-name = "hugo-proxy"
-main = "build/worker.js"
-compatibility_date = "2022-07-01"
-workers_dev = true
-kv_namespaces = [
-    { binding="CACHED_RESPONSES", id="0b51ba0b8c8a4b37b3218d933c67a253" },
-    { binding="CACHED_MEDIA", id="ac3f0d19f9af453d8c83ae011e0355a5" },
-]

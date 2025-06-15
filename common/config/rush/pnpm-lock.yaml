@@ -196,33 +196,6 @@ importers:
         specifier: ^4.0.0
         version: 4.19.1(@cloudflare/workers-types@4.20250607.0)
 
-  ../../workers/hugo-media-proxy:
-    dependencies:
-      eslint:
-        specifier: ^8.19.0
-        version: 8.57.1
-      prettier:
-        specifier: ^2.1.2
-        version: 2.8.8
-      wrangler:
-        specifier: ^4.0.0
-        version: 4.19.1(@cloudflare/workers-types@4.20250607.0)
-
-  ../../workers/hugo-proxy:
-    dependencies:
-      esbuild:
-        specifier: ^0.25.0
-        version: 0.25.5
-      eslint:
-        specifier: ^8.19.0
-        version: 8.57.1
-      prettier:
-        specifier: ^2.1.2
-        version: 2.8.8
-      wrangler:
-        specifier: ^4.0.0
-        version: 4.19.1(@cloudflare/workers-types@4.20250607.0)
-
   ../../workers/nchlswhttkr-dot-com:
     dependencies:
       '@cloudflare/workers-types':
