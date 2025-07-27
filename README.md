@@ -44,9 +44,11 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 
 <!-- experimental-golang-worker https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/experimental-golang-worker -->
 
-<!-- https://github.com/nchlswhttkr/workers/tree/cee5e0eef392876a1c5e541cb4bd1166a9d438c4/workers/hugo-media-proxy -->
+<!-- honeycomb-buildkite-events-consumer https://github.com/nchlswhttkr/workers/tree/9b85d88df9bd4a851cf0dc4f410ce5a6bdc14430/workers/honeycomb-buildkite-events-consumer -->
 
-<!-- https://github.com/nchlswhttkr/workers/tree/cee5e0eef392876a1c5e541cb4bd1166a9d438c4/workers/hugo-proxy -->
+<!-- hugo-media-proxy https://github.com/nchlswhttkr/workers/tree/cee5e0eef392876a1c5e541cb4bd1166a9d438c4/workers/hugo-media-proxy -->
+
+<!-- hugo-proxy https://github.com/nchlswhttkr/workers/tree/cee5e0eef392876a1c5e541cb4bd1166a9d438c4/workers/hugo-proxy -->
 
 <!-- inject-env-loader https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/webpack/inject-env-loader -->
 

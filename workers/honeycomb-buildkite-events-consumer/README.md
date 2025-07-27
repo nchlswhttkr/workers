@@ -1,1 +1,0 @@
-# honeycomb-buildkite-events-consumer

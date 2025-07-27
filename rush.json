@@ -484,10 +484,6 @@
       "projectFolder": "workers/belles"
     },
     {
-      "packageName": "@nchlswhttkr/honeycomb-buildkite-events-consumer",
-      "projectFolder": "workers/honeycomb-buildkite-events-consumer"
-    },
-    {
       "packageName": "@nchlswhttkr/cloudflare-workers-otel",
       "projectFolder": "libraries/cloudflare-workers-otel"
     },
