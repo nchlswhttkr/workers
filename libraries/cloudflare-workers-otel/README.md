@@ -14,12 +14,12 @@ secrets_store_secrets = [
 binding = "CF_VERSION_METADATA"
 ```
 
-Providers will be automatically registered with the `withOtel` wrapper.
+Providers will be automatically registered with the `withTelemetry` wrapper.
 
 ```ts
-import { withOtel } from "@nchlswhttkr/cloudflare-workers-otel";
+import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
 
-export default withOtel("worker-script-name", {
+export default withTelemetry("worker-script-name", {
   async fetch(...args) {
     return new Response("Hello world");
   },

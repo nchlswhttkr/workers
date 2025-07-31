@@ -72,7 +72,7 @@ context.setGlobalContextManager(contextManager);
 
 diag.setLogger(new DiagConsoleLogger(), { logLevel: DiagLogLevel.DEBUG });
 
-export function withOtel(
+export function withTelemetry(
   workerName: string,
   worker: ExportedHandler
 ): ExportedHandler {
@@ -104,7 +104,15 @@ export function withOtel(
     logs.setGlobalLoggerProvider(loggerProvider);
 
     try {
-      return await worker.fetch(event, env, ctx);
+      return await tracerProvider
+        .getTracer(name, version)
+        .startActiveSpan("fetch()", async (span) => {
+          try {
+            return await worker.fetch(event, env, ctx);
+          } finally {
+            span.end();
+          }
+        });
     } finally {
       ctx.waitUntil(tracerProvider.forceFlush());
       ctx.waitUntil(loggerProvider.forceFlush());
