@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
-    "types": ["@cloudflare/workers-types/2022-03-21"],
+    "types": ["@cloudflare/workers-types/latest", "./types.d.ts"],
     "target": "esnext",
     "lib": ["esnext"],
-    "noEmit": true
+    "noEmit": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   }
 }
