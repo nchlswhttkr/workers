@@ -10,20 +10,28 @@
   "dependencies": {
     "prettier": "^2.1.2",
     "wrangler": "^4.0.0",
-    "eslint": "^8.19.0"
+    "eslint": "^8.19.0",
+    "typescript": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
+    "@cloudflare/workers-types": "^4.20250606.0"
   },
   "eslintConfig": {
     "env": {
       "browser": true,
       "es2021": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": "latest"
     },
-    "rules": {},
-    "globals": {
-      "SHORTCUTS": true
-    }
+    "plugins": [
+      "@typescript-eslint"
+    ]
   }
 }

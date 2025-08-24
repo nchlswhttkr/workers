@@ -168,12 +168,27 @@ importers:
 
   ../../workers/hero-of-time-link:
     dependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20250606.0
+        version: 4.20250620.0
+      '@nchlswhttkr/cloudflare-workers-otel':
+        specifier: workspace:*
+        version: link:../../libraries/cloudflare-workers-otel
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.30.7
+        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
+      '@typescript-eslint/parser':
+        specifier: ^5.30.7
+        version: 5.62.0(eslint@8.57.1)(typescript@5.8.3)
       eslint:
         specifier: ^8.19.0
         version: 8.57.1
       prettier:
         specifier: ^2.1.2
         version: 2.8.8
+      typescript:
+        specifier: ^5.0.0
+        version: 5.8.3
       wrangler:
         specifier: ^4.0.0
         version: 4.20.5(@cloudflare/workers-types@4.20250620.0)
