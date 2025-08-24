@@ -14,10 +14,10 @@ export default withTelemetry("belles", {
         span.updateName("GET /api/transactions");
         return await listTransactions();
       } else if (method === "POST" && path === "/api/webhook") {
-        span.updateName("GET /api/webhook");
+        span.updateName("POST /api/webhook");
         return await receiveWebhook(request);
       } else if (method === "POST" && path === "/api/retry") {
-        span.updateName("GET /api/retry");
+        span.updateName("POST /api/retry");
         return await retryTransaction(request);
       } else {
         return new Response("Not Found", { status: 404 });

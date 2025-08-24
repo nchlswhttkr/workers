@@ -3,7 +3,7 @@ import { env } from "cloudflare:workers";
 
 export async function upsertTransaction(transaction: Transaction) {
   const tracer = trace.getTracer("Transactions KV");
-  return tracer.startActiveSpan("listTransactions()", async (span) => {
+  return tracer.startActiveSpan("upsertTransaction()", async (span) => {
     try {
       await env.TRANSACTIONS.put(
         `transactions/${transaction.id}`,
