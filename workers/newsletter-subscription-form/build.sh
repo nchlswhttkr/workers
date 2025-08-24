@@ -5,12 +5,15 @@ set -euo pipefail
 prettier --ignore-path "../../.prettierignore" --check .
 eslint --ignore-path "../../.eslintignore" .
 
-CLOUDFLARE_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
+VAULT_TOKEN="$(pass show vault/root-token)"
+export VAULT_TOKEN
+
+CLOUDFLARE_ACCOUNT_ID=$(vault kv get -field cloudflare-account-id buildkite/workers)
 export CLOUDFLARE_ACCOUNT_ID
-CLOUDFLARE_API_TOKEN=$(pass show workers/cloudflare-api-token)
+CLOUDFLARE_API_TOKEN=$(vault kv get -field cloudflare-api-token buildkite/workers)
 export CLOUDFLARE_API_TOKEN
 
-pass show workers/newsletter-subscription-form/mailgun-api-key | wrangler secret put MAILGUN_API_KEY
-pass show workers/newsletter-subscription-form/email-signing-secret | wrangler secret put EMAIL_SIGNING_SECRET
+vault kv get -field mailgun-api-key buildkite/workers/newsletter-subscription-form | wrangler secret put MAILGUN_API_KEY
+vault kv get -field email-signing-secret buildkite/workers/newsletter-subscription-form | wrangler secret put EMAIL_SIGNING_SECRET
 
 wrangler deploy

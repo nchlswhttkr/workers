@@ -9,20 +9,20 @@ set -euo pipefail
 KV_NAMESPACE=$1
 PATTERN=$2
 
-CF_ACCOUNT_ID=$(pass show workers/cloudflare-account-id)
-CF_API_TOKEN=$(pass show workers/cloudflare-api-token)
+CLOUDFLARE_ACCOUNT_ID="$(vault kv get -field cloudflare-account-id buildkite/workers)"
+CLOUDFLARE_API_TOKEN="$(vault kv get -field cloudflare-api-token buildkite/workers)"
 KEYS_FILE=$(mktemp)
 
 # Get ID of the provided namespace
 KV_NAMESPACE_ID=$(
-    curl --silent --show-error --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces" -H "Authorization: Bearer $CF_API_TOKEN" \
+    curl --silent --show-error --fail "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/storage/kv/namespaces" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
         | jq --raw-output ".result[] | select(.title == \"$KV_NAMESPACE\") | .id"
 )
 
 # Find matching keys
 if [[ $PATTERN =~ \*$ ]]; then
     PREFIX=${PATTERN%\*}
-    curl --silent --show-error --fail "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/keys?prefix=$PREFIX" -H "Authorization: Bearer $CF_API_TOKEN" \
+    curl --silent --show-error --fail "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/keys?prefix=$PREFIX" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
         | jq "[.result[].name]" > "$KEYS_FILE"
 else
     # An exact match _should not_ delete KV pairs with a matching prefix
@@ -46,8 +46,8 @@ if [[ $KEY_COUNT != "$DELETE_COUNT" ]]; then
 fi
 
 # Bulk delete keys
-curl --silent --show-error --fail -X DELETE "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/bulk" \
-    -H "Authorization: Bearer $CF_API_TOKEN" \
+curl --silent --show-error --fail -X DELETE "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/storage/kv/namespaces/$KV_NAMESPACE_ID/bulk" \
+    -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
     -H "Content-Type: application/json" \
     --data @"$KEYS_FILE"
 
