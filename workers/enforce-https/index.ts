@@ -1,14 +1,10 @@
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event));
-});
+import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
 
-async function handleRequest(event: FetchEvent) {
-  try {
+export default withTelemetry("enforce-https", {
+  async fetch(request: Request) {
     return new Response("", {
       status: 301,
-      headers: { Location: event.request.url.replace("http", "https") },
+      headers: { Location: request.url.replace("http", "https") },
     });
-  } catch (error) {
-    return new Response(error, { status: 500 });
-  }
-}
+  },
+});
