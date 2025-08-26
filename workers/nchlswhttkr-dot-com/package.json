@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Handles redirects from my old domain to various destinations",
   "scripts": {
-    "build": "source build.sh"
+    "build": "./build.sh"
   },
   "license": "MIT",
   "private": true,

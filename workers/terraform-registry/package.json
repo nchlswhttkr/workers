@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Mimics a Terraform registry to serve my custom providers",
   "scripts": {
-    "build": "source build.sh"
+    "build": "./build.sh"
   },
   "license": "MIT",
   "private": true,
