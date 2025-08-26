@@ -1,0 +1,7 @@
+steps:
+  - label: ":cloudflare: Build and deploy workers"
+    command: .buildkite/build.sh
+    plugins:
+      - docker-compose#v5.10.0:
+          run: ci
+          config: .buildkite/docker-compose.yml
