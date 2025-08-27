@@ -3,7 +3,8 @@
   "description": "Records my transactions at Belles Hot Chicken",
   "version": "0.1.0",
   "scripts": {
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "deploy": "./deploy.sh"
   },
   "license": "MIT",
   "private": true,
