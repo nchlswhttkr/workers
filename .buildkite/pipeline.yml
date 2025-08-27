@@ -12,7 +12,7 @@ steps:
   - wait
 
   - group: ":cloudflare: Deploy workers"
-    branches: main
+    if: 'build.branch == "main"'
     steps:
       - label: ":cloudflare: Deploy {{ matrix }}"
         command: ".buildkite/deploy.sh {{ matrix }}"
