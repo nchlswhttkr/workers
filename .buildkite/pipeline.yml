@@ -1,6 +1,9 @@
 steps:
   - label: ":javascript: Build all projects"
+    key: build
     command: .buildkite/build.sh
+    artifact_paths:
+      - build.tar.gz
     plugins:
       - docker-compose#v5.10.0:
           run: ci
@@ -18,6 +21,7 @@ steps:
           - docker-compose#v5.10.0:
               run: ci
               config: .buildkite/docker-compose.yml
+              mount-buildkite-agent: true
         matrix:
           - belles
           - enforce-https
