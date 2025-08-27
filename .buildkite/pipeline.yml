@@ -16,7 +16,7 @@ steps:
       - label: ":cloudflare: Deploy {{ matrix }}"
         command: ".buildkite/deploy.sh {{ matrix }}"
         concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
-        concurrency: 4
+        concurrency: 3
         plugins:
           - docker-compose#v5.10.0:
               run: ci
