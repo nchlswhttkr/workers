@@ -2,7 +2,7 @@
   "name": "@nchlswhttkr/template-worker",
   "version": "0.1.0",
   "scripts": {
-    "build": "source build.sh"
+    "build": "./build.sh"
   },
   "license": "MIT",
   "private": true,

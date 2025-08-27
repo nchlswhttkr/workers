@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Manages requests to subscribe/unsubscribe from my newsletter",
   "scripts": {
-    "build": "source build.sh"
+    "build": "./build.sh"
   },
   "license": "MIT",
   "private": true,

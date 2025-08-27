@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "An esbuild plugin to load and precompile Handlebars templates",
   "scripts": {
-    "build": "source build.sh"
+    "build": "./build.sh"
   },
   "license": "MIT",
   "private": true,

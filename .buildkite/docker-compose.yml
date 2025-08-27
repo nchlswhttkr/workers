@@ -1,0 +1,10 @@
+services:
+  ci:
+    working_dir: /workers
+    volumes:
+      - ..:/workers
+    build:
+      context: .
+    environment:
+      - VAULT_ADDR
+      - VAULT_TOKEN
