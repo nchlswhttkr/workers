@@ -1,7 +1,27 @@
 steps:
-  - label: ":cloudflare: Build and deploy workers"
+  - label: ":javascript: Build all projects"
     command: .buildkite/build.sh
     plugins:
       - docker-compose#v5.10.0:
           run: ci
           config: .buildkite/docker-compose.yml
+
+  - wait
+
+  - group: ":cloudflare: Deploy workers"
+    steps:
+      - label: ":cloudflare: Deploy {{ matrix }}"
+        command: .buildkite/deploy.sh
+        concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
+        concurrency: 4
+        plugins:
+          - docker-compose#v5.10.0:
+              run: ci
+              config: .buildkite/docker-compose.yml
+        matrix:
+          - belles
+          - enforce-https
+          - hero-of-time-link
+          - nchlswhttkr-dot-com
+          - newsletter-subscription-form
+          - terraform-registry

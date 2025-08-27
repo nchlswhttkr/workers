@@ -2,6 +2,5 @@
 
 set -euo pipefail
 
-npm install --global @microsoft/rush
-rush update
+rush install
 rush build
