@@ -11,7 +11,7 @@ steps:
   - group: ":cloudflare: Deploy workers"
     steps:
       - label: ":cloudflare: Deploy {{ matrix }}"
-        command: .buildkite/deploy.sh
+        command: .buildkite/deploy.sh {{ matrix }}
         concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
         concurrency: 4
         plugins:
