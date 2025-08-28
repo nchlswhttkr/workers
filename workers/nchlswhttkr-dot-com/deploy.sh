@@ -14,4 +14,4 @@ export CLOUDFLARE_API_TOKEN
 
 wrangler deploy
 
-../../scripts/create-honeycomb-marker.sh belles
+../../scripts/create-honeycomb-marker.sh nchlswhttkr-dot-com

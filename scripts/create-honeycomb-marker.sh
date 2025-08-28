@@ -7,7 +7,7 @@ set -euo pipefail
 WORKER="$1"
 
 if [[ "${BUILDKITE:-}" == "true" ]]; then
-  MESSAGE="Deployed from Buildkite build $BUILDKITE_BUILD_NUMBER"
+  MESSAGE="Deployed from Buildkite build #$BUILDKITE_BUILD_NUMBER"
   URL="$BUILDKITE_BUILD_URL"
 else
   MESSAGE="Deployed from $(hostname)"
