@@ -23,6 +23,7 @@ steps:
               run: ci
               config: .buildkite/docker-compose.yml
               mount-buildkite-agent: true
+              propagate-environment: true
         matrix:
           - belles
           - enforce-https

@@ -14,6 +14,14 @@ else
 fi
 
 HONEYCOMB_API_KEY="$(vault kv get -field honeycomb-api-key buildkite/workers)"
+curl --fail --location --show-error --silent "https://api.honeycomb.io/1/datasets" \
+  -H "X-Honeycomb-Team: $HONEYCOMB_API_KEY" \
+  -H 'Content-Type: application/json' \
+  --data-binary @- << EOF
+    {
+      "name": "$WORKER"
+    }
+EOF
 curl --fail --location --show-error --silent "https://api.honeycomb.io/1/markers/$WORKER" \
   -H "X-Honeycomb-Team: $HONEYCOMB_API_KEY" \
   -H 'Content-Type: application/json' \
