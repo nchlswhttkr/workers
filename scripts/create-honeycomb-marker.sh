@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# $1    Name for package/worker (for example, hello-world)
+
+set -euo pipefail
+
+WORKER="$1"
+
+if [[ "${BUILDKITE:-}" == "true" ]]; then
+  MESSAGE="Deployed from Buildkite build $BUILDKITE_BUILD_NUMBER"
+  URL="$BUILDKITE_BUILD_URL"
+else
+  MESSAGE="Deployed from $(hostname)"
+fi
+
+HONEYCOMB_API_KEY="$(vault kv get -field honeycomb-api-key buildkite/workers)"
+curl --fail --location --show-error --silent "https://api.honeycomb.io/1/markers/$WORKER" \
+  -H "X-Honeycomb-Team: $HONEYCOMB_API_KEY" \
+  -H 'Content-Type: application/json' \
+  --data-binary @- << EOF
+    {
+      "message": "$MESSAGE",
+      "type": "deploy",
+      "url": "${URL:-}"
+    }
+EOF

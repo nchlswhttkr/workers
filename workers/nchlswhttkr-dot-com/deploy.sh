@@ -13,3 +13,5 @@ CLOUDFLARE_API_TOKEN=$(vault kv get -field cloudflare-api-token buildkite/worker
 export CLOUDFLARE_API_TOKEN
 
 wrangler deploy
+
+../../scripts/create-honeycomb-marker.sh belles

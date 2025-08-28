@@ -18,3 +18,5 @@ fi
 vault kv get -field up-webhook-secret-key buildkite/workers/belles | wrangler secret put UP_WEBHOOK_SECRET_KEY
 
 wrangler deploy
+
+../../scripts/create-honeycomb-marker.sh belles
