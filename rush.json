@@ -460,10 +460,6 @@
       "projectFolder": "workers/hero-of-time-link"
     },
     {
-      "packageName": "@nchlswhttkr/newsletter-subscription-form",
-      "projectFolder": "workers/newsletter-subscription-form"
-    },
-    {
       "packageName": "@nchlswhttkr/nchlswhttkr-dot-com",
       "projectFolder": "workers/nchlswhttkr-dot-com"
     },

@@ -223,18 +223,6 @@ importers:
         specifier: ^4.0.0
         version: 4.33.1(@cloudflare/workers-types@4.20250829.0)
 
-  ../../workers/newsletter-subscription-form:
-    dependencies:
-      eslint:
-        specifier: ^8.19.0
-        version: 8.57.1
-      prettier:
-        specifier: ^2.1.2
-        version: 2.8.8
-      wrangler:
-        specifier: ^4.0.0
-        version: 4.33.1(@cloudflare/workers-types@4.20250829.0)
-
   ../../workers/template-worker:
     dependencies:
       '@cloudflare/workers-types':

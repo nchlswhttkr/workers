@@ -29,5 +29,4 @@ steps:
           - enforce-https
           - hero-of-time-link
           - nchlswhttkr-dot-com
-          - newsletter-subscription-form
           - terraform-registry

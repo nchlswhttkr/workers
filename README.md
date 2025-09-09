@@ -26,17 +26,16 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 
 ## Packages
 
-| Package                                                                              | Description                                                                                                                    |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| [@nchlswhttkr/cloudflare-workers-otel](./libraries/cloudflare-workers-otel/)         | Provided OpenTelemetry instrumentation compatible with Cloudflare Workers                                                      |
-| [@nchlswhttkr/esbuild-plugin-handlebars](./libraries/esbuild-plugin-handlebars/)     | An esbuild plugin to load and precompile Handlebars templates                                                                  |
-| [@nchlswhttkr/otlp-exporter-fetch](./libraries/otlp-exporter-fetch/)                 | Implements an OTLP exporter using `fetch()` for environments that do not support `XMLHttpRequest` and `Navigator.sendBeacon()` |
-| [@nchlswhttkr/belles](./workers/belles/)                                             | Records my transactions at [Belles Hot Chicken](https://belleshotchicken.com/)                                                 |
-| [@nchlswhttkr/enforce-https](./workers/enforce-https/)                               | Enforces HTTPS for requests to my website and any subdomains                                                                   |
-| [@nchlswhttkr/hero-of-time-link](./workers/hero-of-time-link/)                       | A shortcut service using Workers KV                                                                                            |
-| [@nchlswhttkr/nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com/)                   | Handles redirects from my old domain to various destinations                                                                   |
-| [@nchlswhttkr/newsletter-subscription-form](./workers/newsletter-subscription-form/) | Manages requests to subscribe/unsubscribe from my newsletter                                                                   |
-| [@nchlswhttkr/terraform-registry](./workers/terraform-registry/)                     | Mimics a Terraform registry to serve my custom providers                                                                       |
+| Package                                                                          | Description                                                                                                                    |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [@nchlswhttkr/cloudflare-workers-otel](./libraries/cloudflare-workers-otel/)     | Provided OpenTelemetry instrumentation compatible with Cloudflare Workers                                                      |
+| [@nchlswhttkr/esbuild-plugin-handlebars](./libraries/esbuild-plugin-handlebars/) | An esbuild plugin to load and precompile Handlebars templates                                                                  |
+| [@nchlswhttkr/otlp-exporter-fetch](./libraries/otlp-exporter-fetch/)             | Implements an OTLP exporter using `fetch()` for environments that do not support `XMLHttpRequest` and `Navigator.sendBeacon()` |
+| [@nchlswhttkr/belles](./workers/belles/)                                         | Records my transactions at [Belles Hot Chicken](https://belleshotchicken.com/)                                                 |
+| [@nchlswhttkr/enforce-https](./workers/enforce-https/)                           | Enforces HTTPS for requests to my website and any subdomains                                                                   |
+| [@nchlswhttkr/hero-of-time-link](./workers/hero-of-time-link/)                   | A shortcut service using Workers KV                                                                                            |
+| [@nchlswhttkr/nchlswhttkr-dot-com](./workers/nchlswhttkr-dot-com/)               | Handles redirects from my old domain to various destinations                                                                   |
+| [@nchlswhttkr/terraform-registry](./workers/terraform-registry/)                 | Mimics a Terraform registry to serve my custom providers                                                                       |
 
 <!-- bandcamp-embed-cors-proxy https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/bandcamp-embed-cors-proxy -->
 
@@ -53,5 +52,7 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 <!-- inject-env-loader https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/webpack/inject-env-loader -->
 
 <!-- markdown-reader https://github.com/nchlswhttkr/workers/tree/5c6b3d25a38e52a68632987ce9ba8772a076a43a/workers/markdown-reader -->
+
+<!-- newsletter-subscription-form https://github.com/nchlswhttkr/workers/tree/5cab3d7173ae9f581555e680e60e5821a2971c65/workers/newsletter-subscription-form -->
 
 <!-- rss-feeds https://github.com/nchlswhttkr/workers/tree/e02638fd69f0747b9187a4e0aecc3753a412e4d3/workers/rss-feeds -->
