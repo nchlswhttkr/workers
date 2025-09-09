@@ -24,7 +24,7 @@ rush rebuild --to "@nchlswhttkr/belles"
 
 To deploy workers, run their `deploy` script.
 
-````sh
+```sh
 cd workers/belles
 rushx deploy
 ```
@@ -61,4 +61,7 @@ rushx deploy
 <!-- newsletter-subscription-form https://github.com/nchlswhttkr/workers/tree/5cab3d7173ae9f581555e680e60e5821a2971c65/workers/newsletter-subscription-form -->
 
 <!-- rss-feeds https://github.com/nchlswhttkr/workers/tree/e02638fd69f0747b9187a4e0aecc3753a412e4d3/workers/rss-feeds -->
-````
+
+```
+
+```
