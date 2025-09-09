@@ -40,11 +40,6 @@
     ],
     "rules": {
       "@typescript-eslint/no-explicit-any": "off"
-    },
-    "globals": {
-      "UP_ACCESS_TOKEN": true,
-      "UP_WEBHOOK_SECRET_KEY": true,
-      "STORE": true
     }
   }
 }
