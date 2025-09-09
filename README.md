@@ -1,6 +1,4 @@
-<!-- TODO: Use Boom for error handling -->
-
-# workers
+# workers [![Build status](https://badge.buildkite.com/675eb9f26c41a0cd79749ea03405b3f0dca42d83ac6d19418f.svg?branch=main)](https://buildkite.com/nchlswhttkr/workers)
 
 My [Cloudflare Workers](https://workers.dev), for assorted purposes.
 
@@ -8,7 +6,7 @@ This is a [Rush](https://rushjs.io) project that uses [PNPM](https://pnpm.js.org
 
 ## Usage
 
-You'll need credentials on hand in your [`pass`](https://passwordstore.org/) store, and [Rush](https://rushjs.io/) needs to be installed.
+You'll need to have [Rush](https://rushjs.io/) installed.
 
 ```sh
 nvm install
@@ -18,10 +16,17 @@ rush update
 rush build
 ```
 
-Subsequent builds will be incremental, and won't run from changes to ignored files and external sources (secrets in `pass`, files outside a project's folder). In this case, you can force a full rebuild of a project and its dependencies.
+Subsequent builds will be [incremental](https://rushjs.io/pages/advanced/incremental_builds/), and you can force a full rebuild of a project and its dependencies.
 
 ```sh
-rush rebuild --to "@nchlswhttkr/template-worker"
+rush rebuild --to "@nchlswhttkr/belles"
+```
+
+To deploy workers, run their `deploy` script.
+
+````sh
+cd workers/belles
+rushx deploy
 ```
 
 ## Packages
@@ -56,3 +61,4 @@ rush rebuild --to "@nchlswhttkr/template-worker"
 <!-- newsletter-subscription-form https://github.com/nchlswhttkr/workers/tree/5cab3d7173ae9f581555e680e60e5821a2971c65/workers/newsletter-subscription-form -->
 
 <!-- rss-feeds https://github.com/nchlswhttkr/workers/tree/e02638fd69f0747b9187a4e0aecc3753a412e4d3/workers/rss-feeds -->
+````
