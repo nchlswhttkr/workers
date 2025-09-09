@@ -225,12 +225,24 @@ importers:
 
   ../../workers/terraform-registry:
     dependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20250606.0
+        version: 4.20250829.0
       '@hapi/boom':
         specifier: ^10.0.0
         version: 10.0.1
       '@hapi/call':
         specifier: ^9.0.0
         version: 9.0.1
+      '@nchlswhttkr/cloudflare-workers-otel':
+        specifier: workspace:*
+        version: link:../../libraries/cloudflare-workers-otel
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.30.7
+        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1)(typescript@5.9.2)
+      '@typescript-eslint/parser':
+        specifier: ^5.30.7
+        version: 5.62.0(eslint@8.57.1)(typescript@5.9.2)
       esbuild:
         specifier: ^0.25.0
         version: 0.25.9
@@ -240,6 +252,9 @@ importers:
       prettier:
         specifier: ^2.1.2
         version: 2.8.8
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.2
       wrangler:
         specifier: ^4.0.0
         version: 4.33.1(@cloudflare/workers-types@4.20250829.0)

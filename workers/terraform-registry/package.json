@@ -14,22 +14,35 @@
     "@hapi/call": "^9.0.0",
     "wrangler": "^4.0.0",
     "esbuild": "^0.25.0",
-    "eslint": "^8.19.0"
+    "eslint": "^8.19.0",
+    "@cloudflare/workers-types": "^4.20250606.0",
+    "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "typescript": "^5.0.0"
   },
   "eslintConfig": {
     "env": {
       "browser": true,
-      "commonjs": true,
       "es2021": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": "latest"
     },
-    "rules": {},
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-var-requires": "off"
+    },
     "globals": {
-      "Buffer": true,
-      "GPG_KEY_ID": true
+      "Buffer": true
     }
   }
 }

@@ -1,11 +1,14 @@
+import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
+import { env } from "cloudflare:workers";
+
 /**
  * A dependency of boom/call, hoek, references Node's Buffer API. Cloudflare
  * rejects workers whose code references this unavailable API. Declaring a falsy
  * value via an implicit global gets around this behaviour.
  */
 Buffer = undefined;
-const Boom = require("@hapi/boom");
-const Call = require("@hapi/call");
+import Boom from "@hapi/boom";
+import Call from "@hapi/call";
 
 const router = new Call.Router();
 router.add(
@@ -30,40 +33,40 @@ router.add(
   "service-discovery"
 );
 
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event));
-});
-
-async function handleRequest(event) {
-  try {
-    const match = router.route(
-      event.request.method.toLowerCase(),
-      new URL(event.request.url).pathname
-    );
-
-    if (match.route === "list-versions") {
-      return await listVersions(match.params);
-    } else if (match.route === "get-package") {
-      return await getPackage(match.params);
-    } else if (match.route === "service-discovery") {
-      return new Response(
-        JSON.stringify({ "providers.v1": "/terraform-registry/providers/v1/" }),
-        { status: 200, headers: { "Content-Type": "application/json" } }
+export default withTelemetry("terraform-registry", {
+  async fetch(request) {
+    try {
+      const match = router.route(
+        request.method.toLowerCase(),
+        new URL(request.url).pathname
       );
-    }
 
-    throw Boom.notFound();
-  } catch (error) {
-    if (error.isBoom) {
-      console.error(error.message);
-      return new Response(error.output.payload.error, {
-        status: error.output.payload.statusCode,
-      });
+      if (match.route === "list-versions") {
+        return await listVersions(match.params);
+      } else if (match.route === "get-package") {
+        return await getPackage(match.params);
+      } else if (match.route === "service-discovery") {
+        return new Response(
+          JSON.stringify({
+            "providers.v1": "/terraform-registry/providers/v1/",
+          }),
+          { status: 200, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      throw Boom.notFound();
+    } catch (error) {
+      if (error.isBoom) {
+        console.error(error.message);
+        return new Response(error.output.payload.error, {
+          status: error.output.payload.statusCode,
+        });
+      }
+      console.error(error);
+      return new Response("Internal Server Error", { status: 500 });
     }
-    console.error(error);
-    return new Response("Internal Server Error", { status: 500 });
-  }
-}
+  },
+});
 
 async function listVersions({ namespace, type }) {
   if (namespace !== "nchlswhttkr") {
@@ -71,7 +74,7 @@ async function listVersions({ namespace, type }) {
   }
 
   // TODO: Handle pagination when there are many releases
-  const releases = await fetch(
+  const releases: any = await fetch(
     `https://api.github.com/repos/nchlswhttkr/terraform-provider-${type}/releases`,
     { headers: { "User-Agent": "@nchlswhttkr workers/terraform-registry" } }
   ).then((response) => {
@@ -100,7 +103,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
   }
 
   const gpgPublicKey = await fetch(
-    `https://nicholas.cloud/files/keys/${GPG_KEY_ID}.asc`
+    `https://nicholas.cloud/files/keys/${env.GPG_KEY_ID}.asc`
   ).then((response) => {
     if (response.status !== 200) {
       throw Boom.internal(`Received ${response.status} while fetching GPG key`);
@@ -141,7 +144,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
       signing_keys: {
         gpg_public_keys: [
           {
-            key_id: GPG_KEY_ID,
+            key_id: env.GPG_KEY_ID,
             ascii_armor: gpgPublicKey,
           },
         ],
