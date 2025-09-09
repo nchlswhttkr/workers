@@ -223,33 +223,6 @@ importers:
         specifier: ^4.0.0
         version: 4.33.1(@cloudflare/workers-types@4.20250829.0)
 
-  ../../workers/template-worker:
-    dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^4.20250606.0
-        version: 4.20250829.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.30.7
-        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1)(typescript@5.9.2)
-      '@typescript-eslint/parser':
-        specifier: ^5.30.7
-        version: 5.62.0(eslint@8.57.1)(typescript@5.9.2)
-      esbuild:
-        specifier: ^0.25.0
-        version: 0.25.9
-      eslint:
-        specifier: ^8.19.0
-        version: 8.57.1
-      prettier:
-        specifier: ^2.1.2
-        version: 2.8.8
-      typescript:
-        specifier: ^5.0.0
-        version: 5.9.2
-      wrangler:
-        specifier: ^4.0.0
-        version: 4.33.1(@cloudflare/workers-types@4.20250829.0)
-
   ../../workers/terraform-registry:
     dependencies:
       '@hapi/boom':
