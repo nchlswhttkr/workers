@@ -13,7 +13,6 @@ steps:
 
   - label: ":cloudflare: Deploy {{ matrix }} to DEV"
     command: ".buildkite/deploy.sh {{ matrix }} dev"
-    key: deploy-dev
     concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
     concurrency: 4
     plugins:
@@ -29,9 +28,10 @@ steps:
       - nchlswhttkr-dot-com
       - terraform-registry
 
+  - wait
+
   - label: ":cloudflare: Deploy {{ matrix }} to PROD"
     command: ".buildkite/deploy.sh {{ matrix }}"
-    depends_on: deploy-dev
     concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
     concurrency: 4
     plugins:
