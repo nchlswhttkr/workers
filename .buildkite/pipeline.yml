@@ -11,22 +11,38 @@ steps:
 
   - wait
 
-  - group: ":cloudflare: Deploy workers"
-    if: 'build.branch == "main"'
-    steps:
-      - label: ":cloudflare: Deploy {{ matrix }}"
-        command: ".buildkite/deploy.sh {{ matrix }}"
-        concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
-        concurrency: 4
-        plugins:
-          - docker-compose#v5.10.0:
-              run: ci
-              config: .buildkite/docker-compose.yml
-              mount-buildkite-agent: true
-              propagate-environment: true
-        matrix:
-          - belles
-          - enforce-https
-          - hero-of-time-link
-          - nchlswhttkr-dot-com
-          - terraform-registry
+  - label: ":cloudflare: Deploy {{ matrix }} to DEV"
+    command: ".buildkite/deploy.sh {{ matrix }} dev"
+    key: "deploy-{{ matrix }}-dev"
+    concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
+    concurrency: 4
+    plugins:
+      - docker-compose#v5.10.0:
+          run: ci
+          config: .buildkite/docker-compose.yml
+          mount-buildkite-agent: true
+          propagate-environment: true
+    matrix:
+      - belles
+      - enforce-https
+      - hero-of-time-link
+      - nchlswhttkr-dot-com
+      - terraform-registry
+
+  - label: ":cloudflare: Deploy {{ matrix }} to PROD"
+    command: ".buildkite/deploy.sh {{ matrix }}"
+    depends_on: "deploy-{{ matrix }}-dev"
+    concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
+    concurrency: 4
+    plugins:
+      - docker-compose#v5.10.0:
+          run: ci
+          config: .buildkite/docker-compose.yml
+          mount-buildkite-agent: true
+          propagate-environment: true
+    matrix:
+      - belles
+      - enforce-https
+      - hero-of-time-link
+      - nchlswhttkr-dot-com
+      - terraform-registry

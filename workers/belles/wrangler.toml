@@ -3,15 +3,24 @@ main = "index.ts"
 compatibility_date = "2025-02-04"
 compatibility_flags = [ "nodejs_compat" ]
 route = { pattern = "belles.nicholas.cloud", custom_domain = true }
-
+version_metadata.binding = "CF_VERSION_METADATA"
 kv_namespaces = [
-    { binding="TRANSACTIONS", id="dcb32064b3f24d32b62261bd0c53a649" }
+  { binding="TRANSACTIONS", id="dcb32064b3f24d32b62261bd0c53a649" }
 ]
-
 secrets_store_secrets = [
-  { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_ENDPOINT", secret_name = "OTEL_EXPORTER_OTLP_ENDPOINT" },
-  { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_HEADERS", secret_name = "OTEL_EXPORTER_OTLP_HEADERS" }
+  { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_ENDPOINT", secret_name = "otel-prod-endpoint" },
+  { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_HEADERS", secret_name = "otel-prod-headers" }
 ]
 
-[version_metadata]
-binding = "CF_VERSION_METADATA"
+[env.dev]
+compatibility_date = "2025-02-04"
+version_metadata.binding = "CF_VERSION_METADATA"
+workers_dev = true
+routes = []
+kv_namespaces = [
+  { binding="TRANSACTIONS", id="cae8f9e7c3bb406caa6eb2bf189b2b19" }
+]
+secrets_store_secrets = [
+  { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_ENDPOINT", secret_name = "otel-dev-endpoint" },
+  { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_HEADERS", secret_name = "otel-dev-headers" }
+]

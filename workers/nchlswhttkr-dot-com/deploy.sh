@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+ENVIRONMENT="${1:-}"
+
 if [[ -z "${VAULT_TOKEN:-}" ]]; then
     VAULT_TOKEN="$(pass show vault/root-token)"
     export VAULT_TOKEN
@@ -12,6 +14,6 @@ export CLOUDFLARE_ACCOUNT_ID
 CLOUDFLARE_API_TOKEN=$(vault kv get -field cloudflare-api-token buildkite/workers)
 export CLOUDFLARE_API_TOKEN
 
-wrangler deploy
+wrangler deploy --env "$ENVIRONMENT"
 
-../../scripts/create-honeycomb-marker.sh nchlswhttkr-dot-com
+../../scripts/create-honeycomb-marker.sh nchlswhttkr-dot-com "$ENVIRONMENT"
