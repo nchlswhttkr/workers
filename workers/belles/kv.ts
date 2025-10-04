@@ -16,7 +16,7 @@ export async function upsertTransaction(transaction: Transaction) {
             value: -transaction.attributes.amount.valueInBaseUnits,
             raw: transaction.attributes.rawText,
           },
-        }
+        },
       );
     } finally {
       span.end();

@@ -16,21 +16,21 @@ router.add(
     method: "get",
     path: "/terraform-registry/providers/v1/{namespace}/{type}/versions",
   },
-  "list-versions"
+  "list-versions",
 );
 router.add(
   {
     method: "get",
     path: "/terraform-registry/providers/v1/{namespace}/{type}/{version}/download/{os}/{arch}",
   },
-  "get-package"
+  "get-package",
 );
 router.add(
   {
     method: "get",
     path: "/.well-known/terraform.json",
   },
-  "service-discovery"
+  "service-discovery",
 );
 
 export default withTelemetry("terraform-registry", {
@@ -38,7 +38,7 @@ export default withTelemetry("terraform-registry", {
     try {
       const match = router.route(
         request.method.toLowerCase(),
-        new URL(request.url).pathname
+        new URL(request.url).pathname,
       );
 
       if (match.route === "list-versions") {
@@ -50,7 +50,7 @@ export default withTelemetry("terraform-registry", {
           JSON.stringify({
             "providers.v1": "/terraform-registry/providers/v1/",
           }),
-          { status: 200, headers: { "Content-Type": "application/json" } }
+          { status: 200, headers: { "Content-Type": "application/json" } },
         );
       }
 
@@ -76,11 +76,11 @@ async function listVersions({ namespace, type }) {
   // TODO: Handle pagination when there are many releases
   const releases: any = await fetch(
     `https://api.github.com/repos/nchlswhttkr/terraform-provider-${type}/releases`,
-    { headers: { "User-Agent": "@nchlswhttkr workers/terraform-registry" } }
+    { headers: { "User-Agent": "@nchlswhttkr workers/terraform-registry" } },
   ).then((response) => {
     if (response.status !== 200) {
       throw Boom.internal(
-        `Received ${response.status} while fetching releases from GitHub`
+        `Received ${response.status} while fetching releases from GitHub`,
       );
     }
     return response.json();
@@ -92,7 +92,7 @@ async function listVersions({ namespace, type }) {
         version: release.tag_name.substring(1), // trim 'v' from version
       })),
     }),
-    { status: 200, headers: { "Content-Type": "application/json" } }
+    { status: 200, headers: { "Content-Type": "application/json" } },
   );
 }
 
@@ -103,7 +103,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
   }
 
   const gpgPublicKey = await fetch(
-    `https://nicholas.cloud/files/keys/${env.GPG_KEY_ID}.asc`
+    `https://nicholas.cloud/files/keys/${env.GPG_KEY_ID}.asc`,
   ).then((response) => {
     if (response.status !== 200) {
       throw Boom.internal(`Received ${response.status} while fetching GPG key`);
@@ -112,12 +112,12 @@ async function getPackage({ namespace, type, version, os, arch }) {
   });
 
   const downloadHash = await fetch(
-    `https://github.com/nchlswhttkr/terraform-provider-${type}/releases/download/v${version}/terraform-provider-${type}_${version}_${os}_${arch}.zip`
+    `https://github.com/nchlswhttkr/terraform-provider-${type}/releases/download/v${version}/terraform-provider-${type}_${version}_${os}_${arch}.zip`,
   )
     .then((response) => {
       if (response.status !== 200) {
         throw Boom.internal(
-          `Received ${response.status} while fetching zipped package`
+          `Received ${response.status} while fetching zipped package`,
         );
       }
       return response.arrayBuffer();
@@ -128,7 +128,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
     .then((arrayBuffer) =>
       Array.from(new Uint8Array(arrayBuffer))
         .map((n) => n.toString(16).padStart(2, "0"))
-        .join("")
+        .join(""),
     );
 
   return new Response(
@@ -150,6 +150,6 @@ async function getPackage({ namespace, type, version, os, arch }) {
         ],
       },
     }),
-    { status: 200, headers: { "Content-Type": "application/json" } }
+    { status: 200, headers: { "Content-Type": "application/json" } },
   );
 }

@@ -9,7 +9,7 @@ export default withTelemetry("nchlswhttkr-dot-com", {
       span.setAttribute("url.full", request.url);
       span.setAttribute(
         "user_agent.original",
-        request.headers.get("user-agent")
+        request.headers.get("user-agent"),
       );
       const url = new URL(request.url);
       switch (url.hostname) {

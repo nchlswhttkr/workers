@@ -50,7 +50,7 @@ async function receiveWebhook(request: Request): Promise<Response> {
     case "TRANSACTION_CREATED":
     case "TRANSACTION_SETTLED": {
       const transaction = await up.getTransaction(
-        payload.data.relationships.transaction.data.id
+        payload.data.relationships.transaction.data.id,
       );
       const {
         description,
@@ -99,6 +99,6 @@ async function retryTransaction(request: Request): Promise<Response> {
     {
       status: 200,
       headers: { "Content-Type": "application/json" },
-    }
+    },
   );
 }

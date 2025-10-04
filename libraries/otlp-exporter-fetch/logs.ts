@@ -27,7 +27,7 @@ export class FetchExportDelegate
           "User-Agent": `${name} v${version}`,
           "Content-Type": "application/json",
         },
-        this.config.headers
+        this.config.headers,
       ),
       body: JsonLogsSerializer.serializeRequest(logs),
     }).then(async (response) => {

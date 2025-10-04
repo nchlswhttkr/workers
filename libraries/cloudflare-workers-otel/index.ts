@@ -74,13 +74,13 @@ diag.setLogger(new DiagConsoleLogger(), { logLevel: DiagLogLevel.DEBUG });
 
 export function withTelemetry(
   workerName: string,
-  worker: ExportedHandler
+  worker: ExportedHandler,
 ): ExportedHandler {
   const fetch = async (event, env, ctx) => {
     const url = await env.OTEL_EXPORTER_OTLP_ENDPOINT.get();
     const headers = {};
     for (const header of await env.OTEL_EXPORTER_OTLP_HEADERS.get().then(
-      (secret) => secret.split(",")
+      (secret) => secret.split(","),
     )) {
       const [key, value] = header.split("=");
       headers[key] = value;

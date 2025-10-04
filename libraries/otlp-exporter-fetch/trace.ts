@@ -21,7 +21,7 @@ export class FetchExportDelegate
 
   async export(
     spans: ReadableSpan[],
-    callback: (result: ExportResult) => void
+    callback: (result: ExportResult) => void,
   ) {
     // Batch up and rely on forceFlush()
     this.spans = this.spans.concat(spans);
@@ -36,7 +36,7 @@ export class FetchExportDelegate
           "User-Agent": `${name} v${version}`,
           "Content-Type": "application/json",
         },
-        this.config.headers
+        this.config.headers,
       ),
       body: JsonTraceSerializer.serializeRequest(this.spans),
     });

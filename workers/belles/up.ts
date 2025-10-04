@@ -12,7 +12,7 @@ export async function getTransaction(id: string): Promise<Transaction> {
           headers: {
             Authorization: `Bearer ${env.UP_ACCESS_TOKEN}`,
           },
-        }
+        },
       ).then((response) => response.json());
 
       return response.data;
@@ -24,7 +24,7 @@ export async function getTransaction(id: string): Promise<Transaction> {
 
 export async function verifyWebhookRequestSignature(
   body: string,
-  signature: string | null
+  signature: string | null,
 ): Promise<void> {
   const tracer = trace.getTracer("Up");
   tracer.startActiveSpan("verifyWebhookRequestSignature()", async (span) => {
@@ -37,7 +37,7 @@ export async function verifyWebhookRequestSignature(
       const signatureBuffer = new Uint8Array(32);
       for (let i = 0; i < 32; i++) {
         signatureBuffer[i] = Number.parseInt(
-          `0x${signature.substring(2 * i, 2 * i + 2)}`
+          `0x${signature.substring(2 * i, 2 * i + 2)}`,
         );
       }
 
@@ -48,10 +48,10 @@ export async function verifyWebhookRequestSignature(
           new TextEncoder().encode(env.UP_WEBHOOK_SECRET_KEY),
           { name: "HMAC", hash: "SHA-256" },
           false,
-          ["verify"]
+          ["verify"],
         ),
         signatureBuffer,
-        new TextEncoder().encode(body)
+        new TextEncoder().encode(body),
       );
 
       if (!isValidSignature) {
@@ -64,7 +64,7 @@ export async function verifyWebhookRequestSignature(
 }
 
 export async function listTransactionsByDate(
-  date: Date
+  date: Date,
 ): Promise<Transaction[]> {
   const tracer = trace.getTracer("Up");
   return tracer.startActiveSpan("listTransactionsByDate()", async (span) => {
@@ -73,7 +73,7 @@ export async function listTransactionsByDate(
       tomorrow.setDate(date.getDate() + 1);
 
       console.log(
-        `Listing transactions from ${date.toISOString()} to ${tomorrow.toISOString()}`
+        `Listing transactions from ${date.toISOString()} to ${tomorrow.toISOString()}`,
       );
       const response: any = await fetch(
         `https://api.up.com.au/api/v1/transactions?page[size]=100&filter[since]=${date.toISOString()}&filter[until]=${tomorrow.toISOString()}`,
@@ -81,7 +81,7 @@ export async function listTransactionsByDate(
           headers: {
             Authorization: `Bearer ${env.UP_ACCESS_TOKEN}`,
           },
-        }
+        },
       ).then((response) => response.json());
       return response.data;
     } finally {
