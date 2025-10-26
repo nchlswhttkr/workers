@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Bandcamp Mini Embed</title>
+
+    <style>
+      body > div {
+        margin: 8px;
+      }
+
+      /* Test 'all: revert' works by applying ugly styles */
+      /* These changes should not be visible */
+      .root :not(button *) {
+        border: 1px solid red;
+        color: red;
+        display: inline;
+        width: 10px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #ddd;
+          background-color: #111;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="/embed/bundle.css" />
+  </head>
+
+  <body style="margin: 0">
+    <div style="max-width: 280px; min-height: 210px"></div>
+    <script
+      async
+      data-album-id="949193445"
+      data-fallback-text="Fallback text"
+      data-fallback-url="https://github.com/nchlswhttkr/bandcamp-mini-embed"
+      src="/embed/bundle.js"
+    ></script>
+
+    <hr />
+
+    <div style="max-width: 360px; min-height: 210px"></div>
+    <script async data-album-id="285931255" src="/embed/bundle.js"></script>
+
+    <hr />
+
+    <div style="max-width: 480px; min-height: 210px"></div>
+    <script async data-album-id="161059800" src="/embed/bundle.js"></script>
+  </body>
+</html>

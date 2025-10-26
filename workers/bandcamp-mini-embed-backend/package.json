@@ -1,0 +1,19 @@
+{
+  "name": "@nchlswhttkr/bandcamp-mini-embed-backend",
+  "description": "Serves my Bandcamp embed and proxies requests to Bandcamp",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "./build.sh",
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.0",
+    "@hapi/call": "^9.0.0",
+    "esbuild": "^0.25.0",
+    "handlebars": "^4.7.7",
+    "prettier": "^3.6.2",
+    "wrangler": "^4.38.0",
+    "@nchlswhttkr/esbuild-plugin-handlebars": "workspace:*"
+  }
+}

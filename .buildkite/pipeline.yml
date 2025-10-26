@@ -11,6 +11,8 @@ steps:
 
   - wait
 
+  # TODO: Deploy frontend for bandcamp-mini-embed
+
   - label: ":cloudflare: Deploy {{ matrix }} to DEV"
     command: ".buildkite/deploy.sh {{ matrix }} dev"
     concurrency_group: $BUILDKITE_PIPELINE_SLUG/deploy
@@ -22,6 +24,7 @@ steps:
           mount-buildkite-agent: true
           propagate-environment: true
     matrix:
+      - bandcamp-mini-embed-backend
       - belles
       - enforce-https
       - hero-of-time-link

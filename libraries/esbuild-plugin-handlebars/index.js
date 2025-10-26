@@ -1,12 +1,13 @@
-let Handlebars = require("handlebars");
-let fs = require("node:fs/promises");
+import Handlebars from "handlebars";
+import fs from "node:fs/promises";
+import path from "node:path";
 
-module.exports = {
+export default {
   name: "handlebars",
 
   setup(build) {
     build.onResolve({ filter: /\.hbs$/ }, (args) => ({
-      path: args.path,
+      path: path.join(args.resolveDir, args.path),
       namespace: "handlebars-ns",
     }));
 
@@ -14,7 +15,7 @@ module.exports = {
       const template = await fs.readFile(args.path);
       const compiled = Handlebars.precompile(template.toString());
       return {
-        contents: `module.exports = ${compiled}`,
+        contents: `export default ${compiled}`,
         loader: "js",
       };
     });

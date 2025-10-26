@@ -482,14 +482,15 @@
     {
       "packageName": "@nchlswhttkr/otlp-exporter-fetch",
       "projectFolder": "libraries/otlp-exporter-fetch"
-      // },
-      // {
-      //   "packageName": "@nchlswhttkr/bandcamp-mini-embed",
-      //   "projectFolder": "workers/bandcamp-mini-embed"
-      // },
-      // {
-      //   "packageName": "@nchlswhttkr/bandcamp-mini-embed-frontend",
-      //   "projectFolder": "frontends/bandcamp-mini-embed-frontend"
+    },
+    {
+      "packageName": "@nchlswhttkr/bandcamp-mini-embed-backend",
+      "projectFolder": "workers/bandcamp-mini-embed-backend"
+    },
+    {
+      // TODO: Investigate rush deploy strategy for bundling embed w/ worker
+      "packageName": "@nchlswhttkr/bandcamp-mini-embed",
+      "projectFolder": "frontends/bandcamp-mini-embed"
     }
   ]
 }

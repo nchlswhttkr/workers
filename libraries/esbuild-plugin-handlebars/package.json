@@ -2,6 +2,8 @@
   "name": "@nchlswhttkr/esbuild-plugin-handlebars",
   "version": "0.1.0",
   "description": "An esbuild plugin to load and precompile Handlebars templates",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "build": "./build.sh"
   },
@@ -13,14 +15,10 @@
     "handlebars": "^4.7.7"
   },
   "eslintConfig": {
-    "env": {
-      "browser": true,
-      "commonjs": true,
-      "es2021": true
-    },
     "extends": "eslint:recommended",
     "parserOptions": {
-      "ecmaVersion": "latest"
+      "ecmaVersion": "latest",
+      "sourceType": "module"
     },
     "rules": {}
   }

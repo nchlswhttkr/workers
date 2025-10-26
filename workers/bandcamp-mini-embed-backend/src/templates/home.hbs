@@ -1,0 +1,103 @@
+<html lang="en">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>bandcamp-mini-embed</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{!-- prettier-ignore --}}
+    <style>
+        main {
+            color: #333;
+            margin: 0 auto;
+            max-width: 720px;
+            font-family: monospace;
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            margin-left: 8px;
+            border: 1px solid #000
+        }
+
+        button {
+            display: block;
+            margin: 16px auto;
+            background-color: #fff;
+            font-family: monospace;
+            padding: 8px;
+            border: 2px solid #333;
+            cursor: pointer
+        }
+
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 8px;
+            line-height: 1.2rem;
+            overflow-x: scroll;
+        }
+
+        .bandcamp-mini-embed {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>bandcamp-mini-embed</h1>
+      {{#if embed}}
+        <p>Here's your embed code, you can copy it to your website!</p>
+        <pre><code id="embed-snippet"></code></pre>
+        <button onclick="copyEmbed()">Copy embed code</button>
+        <div id="embed-target"></div>
+        {{!-- prettier-ignore --}}
+        <script>
+            const embed = `{{embed}}`.replace(/__EMBED_ORIGIN__/g, new URL(window.location).origin)
+            document.getElementById('embed-snippet').innerHTML = embed
+            const target = document.getElementById('embed-target')
+            target.innerHTML = document.getElementById('embed-snippet').innerText
+
+            const script = Array.from(target.children).find(element => element.tagName === "SCRIPT")
+            const replacement = document.createElement('script')
+            for (let i = 0; i < script.attributes.length; i++) {
+                const attribute = script.attributes.item(i)
+                replacement.setAttribute(attribute.name, attribute.value)
+            }
+            target.replaceChild(replacement, script)
+
+            function copyEmbed() {
+                navigator.clipboard.writeText(document.getElementById("embed-snippet").innerText);
+            }
+        </script>
+      {{else}}
+        <p>A music player embed for
+          <a href="https://bandcamp.com/">Bandcamp</a>
+          albums</p>
+        <form>
+          <label>Album URL <input type="text" name="url" /></label>
+          <button>Generate embed</button>
+        </form>
+      {{/if}}
+      <p>
+        <a href="/">Home</a>
+        &bull;
+        <a href="https://github.com/nchlswhttkr/bandcamp-mini-embed">Source code</a>
+        &bull;
+        <a href="/examples/">Example albums</a>
+      </p>
+    </main>
+  </body>
+
+</html>
