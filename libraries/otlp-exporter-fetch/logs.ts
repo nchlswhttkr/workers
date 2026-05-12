@@ -9,9 +9,9 @@ import { JsonLogsSerializer } from "@opentelemetry/otlp-transformer";
 import { name, version } from "./package.json";
 
 // https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter
-export class FetchExportDelegate
-  implements IOtlpExportDelegate<ReadableLogRecord[]>
-{
+export class FetchExportDelegate implements IOtlpExportDelegate<
+  ReadableLogRecord[]
+> {
   private logs: ReadableLogRecord[] = [];
   private config: OTLPExporterConfigBase;
 
