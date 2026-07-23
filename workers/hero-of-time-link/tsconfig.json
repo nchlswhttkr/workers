@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["./types.d.ts", "node"],
+    "types": ["./worker-configuration.d.ts", "node"],
     "target": "esnext",
     "lib": ["esnext"],
     "module": "nodenext",
