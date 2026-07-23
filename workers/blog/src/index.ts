@@ -11,7 +11,7 @@ export default {
     // https://xclacksoverhead.org/home/about
     headers.set("X-Clacks-Overhead", "GNU Terry Pratchett");
 
-    // Only GET requests allowed
+    // Only GET/HEAD requests allowed
     if (request.method !== "GET" && request.method !== "HEAD") {
       status = 501;
       return new Response(null, { status, headers });
