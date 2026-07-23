@@ -1,5 +1,5 @@
 name = "terraform-registry"
-main = "index.ts"
+main = "src/index.ts"
 compatibility_date = "2025-02-04"
 compatibility_flags = [ "nodejs_compat" ]
 version_metadata.binding = "CF_VERSION_METADATA"

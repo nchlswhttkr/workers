@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-prettier --check .
+prettier --check src/
 eslint .
 tsc

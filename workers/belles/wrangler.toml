@@ -1,5 +1,5 @@
 name = "belles"
-main = "index.ts"
+main = "src/index.ts"
 compatibility_date = "2025-02-04"
 compatibility_flags = [ "nodejs_compat" ]
 route = { pattern = "belles.nicholas.cloud", custom_domain = true }

@@ -1,5 +1,5 @@
 name = "hero-of-time-link"
-main = "index.ts"
+main = "src/index.ts"
 compatibility_date = "2025-02-04"
 compatibility_flags = [ "nodejs_compat" ]
 route = "nicholas.cloud/goto*"
