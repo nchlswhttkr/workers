@@ -1,4 +1,4 @@
-name = "nchlswhttkr-dot-com"
+name = "website-redirects"
 main = "index.ts"
 compatibility_date = "2025-02-04"
 compatibility_flags = [ "nodejs_compat" ]
@@ -10,7 +10,7 @@ routes = [
     { pattern = "source.nchlswhttkr.com", custom_domain = true },
     { pattern = "barhack.nchlswhttkr.com", custom_domain = true },
     { pattern = "www.nchlswhttkr.com", custom_domain = true },
-    { pattern = "dalordish.nchlswhttkr.com", custom_domain = true }
+    { pattern = "www.nicholas.cloud", custom_domain = true },
 ]
 secrets_store_secrets = [
   { store_id= "63609536ac1e446eb59160e3216e5f99", binding = "OTEL_EXPORTER_OTLP_ENDPOINT", secret_name = "otel-prod-endpoint" },

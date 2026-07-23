@@ -23,8 +23,8 @@ export default withTelemetry("nchlswhttkr-dot-com", {
           return redirect("https://github.com/nchlswhttkr/barhack/");
         case "www.nchlswhttkr.com":
           return redirect(`https://nicholas.cloud${url.pathname}`);
-        case "dalordish.nchlswhttkr.com":
-          return redirect("https://www.youtube.com/watch?v=ktxtvMqmqu8");
+        case "www.nicholas.cloud":
+          return redirect(`https://nicholas.cloud${url.pathname}`);
         default:
           return redirect(`https://nicholas.cloud${url.pathname}`);
       }

@@ -460,8 +460,8 @@
       "projectFolder": "workers/blog"
     },
     {
-      "packageName": "@nchlswhttkr/nchlswhttkr-dot-com",
-      "projectFolder": "workers/nchlswhttkr-dot-com"
+      "packageName": "@nchlswhttkr/website-redirects",
+      "projectFolder": "workers/website-redirects"
     },
     {
       "packageName": "@nchlswhttkr/terraform-registry",
