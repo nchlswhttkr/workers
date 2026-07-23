@@ -4,7 +4,8 @@
   "description": "My personal shortcut service",
   "scripts": {
     "build": "./build.sh",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "types": "./types.sh"
   },
   "license": "MIT",
   "private": true,
@@ -13,10 +14,9 @@
     "wrangler": "^4.38.0",
     "eslint": "^8.19.0",
     "typescript": "^5.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
-    "@cloudflare/workers-types": "^5.20260721.1"
+    "@types/node": "~25.9.3"
   },
   "eslintConfig": {
     "env": {

@@ -156,9 +156,6 @@ importers:
 
   ../../workers/belles:
     dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^5.20260721.1
-        version: 5.20260723.1
       '@hapi/boom':
         specifier: ^10.0.0
         version: 10.0.1
@@ -171,6 +168,9 @@ importers:
       '@opentelemetry/api':
         specifier: ^1.9.0
         version: 1.9.1
+      '@types/node':
+        specifier: ~25.9.3
+        version: 25.9.5
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.30.7
         version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
@@ -225,12 +225,12 @@ importers:
 
   ../../workers/enforce-https:
     dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^5.20260721.1
-        version: 5.20260723.1
       '@nchlswhttkr/cloudflare-workers-otel':
         specifier: workspace:*
         version: link:../../libraries/cloudflare-workers-otel
+      '@types/node':
+        specifier: ~25.9.3
+        version: 25.9.5
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.30.7
         version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
@@ -255,45 +255,12 @@ importers:
 
   ../../workers/hero-of-time-link:
     dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^5.20260721.1
-        version: 5.20260723.1
       '@nchlswhttkr/cloudflare-workers-otel':
         specifier: workspace:*
         version: link:../../libraries/cloudflare-workers-otel
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.30.7
-        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/parser':
-        specifier: ^5.30.7
-        version: 5.62.0(eslint@8.57.1)(typescript@5.9.3)
-      eslint:
-        specifier: ^8.19.0
-        version: 8.57.1
-      prettier:
-        specifier: ^3.6.2
-        version: 3.9.6
-      typescript:
-        specifier: ^5.0.0
-        version: 5.9.3
-      wrangler:
-        specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
-
-  ../../workers/nchlswhttkr-dot-com:
-    dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^5.20260721.1
-        version: 5.20260723.1
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
-      '@opentelemetry/api':
-        specifier: ^1.9.0
-        version: 1.9.1
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.30.7
-        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
+      '@types/node':
+        specifier: ~25.9.3
+        version: 25.9.5
       '@typescript-eslint/parser':
         specifier: ^5.30.7
         version: 5.62.0(eslint@8.57.1)(typescript@5.9.3)
@@ -312,9 +279,6 @@ importers:
 
   ../../workers/terraform-registry:
     dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^5.20260721.1
-        version: 5.20260723.1
       '@hapi/boom':
         specifier: ^10.0.0
         version: 10.0.1
@@ -324,6 +288,9 @@ importers:
       '@nchlswhttkr/cloudflare-workers-otel':
         specifier: workspace:*
         version: link:../../libraries/cloudflare-workers-otel
+      '@types/node':
+        specifier: ~25.9.3
+        version: 25.9.5
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.30.7
         version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
@@ -333,6 +300,36 @@ importers:
       esbuild:
         specifier: ^0.25.0
         version: 0.25.12
+      eslint:
+        specifier: ^8.19.0
+        version: 8.57.1
+      prettier:
+        specifier: ^3.6.2
+        version: 3.9.6
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+      wrangler:
+        specifier: ^4.38.0
+        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+
+  ../../workers/website-redirects:
+    dependencies:
+      '@nchlswhttkr/cloudflare-workers-otel':
+        specifier: workspace:*
+        version: link:../../libraries/cloudflare-workers-otel
+      '@opentelemetry/api':
+        specifier: ^1.9.0
+        version: 1.9.1
+      '@types/node':
+        specifier: ~25.9.3
+        version: 25.9.5
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.30.7
+        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
+      '@typescript-eslint/parser':
+        specifier: ^5.30.7
+        version: 5.62.0(eslint@8.57.1)(typescript@5.9.3)
       eslint:
         specifier: ^8.19.0
         version: 8.57.1

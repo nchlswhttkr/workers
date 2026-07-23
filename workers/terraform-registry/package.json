@@ -4,7 +4,8 @@
   "description": "Mimics a Terraform registry to serve my custom providers",
   "scripts": {
     "build": "./build.sh",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "types": "./types.sh"
   },
   "license": "MIT",
   "private": true,
@@ -15,11 +16,11 @@
     "wrangler": "^4.38.0",
     "esbuild": "^0.25.0",
     "eslint": "^8.19.0",
-    "@cloudflare/workers-types": "^5.20260721.1",
     "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@types/node": "~25.9.3"
   },
   "eslintConfig": {
     "env": {

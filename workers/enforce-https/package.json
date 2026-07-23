@@ -4,7 +4,8 @@
   "description": "Enforces HTTPS for requests to my website and any subdomains",
   "scripts": {
     "build": "./build.sh",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "types": "./types.sh"
   },
   "license": "MIT",
   "private": true,
@@ -13,11 +14,11 @@
     "wrangler": "^4.38.0",
     "eslint": "^8.19.0",
     "typescript": "^5.0.0",
-    "@cloudflare/workers-types": "^5.20260721.1",
     "@typescript-eslint/parser": "^5.30.7",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "esbuild": "^0.25.0",
-    "@nchlswhttkr/cloudflare-workers-otel": "workspace:*"
+    "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
+    "@types/node": "~25.9.3"
   },
   "eslintConfig": {
     "env": {
