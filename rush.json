@@ -456,6 +456,10 @@
       "projectFolder": "workers/hero-of-time-link"
     },
     {
+      "packageName": "@nchlswhttkr/blog",
+      "projectFolder": "workers/blog"
+    },
+    {
       "packageName": "@nchlswhttkr/nchlswhttkr-dot-com",
       "projectFolder": "workers/nchlswhttkr-dot-com"
     },

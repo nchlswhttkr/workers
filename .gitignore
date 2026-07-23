@@ -1,4 +1,5 @@
 node_modules/
+worker-configuration.d.ts
 
 # Rush temporary files
 common/temp/

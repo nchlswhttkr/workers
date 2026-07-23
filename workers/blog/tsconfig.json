@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "types": ["./worker-configuration.d.ts", "node"],
+    "target": "esnext",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  }
+}

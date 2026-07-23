@@ -1,0 +1,20 @@
+name = "blog"
+main = "src/index.ts"
+compatibility_date = "2025-02-04"
+compatibility_flags = [ "nodejs_compat" ]
+version_metadata.binding = "CF_VERSION_METADATA"
+route = { pattern = "nicholas.cloud", custom_domain = true }
+r2_buckets = [
+  { bucket_name = "blog", binding = "BLOG" },
+  { bucket_name = "files", binding = "FILES" },
+  { bucket_name = "niko", binding = "NIKO" }
+]
+cache.enabled = true
+
+[observability.traces]
+enabled = true
+destinations = [ "honeycomb-traces" ]
+
+[observability.logs]
+enabled = true
+destinations = [ "honeycomb-logs" ]

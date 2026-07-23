@@ -1,0 +1,41 @@
+{
+  "name": "@nchlswhttkr/blog",
+  "version": "0.1.0",
+  "description": "Hosts my blog",
+  "scripts": {
+    "build": "./build.sh",
+    "deploy": "./deploy.sh",
+    "types": "./types.sh"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "prettier": "^3.6.2",
+    "wrangler": "^4.38.0",
+    "eslint": "^8.19.0",
+    "typescript": "^5.0.0",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
+    "@opentelemetry/api": "^1.9.0",
+    "@types/node": "~25.9.3"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {}
+  }
+}
