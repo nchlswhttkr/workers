@@ -1,6 +1,4 @@
-import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
-
-export default withTelemetry("enforce-https", {
+export default {
   async fetch(request) {
     const url = new URL(request.url);
     if (url.protocol !== "http:") {
@@ -13,4 +11,4 @@ export default withTelemetry("enforce-https", {
       headers: { Location: url.toString() },
     });
   },
-});
+};

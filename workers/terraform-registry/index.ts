@@ -1,4 +1,3 @@
-import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
 import { env } from "cloudflare:workers";
 
 /**
@@ -33,7 +32,7 @@ router.add(
   "service-discovery",
 );
 
-export default withTelemetry("terraform-registry", {
+export default {
   async fetch(request) {
     try {
       const match = router.route(
@@ -66,7 +65,7 @@ export default withTelemetry("terraform-registry", {
       return new Response("Internal Server Error", { status: 500 });
     }
   },
-});
+};
 
 async function listVersions({ namespace, type }) {
   if (namespace !== "nchlswhttkr") {

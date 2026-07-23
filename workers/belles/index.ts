@@ -1,9 +1,8 @@
 import * as up from "./up";
 import * as kv from "./kv";
-import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
 import { trace } from "@opentelemetry/api";
 
-export default withTelemetry("belles", {
+export default {
   async fetch(request) {
     try {
       const method = request.method;
@@ -27,7 +26,7 @@ export default withTelemetry("belles", {
       return new Response("Internal Server Error", { status: 500 });
     }
   },
-} satisfies ExportedHandler);
+} satisfies ExportedHandler;
 
 async function listTransactions(): Promise<Response> {
   return new Response(JSON.stringify(await kv.listTransactions()), {

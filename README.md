@@ -34,7 +34,6 @@ rushx deploy
 | Package                                                                            | Description                                                                                                                    |
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | [@nchlswhttkr/bandcamp-mini-embed](./frontends/bandcamp-mini-embed/)               | An embed player for Bandcamp music                                                                                             |
-| [@nchlswhttkr/cloudflare-workers-otel](./libraries/cloudflare-workers-otel/)       | Provided OpenTelemetry instrumentation compatible with Cloudflare Workers                                                      |
 | [@nchlswhttkr/esbuild-plugin-handlebars](./libraries/esbuild-plugin-handlebars/)   | An esbuild plugin to load and precompile Handlebars templates                                                                  |
 | [@nchlswhttkr/otlp-exporter-fetch](./libraries/otlp-exporter-fetch/)               | Implements an OTLP exporter using `fetch()` for environments that do not support `XMLHttpRequest` and `Navigator.sendBeacon()` |
 | [@nchlswhttkr/bandcamp-mini-embed-backend](./workers/bandcamp-mini-embed-backend/) | Serves my Bandcamp embed and proxies requests to Bandcamp                                                                      |

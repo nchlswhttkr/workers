@@ -41,49 +41,7 @@ importers:
         version: 5.56.7
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
-
-  ../../libraries/cloudflare-workers-otel:
-    dependencies:
-      '@cloudflare/workers-types':
-        specifier: ^5.20260721.1
-        version: 5.20260723.1
-      '@nchlswhttkr/otlp-exporter-fetch':
-        specifier: workspace:*
-        version: link:../otlp-exporter-fetch
-      '@opentelemetry/api':
-        specifier: ^1.9.0
-        version: 1.9.1
-      '@opentelemetry/api-logs':
-        specifier: ^0.202.0
-        version: 0.202.0
-      '@opentelemetry/resources':
-        specifier: ^2.0.0
-        version: 2.10.0(@opentelemetry/api@1.9.1)
-      '@opentelemetry/sdk-logs':
-        specifier: ^0.202.0
-        version: 0.202.0(@opentelemetry/api@1.9.1)
-      '@opentelemetry/sdk-trace-base':
-        specifier: ^2.0.0
-        version: 2.10.0(@opentelemetry/api@1.9.1)
-      '@opentelemetry/semantic-conventions':
-        specifier: ^1.33.0
-        version: 1.43.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.30.7
-        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/parser':
-        specifier: ^5.30.7
-        version: 5.62.0(eslint@8.57.1)(typescript@5.9.3)
-      eslint:
-        specifier: ^8.19.0
-        version: 8.57.1
-      prettier:
-        specifier: ^3.6.2
-        version: 3.9.6
-      typescript:
-        specifier: ^5.0.0
-        version: 5.9.3
+        version: 4.113.0
 
   ../../libraries/esbuild-plugin-handlebars:
     dependencies:
@@ -152,7 +110,7 @@ importers:
         version: 3.9.6
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
   ../../workers/belles:
     dependencies:
@@ -162,9 +120,6 @@ importers:
       '@hapi/call':
         specifier: ^9.0.0
         version: 9.0.1
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
       '@opentelemetry/api':
         specifier: ^1.9.0
         version: 1.9.1
@@ -191,13 +146,10 @@ importers:
         version: 5.9.3
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
   ../../workers/blog:
     dependencies:
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
       '@opentelemetry/api':
         specifier: ^1.9.0
         version: 1.9.1
@@ -221,13 +173,10 @@ importers:
         version: 5.9.3
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
   ../../workers/enforce-https:
     dependencies:
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
       '@types/node':
         specifier: ~25.9.3
         version: 25.9.5
@@ -251,13 +200,10 @@ importers:
         version: 5.9.3
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
   ../../workers/hero-of-time-link:
     dependencies:
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
       '@types/node':
         specifier: ~25.9.3
         version: 25.9.5
@@ -275,7 +221,7 @@ importers:
         version: 5.9.3
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
   ../../workers/terraform-registry:
     dependencies:
@@ -285,9 +231,6 @@ importers:
       '@hapi/call':
         specifier: ^9.0.0
         version: 9.0.1
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
       '@types/node':
         specifier: ~25.9.3
         version: 25.9.5
@@ -311,13 +254,10 @@ importers:
         version: 5.9.3
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
   ../../workers/website-redirects:
     dependencies:
-      '@nchlswhttkr/cloudflare-workers-otel':
-        specifier: workspace:*
-        version: link:../../libraries/cloudflare-workers-otel
       '@opentelemetry/api':
         specifier: ^1.9.0
         version: 1.9.1
@@ -341,7 +281,7 @@ importers:
         version: 5.9.3
       wrangler:
         specifier: ^4.38.0
-        version: 4.113.0(@cloudflare/workers-types@5.20260723.1)
+        version: 4.113.0
 
 packages:
 
@@ -387,9 +327,6 @@ packages:
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
-
-  '@cloudflare/workers-types@5.20260723.1':
-    resolution: {integrity: sha512-+P5tDo+ZjW5nmWq/zagLVIyV8U/mSk7n8n0mLUHjn3pOdY7kdEDmURUxvhwwYqLJ/VPnyMJPAYtZjHbqAnIpDg==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -1935,8 +1872,6 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260721.1':
     optional: true
 
-  '@cloudflare/workers-types@5.20260723.1': {}
-
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
@@ -3303,7 +3238,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260721.1
       '@cloudflare/workerd-windows-64': 1.20260721.1
 
-  wrangler@4.113.0(@cloudflare/workers-types@5.20260723.1):
+  wrangler@4.113.0:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260721.1)
@@ -3314,7 +3249,6 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260721.1
     optionalDependencies:
-      '@cloudflare/workers-types': 5.20260723.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil

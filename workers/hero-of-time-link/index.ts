@@ -1,6 +1,4 @@
-import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
-
-export default withTelemetry("hero-of-time-link", {
+export default {
   async fetch(request, env) {
     // Grab alphanumeric chars after /goto/... and lower case to get key
     const url = new URL(request.url);
@@ -16,4 +14,4 @@ export default withTelemetry("hero-of-time-link", {
     // Unknown keys get passed off to origin to deal with
     return fetch(request);
   },
-} satisfies ExportedHandler<Cloudflare.Env>);
+} satisfies ExportedHandler<Cloudflare.Env>;

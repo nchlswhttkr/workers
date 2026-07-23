@@ -480,14 +480,6 @@
       "projectFolder": "workers/belles"
     },
     {
-      "packageName": "@nchlswhttkr/cloudflare-workers-otel",
-      "projectFolder": "libraries/cloudflare-workers-otel"
-    },
-    {
-      "packageName": "@nchlswhttkr/otlp-exporter-fetch",
-      "projectFolder": "libraries/otlp-exporter-fetch"
-    },
-    {
       "packageName": "@nchlswhttkr/bandcamp-mini-embed-backend",
       "projectFolder": "workers/bandcamp-mini-embed-backend"
     },

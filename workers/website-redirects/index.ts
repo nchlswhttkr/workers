@@ -1,7 +1,6 @@
-import { withTelemetry } from "@nchlswhttkr/cloudflare-workers-otel";
 import { trace } from "@opentelemetry/api";
 
-export default withTelemetry("nchlswhttkr-dot-com", {
+export default {
   async fetch(request) {
     const span = trace.getActiveSpan();
     try {
@@ -33,7 +32,7 @@ export default withTelemetry("nchlswhttkr-dot-com", {
       return new Response("", { status: 500 });
     }
   },
-} satisfies ExportedHandler);
+} satisfies ExportedHandler;
 
 function redirect(destination) {
   return new Response("", {

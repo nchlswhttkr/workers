@@ -15,7 +15,6 @@
     "eslint": "^8.19.0",
     "typescript": "^5.0.0",
     "@typescript-eslint/parser": "^5.30.7",
-    "@nchlswhttkr/cloudflare-workers-otel": "workspace:*",
     "@types/node": "~25.9.3"
   },
   "eslintConfig": {
