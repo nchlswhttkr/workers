@@ -4,9 +4,10 @@ import { randomInt } from "node:crypto";
 export default {
   async fetch(request, env): Promise<Response> {
     const url = new URL(request.url);
+
     let object: R2ObjectBody | null;
-    const headers = new Headers();
     let status = 200;
+    const headers = new Headers();
 
     // https://xclacksoverhead.org/home/about
     headers.set("X-Clacks-Overhead", "GNU Terry Pratchett");
@@ -31,14 +32,9 @@ export default {
     }
 
     if (url.pathname === "/niko.png") {
-      const nikos = await env.NIKO.list();
-      const index = randomInt(nikos.objects.length);
-
       // Don't cache Niko avatars
       headers.set("Cache-Control", "no-store");
-      object = await env.NIKO.get(nikos.objects[index].key);
-    } else if (url.pathname.startsWith("/files/")) {
-      object = await env.FILES.get(url.pathname.replace("/files/", ""));
+      object = await getRandomNiko();
     } else {
       object = await getStaticPage(url);
     }
@@ -67,8 +63,7 @@ export default {
 async function getStaticPage(url: URL): Promise<R2ObjectBody | null> {
   const key = url.pathname.substring(1); // trim leading slash
 
-  const common_rss_feed_paths = ["rss", "rss/", "feed"];
-  if (common_rss_feed_paths.includes(key)) {
+  if (["rss", "rss/", "feed"].includes(key)) {
     return env.BLOG.get("index.xml");
   }
 
@@ -77,4 +72,16 @@ async function getStaticPage(url: URL): Promise<R2ObjectBody | null> {
   }
 
   return env.BLOG.get(key);
+}
+
+async function getRandomNiko(): Promise<R2ObjectBody | null> {
+  const nikos = await env.BLOG.list({ prefix: "niko/" });
+  console.log(nikos);
+
+  if (nikos.objects.length === 0) {
+    return null;
+  }
+
+  const index = randomInt(nikos.objects.length);
+  return await env.BLOG.get(nikos.objects[index].key);
 }

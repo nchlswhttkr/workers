@@ -8,8 +8,6 @@ routes = [
 ]
 r2_buckets = [
   { bucket_name = "blog", binding = "BLOG" },
-  { bucket_name = "files", binding = "FILES" },
-  { bucket_name = "niko", binding = "NIKO" }
 ]
 cache.enabled = true
 

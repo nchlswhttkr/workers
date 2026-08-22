@@ -102,7 +102,7 @@ async function getPackage({ namespace, type, version, os, arch }) {
   }
 
   const gpgPublicKey = await fetch(
-    `https://nicholas.cloud/files/keys/${env.GPG_KEY_ID}.asc`,
+    `https://nicholas.cloud/keys/${env.GPG_KEY_ID}.asc`,
   ).then((response) => {
     if (response.status !== 200) {
       throw Boom.internal(`Received ${response.status} while fetching GPG key`);
