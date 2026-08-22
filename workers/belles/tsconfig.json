@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "types": ["./worker-configuration.d.ts", "node"],
-    "target": "esnext",
-    "lib": ["esnext"],
+    "target": "es2021",
+    "lib": ["es2021"],
     "noEmit": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "es2022",
+    "moduleResolution": "Bundler",
     "skipLibCheck": true,
     "resolveJsonModule": true
   }

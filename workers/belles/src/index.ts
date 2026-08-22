@@ -1,22 +1,18 @@
 import * as up from "./up";
 import * as kv from "./kv";
-import { trace } from "@opentelemetry/api";
+import { tracing } from "cloudflare:workers";
 
 export default {
   async fetch(request) {
     try {
       const method = request.method;
       const path = new URL(request.url).pathname;
-      const span = trace.getActiveSpan();
 
       if (method === "GET" && path === "/api/transactions") {
-        span.updateName("GET /api/transactions");
-        return await listTransactions();
+        return await listTransactions(request);
       } else if (method === "POST" && path === "/api/webhook") {
-        span.updateName("POST /api/webhook");
         return await receiveWebhook(request);
       } else if (method === "POST" && path === "/api/retry") {
-        span.updateName("POST /api/retry");
         return await retryTransaction(request);
       } else {
         return new Response("Not Found", { status: 404 });
@@ -28,7 +24,7 @@ export default {
   },
 } satisfies ExportedHandler;
 
-async function listTransactions(): Promise<Response> {
+async function listTransactions(request: Request): Promise<Response> {
   return new Response(JSON.stringify(await kv.listTransactions()), {
     status: 200,
     headers: { "Content-Type": "application/json" },
@@ -36,43 +32,44 @@ async function listTransactions(): Promise<Response> {
 }
 
 async function receiveWebhook(request: Request): Promise<Response> {
-  const body = await request.text();
-  const signature = request.headers.get("X-Up-Authenticity-Signature");
-  await up.verifyWebhookRequestSignature(body, signature);
+  return tracing.enterSpan("receiveWebhook()", async (span) => {
+    const body = await request.text();
 
-  const payload = JSON.parse(body);
+    const signature = request.headers.get("X-Up-Authenticity-Signature");
 
-  const span = trace.getActiveSpan();
-  span.setAttribute("up.event.id", payload.data.id);
-  span.setAttribute("up.event.type", payload.data.attributes.eventType);
-  switch (payload.data.attributes.eventType) {
-    case "TRANSACTION_CREATED":
-    case "TRANSACTION_SETTLED": {
-      const transaction = await up.getTransaction(
-        payload.data.relationships.transaction.data.id,
-      );
-      const {
-        description,
-        amount: { valueInBaseUnits },
-      } = transaction.attributes;
+    const payload = await up.getVerifiedRequestBody(body, signature);
 
-      // Money has to be going _out_ to Belles, no reimbursements
-      if (description.includes("Belles") && valueInBaseUnits < 0) {
-        await kv.upsertTransaction(transaction);
+    span.setAttribute("up.event.id", payload.data.id);
+    span.setAttribute("up.event.type", payload.data.attributes.eventType);
+    switch (payload.data.attributes.eventType) {
+      case "TRANSACTION_CREATED":
+      case "TRANSACTION_SETTLED": {
+        const transaction = await up.getTransaction(
+          payload.data.relationships.transaction.data.id,
+        );
+        const {
+          description,
+          amount: { valueInBaseUnits },
+        } = transaction.attributes;
+
+        // Money has to be going _out_ to Belles, no reimbursements
+        if (description.includes("Belles") && valueInBaseUnits < 0) {
+          await kv.upsertTransaction(transaction);
+        }
+
+        // falls through
       }
-
-      // falls through
+      default:
+        return new Response(JSON.stringify({}), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        });
     }
-    default:
-      return new Response(JSON.stringify({}), {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      });
-  }
+  });
 }
 
 async function retryTransaction(request: Request): Promise<Response> {
-  const date = new Date(new URL(request.url).searchParams.get("date"));
+  const date = new Date(new URL(request.url).searchParams.get("date")!);
 
   const transactions = await up.listTransactionsByDate(date);
   let transactionsMatched = 0;
