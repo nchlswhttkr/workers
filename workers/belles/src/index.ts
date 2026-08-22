@@ -9,7 +9,7 @@ export default {
       const path = new URL(request.url).pathname;
 
       if (method === "GET" && path === "/api/transactions") {
-        return await listTransactions(request);
+        return await listTransactions();
       } else if (method === "POST" && path === "/api/webhook") {
         return await receiveWebhook(request);
       } else if (method === "POST" && path === "/api/retry") {
@@ -24,7 +24,7 @@ export default {
   },
 } satisfies ExportedHandler;
 
-async function listTransactions(request: Request): Promise<Response> {
+async function listTransactions(): Promise<Response> {
   return new Response(JSON.stringify(await kv.listTransactions()), {
     status: 200,
     headers: { "Content-Type": "application/json" },
@@ -52,11 +52,7 @@ async function receiveWebhook(request: Request): Promise<Response> {
       );
 
       // Money has to be going _out_ to Belles, no reimbursements
-      const {
-        description,
-        amount: { valueInBaseUnits },
-      } = transaction.attributes;
-      if (description.includes("Belles") && valueInBaseUnits < 0) {
+      if (isBellesTransaction(transaction)) {
         await kv.upsertTransaction(transaction);
       }
     }
@@ -75,19 +71,22 @@ async function receiveWebhook(request: Request): Promise<Response> {
 }
 
 async function retryTransaction(request: Request): Promise<Response> {
-  const date = new Date(new URL(request.url).searchParams.get("date")!);
+  const date = new URL(request.url).searchParams.get("date");
+  if (date === null) {
+    return new Response(
+      JSON.stringify({
+        error: "Must include date query parameter in request",
+      }),
+      { status: 400, headers: { "Content-Type": "application/json" } },
+    );
+  }
 
-  const transactions = await up.listTransactionsByDate(date);
+  const transactions = await up.listTransactionsByDate(new Date(date));
+
   let transactionsMatched = 0;
-
   for (const transaction of transactions) {
-    const {
-      description,
-      amount: { valueInBaseUnits },
-    } = transaction.attributes;
-
     // Money has to be going _out_ to Belles, no reimbursements
-    if (description.includes("Belles") && valueInBaseUnits < 0) {
+    if (isBellesTransaction(transaction)) {
       await kv.upsertTransaction(transaction);
       transactionsMatched += 1;
     }
@@ -103,4 +102,14 @@ async function retryTransaction(request: Request): Promise<Response> {
       headers: { "Content-Type": "application/json" },
     },
   );
+}
+
+function isBellesTransaction(transaction: up.Transaction): boolean {
+  if (!transaction.attributes.description.includes("Belles")) {
+    return false;
+  }
+  if (transaction.attributes.amount.valueInBaseUnits >= 0) {
+    return false;
+  }
+  return true;
 }

@@ -1,5 +1,6 @@
 node_modules/
 worker-configuration.d.ts
+.wrangler/
 
 # Rush temporary files
 common/temp/

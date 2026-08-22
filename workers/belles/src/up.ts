@@ -81,21 +81,19 @@ export async function getVerifiedRequestBody(
 export async function listTransactionsByDate(
   date: Date,
 ): Promise<Transaction[]> {
-  return tracing.enterSpan("listTransactionsByDate()", async (span) => {
-    const tomorrow = new Date(date);
-    tomorrow.setDate(date.getDate() + 1);
+  const tomorrow = new Date(date);
+  tomorrow.setDate(date.getDate() + 1);
 
-    console.log(
-      `Listing transactions from ${date.toISOString()} to ${tomorrow.toISOString()}`,
-    );
-    const response: any = await fetch(
-      `https://api.up.com.au/api/v1/transactions?page[size]=100&filter[since]=${date.toISOString()}&filter[until]=${tomorrow.toISOString()}`,
-      {
-        headers: {
-          Authorization: `Bearer ${await env.UP_ACCESS_TOKEN.get()}`,
-        },
+  console.log(
+    `Listing transactions from ${date.toISOString()} to ${tomorrow.toISOString()}`,
+  );
+  const response: any = await fetch(
+    `https://api.up.com.au/api/v1/transactions?page[size]=100&filter[since]=${date.toISOString()}&filter[until]=${tomorrow.toISOString()}`,
+    {
+      headers: {
+        Authorization: `Bearer ${await env.UP_ACCESS_TOKEN.get()}`,
       },
-    ).then((response) => response.json());
-    return response.data;
-  });
+    },
+  ).then((response) => response.json());
+  return response.data;
 }
