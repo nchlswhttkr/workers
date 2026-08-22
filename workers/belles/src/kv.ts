@@ -17,6 +17,10 @@ export async function upsertTransaction(transaction: Transaction) {
   );
 }
 
+export async function deleteTransaction(key: string) {
+  await env.TRANSACTIONS.delete(key);
+}
+
 export async function listTransactions(): Promise<any> {
   const { keys } = await env.TRANSACTIONS.list<any>({
     prefix: "transactions/",

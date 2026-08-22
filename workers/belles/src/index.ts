@@ -40,31 +40,37 @@ async function receiveWebhook(request: Request): Promise<Response> {
     const payload = await up.getVerifiedRequestBody(body, signature);
 
     span.setAttribute("up.event.id", payload.data.id);
-    span.setAttribute("up.event.type", payload.data.attributes.eventType);
-    switch (payload.data.attributes.eventType) {
-      case "TRANSACTION_CREATED":
-      case "TRANSACTION_SETTLED": {
-        const transaction = await up.getTransaction(
-          payload.data.relationships.transaction.data.id,
-        );
-        const {
-          description,
-          amount: { valueInBaseUnits },
-        } = transaction.attributes;
+    const eventType = payload.data.attributes.eventType;
+    span.setAttribute("up.event.type", eventType);
 
-        // Money has to be going _out_ to Belles, no reimbursements
-        if (description.includes("Belles") && valueInBaseUnits < 0) {
-          await kv.upsertTransaction(transaction);
-        }
+    if (
+      eventType === "TRANSACTION_CREATED" ||
+      eventType === "TRANSACTION_SETTLED"
+    ) {
+      const transaction = await up.getTransaction(
+        payload.data.relationships.transaction.data.id,
+      );
 
-        // falls through
+      // Money has to be going _out_ to Belles, no reimbursements
+      const {
+        description,
+        amount: { valueInBaseUnits },
+      } = transaction.attributes;
+      if (description.includes("Belles") && valueInBaseUnits < 0) {
+        await kv.upsertTransaction(transaction);
       }
-      default:
-        return new Response(JSON.stringify({}), {
-          status: 200,
-          headers: { "Content-Type": "application/json" },
-        });
     }
+
+    if (eventType === "TRANSACTION_DELETED") {
+      await kv.deleteTransaction(
+        payload.data.relationships.transaction.data.id,
+      );
+    }
+
+    return new Response(JSON.stringify({}), {
+      status: 202,
+      headers: { "Content-Type": "application/json" },
+    });
   });
 }
 
